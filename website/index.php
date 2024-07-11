@@ -14,13 +14,18 @@ if (isset($_SESSION['steamid'])) {
 	$querySelected = $db->select("SELECT `weapon_defindex`, `weapon_paint_id`, `weapon_wear`, `weapon_seed` FROM `wp_player_skins` WHERE `wp_player_skins`.`steamid` = :steamid", ["steamid" => $steamid]);
 	$selectedSkins = UtilsClass::getSelectedSkins($querySelected);
 	$selectedKnife = $db->select("SELECT * FROM `wp_player_knife` WHERE `wp_player_knife`.`steamid` = :steamid", ["steamid" => $steamid]);
+	$selectedGloves = $db->select("SELECT * FROM `wp_player_gloves` WHERE `wp_player_gloves`.`steamid` = :steamid", ["steamid" => $steamid]);
 	$knifes = UtilsClass::getKnifeTypes();
+	$gloves = UtilsClass::getGlovesTypes();
 
 	if (isset($_POST['forma'])) {
 		$ex = explode("-", $_POST['forma']);
 
 		if ($ex[0] == "knife") {
 			$db->query("INSERT INTO `wp_player_knife` (`steamid`, `knife`) VALUES(:steamid, :knife) ON DUPLICATE KEY UPDATE `knife` = :knife", ["steamid" => $steamid, "knife" => $knifes[$ex[1]]['weapon_name']]);
+		}
+		else if ($ex[0] == "glove") {
+			$db->query("INSERT INTO `wp_player_gloves` (`steamid`, `weapon_defindex`) VALUES(:steamid, :weapon_defindex) ON DUPLICATE KEY UPDATE `weapon_defindex` = :weapon_defindex", ["steamid" => $steamid, "weapon_defindex" => $gloves[$ex[1]]['weapon_name']]);
 		} else {
 			if (array_key_exists($ex[1], $skins[$ex[0]]) && isset($_POST['wear']) && $_POST['wear'] >= 0.00 && $_POST['wear'] <= 1.00 && isset($_POST['seed'])) {
 				$wear = floatval($_POST['wear']); // wear
@@ -58,10 +63,10 @@ if (isset($_SESSION['steamid'])) {
 		loginbutton("rectangle");
 		echo "</h2></div>";
 	} else {
-		echo "<div class='bg-primary'><h2>Your current weapon skin loadout <a class='btn btn-danger' href='{$_SERVER['PHP_SELF']}?logout'>Logout</a></h2> </div>";
+		echo "<div class='bg-primary'><h2>Your current weapon skin loadout <a class='btn btn-danger' href='{$_SERVER['PHP_SELF']}?logout'>Logout</a></h2></div>";
 		echo "<div class='card-group mt-2'>";
 	?>
-
+	<!-- <button type="button" class="btn btn-success" onclick="this.form.submit()">Refresh</button> -->
 		<div class="col-sm-2">
 			<div class="card text-center mb-3 border border-primary">
 				<div class="card-body">
@@ -101,7 +106,48 @@ if (isset($_SESSION['steamid'])) {
 				</div>
 			</div>
 		</div>
+		
+		<div class="col-sm-2">
+			<div class="card text-center mb-3 border border-primary">
+				<div class="card-body">
+					<?php
+					$actualGlove = $gloves[0];
+					if ($selectedGloves != null)
+					{
+						foreach ($gloves as $glove) {
+							if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name']) {
+								$actualGlove = $glove;
+								$defindex = $selectedGloves[0]['weapon_defindex']; 
+								break;
+							}
+						}
+					}
 
+					echo "<div class='card-header'>";
+					echo "<h6 class='card-title item-name'>Selected Gloves</h6>";
+					echo "<h5 class='card-title item-name'>{$actualGlove["paint_name"]}</h5>";
+					echo "</div>";
+					echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
+					?>
+				</div>
+				<div class="card-footer">
+					<form action="" method="POST">
+						<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">
+							<option disabled>Select gloves</option>
+							<?php
+							foreach ($gloves as $gloveKey => $glove) {
+								if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name'])
+									echo "<option selected value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
+								else
+									echo "<option value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
+							}
+							?>
+						</select>
+					</form>
+				</div>
+			</div>
+		</div>
+		
 		<?php
 		foreach ($weapons as $defindex => $default) { ?>
 			<div class="col-sm-2">
@@ -110,12 +156,40 @@ if (isset($_SESSION['steamid'])) {
 						<?php
 						if (array_key_exists($defindex, $selectedSkins)) {
 							echo "<div class='card-header'>";
-							echo "<h5 class='card-title item-name'>{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]["paint_name"]}</h5>";
+							$skinName = $skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]["paint_name"]; 
+							
+							if (strLen($skinName) < 26)
+							{								
+								echo "<h5 class='card-title item-name'>{$skinName}<br><br></h5>";
+							}
+							else 
+							{
+								echo "<h5 class='card-title item-name'>{$skinName}</h5>";
+							}
+							
 							echo "</div>";
-							echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
+							$imgSrc = $skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']; 
+							if ($imgSrc != '')
+							{
+								echo "<img src='{$imgSrc}' class='skin-image'>";
+							}
+							else 
+							{								
+								echo "<img src='{$default["image_url"]}' class='skin-image'>";
+							}
 						} else {
 							echo "<div class='card-header'>";
-							echo "<h5 class='card-title item-name'>{$default["paint_name"]}</h5>";
+							
+							$skinName = $default["paint_name"]; 
+							
+							if (strLen($skinName) < 26)
+							{								
+								echo "<h5 class='card-title item-name'>{$skinName}<br><br></h5>";
+							}
+							else 
+							{
+								echo "<h5 class='card-title item-name'>{$skinName}</h5>";
+							}
 							echo "</div>";
 							echo "<img src='{$default["image_url"]}' class='skin-image'>";
 						}
