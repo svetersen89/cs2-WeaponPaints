@@ -1,160 +1,119 @@
-<?php
-require_once 'class/config.php';
-require_once 'class/database.php';
-require_once 'steamauth/steamauth.php';
-require_once 'class/utils.php';
-
-$db = new DataBase();
-if (isset($_SESSION['steamid'])) {
-
-	$steamid = $_SESSION['steamid'];
-
-	$weapons = UtilsClass::getWeaponsFromArray();
-	$skins = UtilsClass::skinsFromJson();
-	$querySelected = $db->select("SELECT `weapon_defindex`, `weapon_paint_id`, `weapon_wear`, `weapon_seed` FROM `wp_player_skins` WHERE `wp_player_skins`.`steamid` = :steamid", ["steamid" => $steamid]);
-	$selectedSkins = UtilsClass::getSelectedSkins($querySelected);
-	$selectedKnife = $db->select("SELECT * FROM `wp_player_knife` WHERE `wp_player_knife`.`steamid` = :steamid", ["steamid" => $steamid]);
-	$selectedGloves = $db->select("SELECT * FROM `wp_player_gloves` WHERE `wp_player_gloves`.`steamid` = :steamid", ["steamid" => $steamid]);
-	$knifes = UtilsClass::getKnifeTypes();
-	$gloves = UtilsClass::getGlovesTypes();
-
-	if (isset($_POST['forma'])) {
-		$ex = explode("-", $_POST['forma']);
-
-		if ($ex[0] == "knife") {
-			$db->query("INSERT INTO `wp_player_knife` (`steamid`, `knife`) VALUES(:steamid, :knife) ON DUPLICATE KEY UPDATE `knife` = :knife", ["steamid" => $steamid, "knife" => $knifes[$ex[1]]['weapon_name']]);
-		}
-		else if ($ex[0] == "glove") {
-			$db->query("INSERT INTO `wp_player_gloves` (`steamid`, `weapon_defindex`) VALUES(:steamid, :weapon_defindex) ON DUPLICATE KEY UPDATE `weapon_defindex` = :weapon_defindex", ["steamid" => $steamid, "weapon_defindex" => $gloves[$ex[1]]['weapon_name']]);
-		} else {
-			if (array_key_exists($ex[1], $skins[$ex[0]]) && isset($_POST['wear']) && $_POST['wear'] >= 0.00 && $_POST['wear'] <= 1.00 && isset($_POST['seed'])) {
-				$wear = floatval($_POST['wear']); // wear
-				$seed = intval($_POST['seed']); // seed
-				if (array_key_exists($ex[0], $selectedSkins)) {
-					$db->query("UPDATE wp_player_skins SET weapon_paint_id = :weapon_paint_id, weapon_wear = :weapon_wear, weapon_seed = :weapon_seed WHERE steamid = :steamid AND weapon_defindex = :weapon_defindex", ["steamid" => $steamid, "weapon_defindex" => $ex[0], "weapon_paint_id" => $ex[1], "weapon_wear" => $wear, "weapon_seed" => $seed]);
-				} else {
-					$db->query("INSERT INTO wp_player_skins (`steamid`, `weapon_defindex`, `weapon_paint_id`, `weapon_wear`, `weapon_seed`) VALUES (:steamid, :weapon_defindex, :weapon_paint_id, :weapon_wear, :weapon_seed)", ["steamid" => $steamid, "weapon_defindex" => $ex[0], "weapon_paint_id" => $ex[1], "weapon_wear" => $wear, "weapon_seed" => $seed]);
-				}
-			}
-		}
-		header("Location: {$_SERVER['PHP_SELF']}");
-	}
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en"<?php if(WEB_STYLE_DARK) echo 'data-bs-theme="dark"'?>>
-
-<head>
-	<meta charset="utf-8">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="style.css">
-	<title>CS2 Simple Weapon Paints</title>
-</head>
+<html lang="en">
+<!-- ======= Header ======= -->
+<?php include "./pages/header.php"; ?>
 
 <body>
-
-	<?php
-	if (!isset($_SESSION['steamid'])) {
-		echo "<div class='bg-primary'><h2>To choose weapon paints loadout, you need to ";
-		loginbutton("rectangle");
-		echo "</h2></div>";
-	} else {
-		echo "<div class='bg-primary'><h2>Your current weapon skin loadout <a class='btn btn-danger' href='{$_SERVER['PHP_SELF']}?logout'>Logout</a></h2></div>";
-		echo "<div class='card-group mt-2'>";
+	<?php		
+		if(isset($_GET['type']))
+		{
+			$type = $_GET["type"]; 
+		}
+		else 
+		{
+			$type = ''; 
+		}
 	?>
+
 	<!-- <button type="button" class="btn btn-success" onclick="this.form.submit()">Refresh</button> -->
-		<div class="col-sm-2">
-			<div class="card text-center mb-3 border border-primary">
-				<div class="card-body">
-					<?php
-					$actualKnife = $knifes[0];
-					if ($selectedKnife != null)
-					{
-						foreach ($knifes as $knife) {
-							if ($selectedKnife[0]['knife'] == $knife['weapon_name']) {
-								$actualKnife = $knife;
-								break;
+	<?php
+		
+		if ($type == '' || $type == "knives")
+		{
+			echo '<div class="col-sm-2">';
+			echo '	<div class="card text-center mb-3 border border-primary">';
+			echo '		<div class="card-body">';
+						$actualKnife = $knifes[0];
+						if ($selectedKnife != null)
+						{
+							foreach ($knifes as $knife) {
+								if ($selectedKnife[0]['knife'] == $knife['weapon_name']) {
+									$actualKnife = $knife;
+									break;
+								}
 							}
 						}
-					}
 
-					echo "<div class='card-header'>";
-					echo "<h6 class='card-title item-name'>Knife type</h6>";
-					echo "<h5 class='card-title item-name'>{$actualKnife["paint_name"]}</h5>";
-					echo "</div>";
-					echo "<img src='{$actualKnife["image_url"]}' class='skin-image'>";
-					?>
-				</div>
-				<div class="card-footer">
-					<form action="" method="POST">
-						<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">
-							<option disabled>Select knife</option>
-							<?php
-							foreach ($knifes as $knifeKey => $knife) {
-								if ($selectedKnife[0]['knife'] == $knife['weapon_name'])
-									echo "<option selected value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
-								else
-									echo "<option value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
-							}
-							?>
-						</select>
-					</form>
-				</div>
-			</div>
-		</div>
+						echo "<div class='card-header'>";
+						echo "<h6 class='card-title item-name'>Knife type</h6>";
+						echo "<h5 class='card-title item-name'>{$actualKnife["paint_name"]}</h5>";
+						echo "</div>";
+						echo "<img src='{$actualKnife["image_url"]}' class='skin-image'>";
+			echo '	</div>';
+			echo '		<div class="card-footer">';
+			echo '			<form action="" method="POST">';
+			echo '				<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">';
+			echo '					<option disabled>Select knife</option>';
+								foreach ($knifes as $knifeKey => $knife) {
+									if ($selectedKnife[0]['knife'] == $knife['weapon_name'])
+										echo "<option selected value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
+									else
+										echo "<option value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
+								}
+							echo '</select>';
+						echo '</form>';
+					echo '</div>';
+				echo '</div>';
+			echo '</div>';
+		}
 		
-		<div class="col-sm-2">
-			<div class="card text-center mb-3 border border-primary">
-				<div class="card-body">
-					<?php
-					$actualGlove = $gloves[0];
-					if ($selectedGloves != null)
-					{
-						foreach ($gloves as $glove) {
-							if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name']) {
-								$actualGlove = $glove;
-								$defindex = $selectedGloves[0]['weapon_defindex']; 
-								break;
+		if ($type == '' || $type == 'gloves')
+		{
+			echo '<div class="col-sm-2">';
+				echo '<div class="card text-center mb-3 border border-primary">';
+					echo '<div class="card-body">';
+						$actualGlove = $gloves[0];
+						if ($selectedGloves != null)
+						{
+							foreach ($gloves as $glove) {
+								if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name']) {
+									$actualGlove = $glove;
+									$defindex = $selectedGloves[0]['weapon_defindex']; 
+									break;
+								}
 							}
 						}
-					}
 
-					echo "<div class='card-header'>";
-					echo "<h6 class='card-title item-name'>Selected Gloves</h6>";
-					echo "<h5 class='card-title item-name'>{$actualGlove["paint_name"]}</h5>";
-					echo "</div>";
-					echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
-					?>
-				</div>
-				<div class="card-footer">
-					<form action="" method="POST">
-						<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">
-							<option disabled>Select gloves</option>
-							<?php
-							foreach ($gloves as $gloveKey => $glove) {
-								if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name'])
-									echo "<option selected value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
-								else
-									echo "<option value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
-							}
-							?>
-						</select>
-					</form>
-				</div>
-			</div>
-		</div>
+						echo "<div class='card-header'>";
+						echo "<h6 class='card-title item-name'>Selected Gloves</h6>";
+						echo "<h5 class='card-title item-name'>{$actualGlove["paint_name"]}</h5>";
+						echo "</div>";
+						echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
+
+					echo '</div>';
+					echo '<div class="card-footer">';
+						echo '<form action="" method="POST">';
+							echo '<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">';
+								echo '<option disabled>Select gloves</option>';
+								foreach ($gloves as $gloveKey => $glove) {
+									if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name'])
+										echo "<option selected value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
+									else
+										echo "<option value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
+								}
+							echo '</select>';
+						echo '</form>';
+					echo '</div>';
+				echo '</div>';
+			echo '</div>';
+		}		
 		
-		<?php
-		foreach ($weapons as $defindex => $default) { ?>
+		foreach ($weapons as $defindex => $default) { 
+			if ($type == '' 
+				|| ($type == 'weapons' 
+				&& !array_key_exists($defindex, $knifes) 
+				&& !array_key_exists($defindex, $gloves))
+				|| ($type == 'knives' 
+				&& array_key_exists($defindex, $knifes)) 
+				|| ($type == 'gloves' 
+				&& array_key_exists($defindex, $gloves)))
+			{		
+			?>
 			<div class="col-sm-2">
 				<div class="card text-center mb-3">
 					<div class="card-body">
 						<?php
-						if (array_key_exists($defindex, $selectedSkins)) {
+						if (array_key_exists($defindex, $selectedSkins) && array_key_exists($defindex, $skins)) {
 							echo "<div class='card-header'>";
 							$skinName = $skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]["paint_name"]; 
 							
@@ -240,6 +199,10 @@ if (isset($_SESSION['steamid'])) {
 					// seed value 
 					$querySeed = $selectedSkins[$defindex]['weapon_seed'] ?? 0;
 					$initialSeedValue = isset($selectedSkinInfo['weapon_seed']) ? $selectedSkinInfo['weapon_seed'] : 0;
+
+					// legacy value
+					$queryLegacyValue = $selectedSkins[$defindex]['weapon_legacy'] ?? 0;
+					$initialLegacyValue = isset($selectedSkinInfo['weapon_legacy']) ? $selectedSkinInfo['weapon_legacy'] : 0;
 					?>
 
 
@@ -282,6 +245,12 @@ if (isset($_SESSION['steamid'])) {
 												<input type="text" value="<?php echo $initialSeedValue; ?>" class="form-control" id="seed<?php echo $defindex ?>" name="seed" oninput="validateSeed(this)">
 											</div>
 										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="legacy">Legacy:</label>
+												<input type="text" value="<?php echo $initialLegacyValue; ?>" class="form-control" id="legacy<?php echo $defindex ?>" name="legacy" oninput="validateLegacy(this)">
+											</div>
+										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
@@ -318,18 +287,48 @@ if (isset($_SESSION['steamid'])) {
 						input.value = numericValue;
 					}
 				}
+				// legacy
+				function validateLegacy(input) {
+					// Check entered value
+					var inputValue = input.value;
+
+					if (inputValue === "0" || inputValue === "1")
+					{
+						input.value = inputValue;
+					} 
+					else 
+					{
+						input.value = "0"; 
+					}
+				}
+				
+				function openTab(evt, tabName) {
+				  // Declare all variables
+				  var i, tabcontent, tablinks;
+
+				  // Get all elements with class="tabcontent" and hide them
+				  tabcontent = document.getElementsByClassName("tabcontent");
+				  for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				  }
+
+				  // Get all elements with class="tablinks" and remove the class "active"
+				  tablinks = document.getElementsByClassName("tablinks");
+				  for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				  }
+
+				  // Show the current tab, and add an "active" class to the button that opened the tab
+				  document.getElementById(tabName).style.display = "block";
+				  evt.currentTarget.className += " active";
+				}
 			</script>
 		<?php } ?>
 	<?php } ?>
 	</div>
 	</div>
-	<div class="container">
-		<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-			<div class="col-md-4 d-flex align-items-center">
-				<span class="mb-3 mb-md-0 text-body-secondary">© 2023 <a href="https://github.com/Nereziel/cs2-WeaponPaints">Nereziel/cs2-WeaponPaints</a></span>
-			</div>
-		</footer>
-	</div>
+	<!-- ======= footer ======= -->
+	<?php include "./pages/footer.php"; ?>
 </body>
 
 </html>

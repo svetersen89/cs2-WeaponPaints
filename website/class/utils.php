@@ -13,6 +13,7 @@ class UtilsClass
 				'weapon_name' => $glove['weapon_defindex'],
                 'paint_name' => $glove['paint_name'],
                 'image_url' => $glove['image'],
+                'legacy' => $glove['legacy']
             ];
         }
 		
@@ -21,6 +22,7 @@ class UtilsClass
                 'weapon_name' => $skin['weapon_name'],
                 'paint_name' => $skin['paint_name'],
                 'image_url' => $skin['image'],
+                'legacy' => $skin['legacy']
             ];
         }
 
@@ -42,6 +44,7 @@ class UtilsClass
 					'weapon_name' => $value[0]['weapon_name'],
 					'paint_name' => $value[0]['paint_name'],
 					'image_url' => $value[0]['image_url'],
+                    'legacy' => $value[0]['legacy']
 				];
 			}
         }
@@ -86,12 +89,14 @@ class UtilsClass
                 'weapon_name' => $weapon['weapon_name'],
                 'paint_name' => rtrim(explode("|", $weapon['paint_name'])[0]),
                 'image_url' => $weapon['image_url'],
+                'legacy' => $weapon['legacy'],
             ];
 			
 			$knifes[0] = [
 				'weapon_name' => "weapon_knife",
 				'paint_name' => "Default knife",
 				'image_url' => "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife.png",
+				'legacy' => "1",
 			];
         }
 
@@ -123,11 +128,13 @@ class UtilsClass
                 'weapon_name' => $weapon['weapon_name'],
                 'paint_name' => rtrim(explode("|", $weapon['paint_name'])[0]),
                 'image_url' => $weapon['image_url'],
+                'legacy' => $weapon['legacy'],
             ];
             $gloves[0] = [
                 'weapon_name' => "t_gloves",
                 'paint_name' => "Default gloves",
                 'image_url' => "",
+				'legacy' => "1",
             ];
         }
 
@@ -184,6 +191,7 @@ class UtilsClass
                 'weapon_paint_id' => $weapon['weapon_paint_id'],
                 'weapon_seed' => $weapon['weapon_seed'],
                 'weapon_wear' => $weapon['weapon_wear'],
+                'weapon_legacy' => $weapon['weapon_legacy'],
             ];
         }
 
