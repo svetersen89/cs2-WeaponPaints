@@ -5,7 +5,7 @@
 
 <body>
 	<?php		
-		if(isset($_GET['type']))
+		if (isset($_GET['type']))
 		{
 			$type = $_GET["type"]; 
 		}
@@ -14,7 +14,6 @@
 			$type = ''; 
 		}
 	?>
-
 	<!-- <button type="button" class="btn btn-success" onclick="this.form.submit()">Refresh</button> -->
 	<?php
 		
@@ -23,78 +22,78 @@
 			echo '<div class="col-sm-2">';
 			echo '	<div class="card text-center mb-3 border border-primary">';
 			echo '		<div class="card-body">';
-						$actualKnife = $knifes[0];
-						if ($selectedKnife != null)
-						{
-							foreach ($knifes as $knife) {
-								if ($selectedKnife[0]['knife'] == $knife['weapon_name']) {
-									$actualKnife = $knife;
-									break;
-								}
-							}
-						}
+			$actualKnife = $knifes[0];
+			if ($selectedKnife != null)
+			{
+				foreach ($knifes as $knife) {
+					if ($selectedKnife[0]['knife'] == $knife['weapon_name']) {
+						$actualKnife = $knife;
+						break;
+					}
+				}
+			}
 
-						echo "<div class='card-header'>";
-						echo "<h6 class='card-title item-name'>Knife type</h6>";
-						echo "<h5 class='card-title item-name'>{$actualKnife["paint_name"]}</h5>";
-						echo "</div>";
-						echo "<img src='{$actualKnife["image_url"]}' class='skin-image'>";
+			echo "<div class='card-header'>";
+			echo "<h6 class='card-title item-name'>Knife type</h6>";
+			echo "<h5 class='card-title item-name'>{$actualKnife["paint_name"]}</h5>";
+			echo "</div>";
+			echo "<img src='{$actualKnife["image_url"]}' class='skin-image'>";
 			echo '	</div>';
 			echo '		<div class="card-footer">';
-			echo '			<form action="" method="POST">';
-			echo '				<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">';
+			echo '			<form id="knifeForm" action="index.php" method="POST">';
+			echo '				<select id="select" name="forma" class="form-control select" onchange="this.form.submit()"> class="SelectWeapon">';
 			echo '					<option disabled>Select knife</option>';
-								foreach ($knifes as $knifeKey => $knife) {
-									if ($selectedKnife[0]['knife'] == $knife['weapon_name'])
-										echo "<option selected value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
-									else
-										echo "<option value=\"knife-{$knifeKey}\">{$knife['paint_name']}</option>";
-								}
-							echo '</select>';
-						echo '</form>';
-					echo '</div>';
-				echo '</div>';
+			foreach ($knifes as $knifeKey => $knife) {
+				if ($selectedKnife[0]['knife'] == $knife['weapon_name'])
+					echo "<option selected value=\"knife-{$knifeKey}-{$type}\">{$knife['paint_name']}</option>";
+				else
+					echo "<option value=\"knife-{$knifeKey}-{$type}\">{$knife['paint_name']}</option>";
+			}
+			echo '</select>';
+			echo '</form>';
+			echo '</div>';
+			echo '</div>';
 			echo '</div>';
 		}
 		
 		if ($type == '' || $type == 'gloves')
 		{
 			echo '<div class="col-sm-2">';
-				echo '<div class="card text-center mb-3 border border-primary">';
-					echo '<div class="card-body">';
-						$actualGlove = $gloves[0];
-						if ($selectedGloves != null)
-						{
-							foreach ($gloves as $glove) {
-								if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name']) {
-									$actualGlove = $glove;
-									$defindex = $selectedGloves[0]['weapon_defindex']; 
-									break;
-								}
-							}
-						}
+			echo '<div class="card text-center mb-3 border border-primary">';
+			echo '<div class="card-body">';
+			$actualGlove = $gloves[0];
+			if ($selectedGloves != null)
+			{
+				foreach ($gloves as $glove) {
+					if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name']) {
+						$actualGlove = $glove;
+						$defindex = $selectedGloves[0]['weapon_defindex']; 
+						break;
+					}
+				}
+			}
 
-						echo "<div class='card-header'>";
-						echo "<h6 class='card-title item-name'>Selected Gloves</h6>";
-						echo "<h5 class='card-title item-name'>{$actualGlove["paint_name"]}</h5>";
-						echo "</div>";
-						echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
+			echo "<div class='card-header'>";
+			echo "<h6 class='card-title item-name'>Selected Gloves</h6>";
+			echo "<h5 class='card-title item-name'>{$actualGlove["paint_name"]}</h5>";
+			echo "</div>";
+			echo "<img src='{$skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]['image_url']}' class='skin-image'>";
 
-					echo '</div>';
-					echo '<div class="card-footer">';
-						echo '<form action="" method="POST">';
-							echo '<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">';
-								echo '<option disabled>Select gloves</option>';
-								foreach ($gloves as $gloveKey => $glove) {
-									if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name'])
-										echo "<option selected value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
-									else
-										echo "<option value=\"glove-{$gloveKey}\">{$glove['paint_name']}</option>";
-								}
-							echo '</select>';
-						echo '</form>';
-					echo '</div>';
-				echo '</div>';
+			echo '</div>';
+			echo '<div class="card-footer">';
+			echo '<form action="" method="POST">';
+			echo '<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">';
+			echo '<option disabled>Select gloves</option>';
+			foreach ($gloves as $gloveKey => $glove) {
+				if ($selectedGloves[0]['weapon_defindex'] == $glove['weapon_name'])
+					echo "<option selected value=\"glove-{$gloveKey}-{$type}\">{$glove['paint_name']}</option>";
+				else
+					echo "<option value=\"glove-{$gloveKey}-{$type}\">{$glove['paint_name']}</option>";
+			}
+			echo '</select>';
+			echo '</form>';
+			echo '</div>';
+			echo '</div>';
 			echo '</div>';
 		}		
 		
@@ -113,7 +112,8 @@
 				<div class="card text-center mb-3">
 					<div class="card-body">
 						<?php
-						if (array_key_exists($defindex, $selectedSkins) && array_key_exists($defindex, $skins)) {
+						if (array_key_exists($defindex, $selectedSkins) && array_key_exists($defindex, $skins)) 
+						{
 							echo "<div class='card-header'>";
 							$skinName = $skins[$defindex][$selectedSkins[$defindex]['weapon_paint_id']]["paint_name"]; 
 							
@@ -161,9 +161,9 @@
 								<?php
 								foreach ($skins[$defindex] as $paintKey => $paint) {
 									if (array_key_exists($defindex, $selectedSkins) && $selectedSkins[$defindex]['weapon_paint_id'] == $paintKey)
-										echo "<option selected value=\"{$defindex}-{$paintKey}\">{$paint['paint_name']}</option>";
+										echo "<option selected value=\"{$defindex}-{$paintKey}-{$type}\">{$paint['paint_name']}</option>";
 									else
-										echo "<option value=\"{$defindex}-{$paintKey}\">{$paint['paint_name']}</option>";
+										echo "<option value=\"{$defindex}-{$paintKey}-{$type}\">{$paint['paint_name']}</option>";
 								}
 								?>
 							</select>

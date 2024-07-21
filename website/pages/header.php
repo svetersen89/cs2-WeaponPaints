@@ -38,7 +38,7 @@ if (isset($_SESSION['steamid'])) {
 				}
 			}
 		}
-		header("Location: {$_SERVER['PHP_SELF']}");
+		header("Location: {$_SERVER['PHP_SELF']}?type={$ex[2]}");
 	}
 }
 ?>
