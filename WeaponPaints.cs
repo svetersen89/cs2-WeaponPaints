@@ -53,7 +53,7 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{"weapon_usp_silencer", "USP-S"},
 		{"weapon_cz75a", "CZ75-Auto"},
 		{"weapon_revolver", "R8 Revolver"},
-		{ "weapon_knife", "Default Knife" },
+		{ "weapon_knife", "CT-Knife" },
 		{ "weapon_knife_m9_bayonet", "M9 Bayonet" },
 		{ "weapon_knife_karambit", "Karambit" },
 		{ "weapon_bayonet", "Bayonet" },
@@ -73,7 +73,8 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{ "weapon_knife_canis", "Survival Knife" },
 		{ "weapon_knife_outdoor", "Nomad Knife" },
 		{ "weapon_knife_skeleton", "Skeleton Knife" },
-		{ "weapon_knife_kukri", "Kukri Knife" }
+		{ "weapon_knife_kukri", "Kukri Knife" },
+		{ "weapon_knife_t", "T-Knife" }
 	};
 
 	private static WeaponPaintsConfig _config = new();
@@ -158,7 +159,9 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{ 522, "weapon_knife_stiletto" },
 		{ 523, "weapon_knife_widowmaker" },
 		{ 525, "weapon_knife_skeleton" },
-		{ 526, "weapon_knife_kukri" }
+		{ 526, "weapon_knife_kukri" },
+		{ 42, "weapon_knife" },
+		{ 59, "weapon_knife_t" }
 	};
 
 	private const ulong MinimumCustomItemId = 65578;
@@ -180,10 +183,10 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 			OnMapStart(string.Empty);
 
 			foreach (var player in Enumerable
-				         .OfType<CCSPlayerController>(Utilities.GetPlayers().TakeWhile(player => weaponSync != null))
-				         .Where(player => player.IsValid &&
-					         !string.IsNullOrEmpty(player.IpAddress) && player is
-						         { IsBot: false, Connected: PlayerConnectedState.PlayerConnected }))
+				.OfType<CCSPlayerController>(Utilities.GetPlayers().TakeWhile(player => weaponSync != null))
+				.Where(player => player.IsValid 
+					&& !string.IsNullOrEmpty(player.IpAddress) 
+					&& player is { IsBot: false, Connected: PlayerConnectedState.PlayerConnected }))
 			{
 				g_knifePickupCount[player.Slot] = 0;
 				gPlayerWeaponsInfo.TryRemove(player.Slot, out _);
