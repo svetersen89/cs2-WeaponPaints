@@ -1046,9 +1046,8 @@ public partial class WeaponPaints
 				{
 					if (!player.IsValid) return;
 					var pawn = player.PlayerPawn.Value;
-					var items = pawn?.ItemServices; // <-- this is the correct component
-					// GiveNamedItem<T>(string) exists on ItemServices per CSS docs
-					items?.GiveNamedItem<CEntityInstance>(classname);
+					var services = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();  // ✔ cast to managed wrapper
+					services?.GiveNamedItem<CEntityInstance>(classname);
 				}
 				catch (Exception ex)
 				{
@@ -1063,9 +1062,8 @@ public partial class WeaponPaints
 				{
 					if (!player.IsValid) return;
 					var pawn = player.PlayerPawn.Value;
-					var items = pawn?.ItemServices;
-					// give/remove a harmless item; forces state update without relying on private internals
-					var temp = items?.GiveNamedItem<CEntityInstance>("weapon_knife");
+					var services = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();  // ✔ cast again
+					var temp = services?.GiveNamedItem<CEntityInstance>("weapon_knife");
 					temp?.Remove();
 				}
 				catch (Exception ex)
