@@ -943,7 +943,7 @@ public partial class WeaponPaints
 		defindex = 0;
 		classname = string.Empty;
 
-		// numeric path
+		// numeric
 		if (int.TryParse(token, NumberStyles.Integer, CultureInfo.InvariantCulture, out var id))
 		{
 			if (WeaponDefindex.TryGetValue(id, out var cls) && !string.IsNullOrWhiteSpace(cls))
@@ -955,10 +955,9 @@ public partial class WeaponPaints
 			return false;
 		}
 
-		// classname path ("weapon_*")
+		// classname
 		if (token.StartsWith("weapon_", StringComparison.OrdinalIgnoreCase))
 		{
-			// scan the existing map to find its defindex
 			foreach (var kvp in WeaponDefindex)
 			{
 				if (kvp.Value.Equals(token, StringComparison.OrdinalIgnoreCase))
@@ -1001,38 +1000,28 @@ public partial class WeaponPaints
 		}
 
 		if (!int.TryParse(skinTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId))
-		{
-			cmd.ReplyToCommand("[WeaponPaints] skinId must be an integer.");
-			return;
-		}
+		{ cmd.ReplyToCommand("[WeaponPaints] skinId must be an integer."); return; }
 
 		if (!int.TryParse(patternTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern))
-		{
-			cmd.ReplyToCommand("[WeaponPaints] patternIndex must be an integer.");
-			return;
-		}
+		{ cmd.ReplyToCommand("[WeaponPaints] patternIndex must be an integer."); return; }
 
 		if (!float.TryParse(wearTok, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
-		{
-			cmd.ReplyToCommand("[WeaponPaints] floatWear must be a number like 0.05.");
-			return;
-		}
+		{ cmd.ReplyToCommand("[WeaponPaints] floatWear must be like 0.05."); return; }
 
 		if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("[WeaponPaints] patternIndex must be 0–1000."); return; }
-		if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("[WeaponPaints] floatWear must be 0.00–1.00.");  return; }
+		if (wear < 0f || wear > 1f)        { cmd.ReplyToCommand("[WeaponPaints] floatWear must be 0.00–1.00.");  return; }
 
-		// Build the WeaponInfo your repo uses (NO WeaponName field!)
+		// Build your repo's WeaponInfo (no WeaponName field here)
 		var info = new WeaponInfo
 		{
-			Paint   = skinId,   // or PaintId if your branch uses that name; adjust to match WeaponInfo.cs
-			Seed    = pattern,
-			Wear    = wear,
-			// Leave NameTag/StatTrak/etc. at defaults
+			Paint = skinId,
+			Seed  = pattern,
+			Wear  = wear
 		};
 
 		try
 		{
-			// --- Write into your in-memory store: GPlayerWeaponsInfo[slot][team][defindex] ---
+			// GPlayerWeaponsInfo[slot][team][defindex] = info  (shape taken from your repo)
 			var slot = player.Slot;
 
 			if (!GPlayerWeaponsInfo.TryGetValue(slot, out var byTeam) || byTeam is null)
@@ -1041,48 +1030,43 @@ public partial class WeaponPaints
 				GPlayerWeaponsInfo[slot] = byTeam;
 			}
 
-			// set for current team
 			var team = player.Team;
 			var forTeam = byTeam.GetOrAdd(team, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forTeam[defindex] = info;
 
-			// also mirror to the opposite team so it sticks after side switch
-			var otherTeam = (team == CsTeam.CounterTerrorist) ? CsTeam.Terrorist : CsTeam.CounterTerrorist;
-			var forOther = byTeam.GetOrAdd(otherTeam, _ => new ConcurrentDictionary<int, WeaponInfo>());
+			// mirror to opposite team so it persists after side switch
+			var other = team == CsTeam.CounterTerrorist ? CsTeam.Terrorist : CsTeam.CounterTerrorist;
+			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
 
-			// --- Always auto give the weapon the player asked for ---
-			if (!string.IsNullOrWhiteSpace(classname))
-			{
-				Server.NextFrame(() =>
-				{
-					try
-					{
-						if (!player.IsValid) return;
-						// GiveNamedItem on ItemServices
-						var pawn = player.PlayerPawn.Value;
-						var services = pawn?.WeaponServices;
-						services?.GiveNamedItem<CEntityInstance>(classname);
-					}
-					catch (Exception ex)
-					{
-						Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
-					}
-				});
-			}
-
-			// --- Always auto refresh: nudge state so your apply pipeline runs ---
+			// ---- ALWAYS auto give (correct API: ItemServices, not WeaponServices) ----
 			Server.NextFrame(() =>
 			{
 				try
 				{
 					if (!player.IsValid) return;
-
-					// Simple, reliable nudge: quick give/remove of a harmless item to force a state update
 					var pawn = player.PlayerPawn.Value;
-					var services = pawn?.WeaponServices;
-					var temp = services?.GiveNamedItem<CEntityInstance>("weapon_knife");
-					temp?.Remove(); // available on entities; safe no-op if null
+					var items = pawn?.ItemServices; // <-- this is the correct component
+					// GiveNamedItem<T>(string) exists on ItemServices per CSS docs
+					items?.GiveNamedItem<CEntityInstance>(classname);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
+				}
+			});
+
+			// ---- ALWAYS auto refresh: tiny nudge to trigger your apply codepath ----
+			Server.NextFrame(() =>
+			{
+				try
+				{
+					if (!player.IsValid) return;
+					var pawn = player.PlayerPawn.Value;
+					var items = pawn?.ItemServices;
+					// give/remove a harmless item; forces state update without relying on private internals
+					var temp = items?.GiveNamedItem<CEntityInstance>("weapon_knife");
+					temp?.Remove();
 				}
 				catch (Exception ex)
 				{
@@ -1090,7 +1074,7 @@ public partial class WeaponPaints
 				}
 			});
 
-			cmd.ReplyToCommand($"[WeaponPaints] Saved {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given & refreshed.");
+			cmd.ReplyToCommand($"[WeaponPaints] {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given & refreshed.");
 		}
 		catch (Exception ex)
 		{
