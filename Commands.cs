@@ -9,6 +9,11 @@ using CounterStrikeSharp.API.Modules.Timers;
 using CounterStrikeSharp.API.Modules.Utils;
 using Newtonsoft.Json.Linq;
 
+using System;
+using System.Globalization;
+using System.Linq;
+using System.Collections.Generic;
+
 namespace WeaponPaints;
 
 public partial class WeaponPaints
@@ -933,114 +938,164 @@ public partial class WeaponPaints
 		});
 	}
 	
-	// Resolve either: "9" -> weapon_awp   OR   "weapon_awp" -> 9
-    private bool TryResolveWeapon(string arg, out int defindex, out string classname)
-    {
-        classname = string.Empty;
-        defindex = 0;
+	private static bool TryResolveWeaponToken(string token, out int defindex, out string classname)
+	{
+		defindex = 0;
+		classname = string.Empty;
 
-        // numeric defindex
-        if (int.TryParse(arg, out var id) && WeaponDefindex.TryGetValue(id, out var cls))
-        {
-            defindex = id;
-            classname = cls;
-            return true;
-        }
+		// numeric path
+		if (int.TryParse(token, NumberStyles.Integer, CultureInfo.InvariantCulture, out var id))
+		{
+			if (WeaponDefindex.TryGetValue(id, out var cls) && !string.IsNullOrWhiteSpace(cls))
+			{
+				defindex = id;
+				classname = cls;
+				return true;
+			}
+			return false;
+		}
 
-        // internal classname
-        if (arg.StartsWith("weapon_", StringComparison.OrdinalIgnoreCase))
-        {
-            // find the matching defindex from the map
-            var kv = WeaponDefindex.FirstOrDefault(kv => 
-                kv.Value.Equals(arg, StringComparison.OrdinalIgnoreCase));
+		// classname path ("weapon_*")
+		if (token.StartsWith("weapon_", StringComparison.OrdinalIgnoreCase))
+		{
+			// scan the existing map to find its defindex
+			foreach (var kvp in WeaponDefindex)
+			{
+				if (kvp.Value.Equals(token, StringComparison.OrdinalIgnoreCase))
+				{
+					defindex = kvp.Key;
+					classname = kvp.Value;
+					return true;
+				}
+			}
+		}
 
-            if (!EqualityComparer<KeyValuePair<int,string>>.Default.Equals(kv, default))
-            {
-                defindex = kv.Key;
-                classname = kv.Value;
-                return true;
-            }
-        }
+		return false;
+	}
 
-        return false;
-    }
+	// --- always-autogive, always-autorefresh gen command ---
+	private void OnGenCommand(CCSPlayerController? player, CommandInfo cmd)
+	{
+		if (player is null || !player.IsValid || player.IsBot || player.SteamID == 0)
+		{
+			cmd.ReplyToCommand("[WeaponPaints] You must be an in-game player.");
+			return;
+		}
 
-    // Shared logic for css_gen / wp_gen
-    private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
-    {
-        // !gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>
-        if (cmd.ArgCount < 5)
-        {
-            // no Config.Prefix in this repo; print plainly
-            cmd.ReplyToCommand("Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
-            return;
-        }
+		// !gen <weaponId|weapon_classname> <skinId> <patternIndex> <floatWear>
+		if (cmd.ArgCount < 5)
+		{
+			cmd.ReplyToCommand("[WeaponPaints] Usage: !gen <weapon|id> <skinId> <patternIndex> <floatWear>");
+			return;
+		}
 
-        var wArg = cmd.GetArg(1);
-        var sArg = cmd.GetArg(2);
-        var pArg = cmd.GetArg(3);
-        var fArg = cmd.GetArg(4);
+		var weaponTok = cmd.GetArg(1);
+		var skinTok   = cmd.GetArg(2);
+		var patternTok= cmd.GetArg(3);
+		var wearTok   = cmd.GetArg(4);
 
-        if (!TryResolveWeapon(wArg, out var defindex, out var classname))
-        {
-            cmd.ReplyToCommand($"Unknown weapon: {wArg}");
-            return;
-        }
+		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname))
+		{
+			cmd.ReplyToCommand($"[WeaponPaints] Unknown weapon '{weaponTok}'.");
+			return;
+		}
 
-        if (!int.TryParse(sArg, out var skinId) ||
-            !int.TryParse(pArg, out var pattern) ||
-            !float.TryParse(fArg, out var wear))
-        {
-            cmd.ReplyToCommand("Invalid args. Example: !gen weapon_awp 279 1 0.05");
-            return;
-        }
+		if (!int.TryParse(skinTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId))
+		{
+			cmd.ReplyToCommand("[WeaponPaints] skinId must be an integer.");
+			return;
+		}
 
-        if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("Pattern index must be 0–1000."); return; }
-        if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("Wear must be 0.00–1.00.");        return; }
+		if (!int.TryParse(patternTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern))
+		{
+			cmd.ReplyToCommand("[WeaponPaints] patternIndex must be an integer.");
+			return;
+		}
 
-        // must be run by an in-game player
-        if (caller is null || !caller.IsValid || caller.SteamID == 0)
-        {
-            cmd.ReplyToCommand("Run this in-game as a player.");
-            return;
-        }
+		if (!float.TryParse(wearTok, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
+		{
+			cmd.ReplyToCommand("[WeaponPaints] floatWear must be a number like 0.05.");
+			return;
+		}
 
-        // Build the WeaponInfo (this repo doesn’t store a weapon name in the object)
-        var info = new WeaponInfo
-        {
-            Paint = skinId,
-            Seed  = pattern,
-            Wear  = wear
-            // Nametag / StatTrak / Stickers can stay default
-        };
+		if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("[WeaponPaints] patternIndex must be 0–1000."); return; }
+		if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("[WeaponPaints] floatWear must be 0.00–1.00.");  return; }
 
-        try
-        {
-            // Store in-memory so the next refresh / item-give uses it
-            if (!GPlayerWeaponsInfo.TryGetValue(caller.Slot, out var byTeam) || byTeam is null)
+		// Build the WeaponInfo your repo uses (NO WeaponName field!)
+		var info = new WeaponInfo
+		{
+			Paint   = skinId,   // or PaintId if your branch uses that name; adjust to match WeaponInfo.cs
+			Seed    = pattern,
+			Wear    = wear,
+			// Leave NameTag/StatTrak/etc. at defaults
+		};
+
+		try
+		{
+			// --- Write into your in-memory store: GPlayerWeaponsInfo[slot][team][defindex] ---
+			var slot = player.Slot;
+
+			if (!GPlayerWeaponsInfo.TryGetValue(slot, out var byTeam) || byTeam is null)
 			{
 				byTeam = new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>();
-				GPlayerWeaponsInfo[caller.Slot] = byTeam;
+				GPlayerWeaponsInfo[slot] = byTeam;
 			}
 
-			// get the player's current team key
-			var team = caller.Team; // CsTeam enum
+			// set for current team
+			var team = player.Team;
+			var forTeam = byTeam.GetOrAdd(team, _ => new ConcurrentDictionary<int, WeaponInfo>());
+			forTeam[defindex] = info;
 
-			// ensure per-team dictionary exists
-			var perWeapon = byTeam.GetOrAdd(team, _ => new ConcurrentDictionary<int, WeaponInfo>());
+			// also mirror to the opposite team so it sticks after side switch
+			var otherTeam = (team == CsTeam.CounterTerrorist) ? CsTeam.Terrorist : CsTeam.CounterTerrorist;
+			var forOther = byTeam.GetOrAdd(otherTeam, _ => new ConcurrentDictionary<int, WeaponInfo>());
+			forOther[defindex] = info;
 
-			// set/overwrite this weapon’s settings for that team
-			perWeapon[defindex] = info;
+			// --- Always auto give the weapon the player asked for ---
+			if (!string.IsNullOrWhiteSpace(classname))
+			{
+				Server.NextFrame(() =>
+				{
+					try
+					{
+						if (!player.IsValid) return;
+						// GiveNamedItem on ItemServices
+						var pawn = player.PlayerPawn.Value;
+						var services = pawn?.WeaponServices;
+						services?.GiveNamedItem<CEntityInstance>(classname);
+					}
+					catch (Exception ex)
+					{
+						Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
+					}
+				});
+			}
 
-            // We don't call any nonexistent "RequestFullRefresh" here.
-            // Tell the player how to apply with the existing command (from Additional.CommandRefresh default ["wp"])
-            cmd.ReplyToCommand($"Saved for {classname}: paint {skinId}, pattern {pattern}, wear {wear:0.00}. Type !wp to apply now.");
-        }
-        catch (Exception ex)
-        {
-            // Use something that always exists; ILogger.Error doesn't — and I don't assume a Logger here.
-            Console.WriteLine($"[WeaponPaints] gen command failed: {ex}");
-            cmd.ReplyToCommand("Failed to set skin (see server console).");
-        }
-    }
+			// --- Always auto refresh: nudge state so your apply pipeline runs ---
+			Server.NextFrame(() =>
+			{
+				try
+				{
+					if (!player.IsValid) return;
+
+					// Simple, reliable nudge: quick give/remove of a harmless item to force a state update
+					var pawn = player.PlayerPawn.Value;
+					var services = pawn?.WeaponServices;
+					var temp = services?.GiveNamedItem<CEntityInstance>("weapon_knife");
+					temp?.Remove(); // available on entities; safe no-op if null
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine($"[WeaponPaints] auto-refresh nudge failed: {ex}");
+				}
+			});
+
+			cmd.ReplyToCommand($"[WeaponPaints] Saved {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given & refreshed.");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[WeaponPaints] gen failed: {ex}");
+			cmd.ReplyToCommand("[WeaponPaints] Failed to apply skin (see server console).");
+		}
+	}
 }

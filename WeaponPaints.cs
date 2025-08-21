@@ -71,12 +71,8 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		RegisterListeners();
 		
 		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
-		AddCommand("css_gen", "Generate/apply a custom skin",
-			(CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
-
-		// Console alias: "wp_gen 9 279 1 0.05"
-		AddCommand("wp_gen", "Generate/apply a custom skin",
-			(CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
+		AddCommand("css_gen", "Generate/apply a skin: !gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
+		AddCommand("wp_gen",  "Generate/apply a skin: wp_gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
