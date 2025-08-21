@@ -1061,14 +1061,43 @@ public partial class WeaponPaints
 				try
 				{
 					if (!player.IsValid) return;
+
 					var pawn = player.PlayerPawn.Value;
-					var services = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();  // ✔ cast again
-					var temp = services?.GiveNamedItem<CEntityInstance>("weapon_knife");
-					temp?.Remove();
+					if (pawn is null) return;
+
+					// If we are spawning a knife, first remove any existing knives to avoid duplicates/crashes
+					if (classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
+					{
+						var ws = pawn.WeaponServices; // reading is fine
+						var arr = ws?.MyWeapons;
+						if (arr is not null)
+						{
+							foreach (var handle in arr)
+							{
+								var ent = handle.Value;
+								if (ent is null) continue;
+
+								// DesignerName is the entity's classname (e.g., "weapon_knife", "weapon_knife_m9_bayonet")
+								var dn = ent.DesignerName ?? string.Empty;
+								if (dn.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
+								{
+									// remove old knife entities before giving the new one
+									ent.Remove();
+								}
+							}
+						}
+					}
+
+					// Give the requested weapon using ItemServices wrapper
+					var items = pawn.ItemServices?.As<CCSPlayer_ItemServices>();
+					items?.GiveNamedItem<CEntityInstance>(classname);
+
+					// No more "auto-refresh nudge" via give/remove knife — that was causing instability.
+					// Giving the weapon is enough to trigger your existing paint-apply path.
 				}
 				catch (Exception ex)
 				{
-					Console.WriteLine($"[WeaponPaints] auto-refresh nudge failed: {ex}");
+					Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
 				}
 			});
 
