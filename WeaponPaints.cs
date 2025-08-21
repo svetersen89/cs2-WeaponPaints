@@ -79,21 +79,20 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{
 			try
 			{
-				var controller = ev.Userid;                 // <-- ev.Userid is already CCSPlayerController
-				if (controller is null || !controller.IsValid)
-					return HookResult.Continue;
+				var controller = ev.Userid;
+				if (controller is null || !controller.IsValid) return HookResult.Continue;
 
-				// Clear the pending flag; your normal spawn pipeline will read GPlayerWeaponsInfo and apply the knife skin.
-				_pendingKnifeApply.TryRemove(controller.Slot, out _);
+				if (_pendingKnifeApply.TryRemove(controller.Slot, out _))
+				{
+					// Optional: tell the player the knife was applied
+					// controller.PrintToChat("[WeaponPaints] Knife applied.");
+				}
 			}
-			catch
-			{
-				// swallow; we don't want to break spawn flow
-			}
+			catch { /* ignore */ }
 
 			return HookResult.Continue;
 		}, HookMode.Post);
-			
+					
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)

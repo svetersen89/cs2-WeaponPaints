@@ -1042,39 +1042,50 @@ public partial class WeaponPaints
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
 			
-			// Determine if the target is a knife (either classname starts with weapon_knife or defindex >= 500)
+			// Detect knife by ID or classname
 			bool isKnife = defindex >= 500 || classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase);
 
+			// After you've parsed skinId / pattern / wear and built `info` (WeaponInfo)
 			if (isKnife)
 			{
-				_pendingKnifeApply[player.Slot] = true;
+				SetKnifeChoiceForPlayer(player, player.Team, defindex, info, true);
+				_pendingKnifeApply[player.Slot] = true;    // spawn hook clears this; no mid-round spawns
 				cmd.ReplyToCommand("[WeaponPaints] Knife saved. It will auto-apply on your next respawn.");
-				return; // don’t spawn anything for knives
+				return;
 			}
-			else
+			
+			// Non-knife: safe to auto-give immediately (guns etc.)
+			Server.NextFrame(() =>
 			{
-				Server.NextFrame(() =>
+				try
 				{
-					try
-					{
-						if (!player.IsValid) return;
-						var pawn = player.PlayerPawn.Value;
-						var items = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();
-						if (items != null)
-							items.GiveNamedItem<CEntityInstance>(classname);
-					}
-					catch (Exception ex)
-					{
-						Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
-					}
-				});
-				cmd.ReplyToCommand($"[WeaponPaints] {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given.");
-			}
+					if (!player.IsValid) return;
+					var pawn = player.PlayerPawn.Value;
+					var items = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();
+					if (items != null)
+						items.GiveNamedItem<CEntityInstance>(classname);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
+				}
+			});
+			cmd.ReplyToCommand($"[WeaponPaints] {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given.");
 		}
 		catch (Exception ex)
 		{
 			Console.WriteLine($"[WeaponPaints] gen failed: {ex}");
 			cmd.ReplyToCommand("[WeaponPaints] Failed to apply skin (see server console).");
 		}
+	}
+	
+	private void SetKnifeChoiceForPlayer(CCSPlayerController player, CsTeam team, int defindex, WeaponInfo info, bool notify)
+	{
+		// TODO: replace the two lines below with the exact fields the knife menu writes.
+		_playerKnifeDefIndex[player.Slot][team] = defindex;
+		_playerKnifePaintInfo[player.Slot][team] = info;
+
+		if (notify)
+			player.PrintToChat($"{_config.Prefix} Knife saved: {defindex} (paint {info.Paint}, seed {info.Seed}, wear {info.Wear:0.#####}).");
 	}
 }
