@@ -1065,10 +1065,13 @@ public partial class WeaponPaints
 					var pawn = player.PlayerPawn.Value;
 					if (pawn is null) return;
 
-					// If we are spawning a knife, first remove any existing knives to avoid duplicates/crashes
-					if (classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
+					// Determine if the target is a knife (either classname starts with weapon_knife or defindex >= 500)
+					bool isKnife = classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase) || defindex >= 500;
+
+					// For knives: remove old knives first to avoid duplicates / invalid states
+					if (isKnife)
 					{
-						var ws = pawn.WeaponServices; // reading is fine
+						var ws = pawn.WeaponServices; // read-only access is fine
 						var arr = ws?.MyWeapons;
 						if (arr is not null)
 						{
@@ -1077,23 +1080,36 @@ public partial class WeaponPaints
 								var ent = handle.Value;
 								if (ent is null) continue;
 
-								// DesignerName is the entity's classname (e.g., "weapon_knife", "weapon_knife_m9_bayonet")
-								var dn = ent.DesignerName ?? string.Empty;
+								var dn = ent.DesignerName ?? string.Empty; // entity server classname
 								if (dn.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
 								{
-									// remove old knife entities before giving the new one
-									ent.Remove();
+									ent.Remove(); // remove all existing knives
 								}
 							}
 						}
 					}
 
-					// Give the requested weapon using ItemServices wrapper
+					// Give the requested item via ItemServices wrapper
 					var items = pawn.ItemServices?.As<CCSPlayer_ItemServices>();
-					items?.GiveNamedItem<CEntityInstance>(classname);
+					if (items is null) return;
 
-					// No more "auto-refresh nudge" via give/remove knife — that was causing instability.
-					// Giving the weapon is enough to trigger your existing paint-apply path.
+					// Pick the proper spawn classname:
+					//  - KNIVES: spawn with base class (team-appropriate)
+					//  - OTHERS: spawn with resolved classname
+					string spawnClass;
+					if (isKnife)
+					{
+						// CT uses "weapon_knife", T uses "weapon_knife_t"
+						spawnClass = player.Team == CsTeam.Terrorist ? "weapon_knife_t" : "weapon_knife";
+					}
+					else
+					{
+						spawnClass = classname; // guns etc. are valid as-is
+					}
+
+					items.GiveNamedItem<CEntityInstance>(spawnClass);
+
+					// No extra "refresh nudge" — giving the item is enough for your apply pipeline.
 				}
 				catch (Exception ex)
 				{
