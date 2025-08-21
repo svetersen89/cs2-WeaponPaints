@@ -933,78 +933,107 @@ public partial class WeaponPaints
 		});
 	}
 	
-	// Shared logic for css_gen / wp_gen
-	private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
-	{
-		// Expected: <weaponId|classname> <skinId> <patternIndex> <wearFloat>
-		if (cmd.ArgCount < 5)
-		{
-			cmd.ReplyToCommand("Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
-			return;
-		}
+	// Resolve either: "9" -> weapon_awp   OR   "weapon_awp" -> 9
+    private bool TryResolveWeapon(string arg, out int defindex, out string classname)
+    {
+        classname = string.Empty;
+        defindex = 0;
 
-		var wArg = cmd.GetArg(1);
-		var sArg = cmd.GetArg(2);
-		var pArg = cmd.GetArg(3);
-		var fArg = cmd.GetArg(4);
+        // numeric defindex
+        if (int.TryParse(arg, out var id) && WeaponDefindex.TryGetValue(id, out var cls))
+        {
+            defindex = id;
+            classname = cls;
+            return true;
+        }
 
-		if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
-		{
-			cmd.ReplyToCommand($"Unknown weapon: {wArg}");
-			return;
-		}
+        // internal classname
+        if (arg.StartsWith("weapon_", StringComparison.OrdinalIgnoreCase))
+        {
+            // find the matching defindex from the map
+            var kv = WeaponDefindex.FirstOrDefault(kv => 
+                kv.Value.Equals(arg, StringComparison.OrdinalIgnoreCase));
 
-		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
-			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
-			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
-		{
-			cmd.ReplyToCommand("Invalid args. Example: !gen weapon_awp 279 1 0.05");
-			return;
-		}
+            if (!EqualityComparer<KeyValuePair<int,string>>.Default.Equals(kv, default))
+            {
+                defindex = kv.Key;
+                classname = kv.Value;
+                return true;
+            }
+        }
 
-		if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("Pattern index must be 0–1000."); return; }
-		if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("Wear must be 0.00–1.00.");        return; }
+        return false;
+    }
 
-		if (caller is null || !caller.IsValid || caller.SteamID == 0)
-		{
-			cmd.ReplyToCommand("Run this in-game as a player.");
-			return;
-		}
+    // Shared logic for css_gen / wp_gen
+    private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
+    {
+        // !gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>
+        if (cmd.ArgCount < 5)
+        {
+            // no Config.Prefix in this repo; print plainly
+            cmd.ReplyToCommand("Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
+            return;
+        }
 
-		var info = new WeaponInfo
-		{
-			WeaponName = weaponClass, // store internal classname (e.g. weapon_ak47)
-			Paint = skinId,
-			Seed = pattern,
-			Wear = wear
-		};
+        var wArg = cmd.GetArg(1);
+        var sArg = cmd.GetArg(2);
+        var pArg = cmd.GetArg(3);
+        var fArg = cmd.GetArg(4);
 
-		try
-		{
-			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
+        if (!TryResolveWeapon(wArg, out var defindex, out var classname))
+        {
+            cmd.ReplyToCommand($"Unknown weapon: {wArg}");
+            return;
+        }
 
-			// Use the same refresh/apply path as your existing !wp (if available)
-			TryRequestRefresh(caller);
+        if (!int.TryParse(sArg, out var skinId) ||
+            !int.TryParse(pArg, out var pattern) ||
+            !float.TryParse(fArg, out var wear))
+        {
+            cmd.ReplyToCommand("Invalid args. Example: !gen weapon_awp 279 1 0.05");
+            return;
+        }
 
-			cmd.ReplyToCommand($"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
-		}
-		catch (Exception ex)
-		{
-			Logger.Error($"gen failed: {ex}");
-			cmd.ReplyToCommand("Failed to apply skin. Check server logs.");
-		}
-	}
+        if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("Pattern index must be 0–1000."); return; }
+        if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("Wear must be 0.00–1.00.");        return; }
 
-	// Calls the same routine your existing !wp uses; change if your project exposes a different method
-	private void TryRequestRefresh(CCSPlayerController player)
-	{
-		try
-		{
-			WeaponSynchronization.RequestFullRefresh(player);
-		}
-		catch
-		{
-			player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
-		}
-	}
+        // must be run by an in-game player
+        if (caller is null || !caller.IsValid || caller.SteamID == 0)
+        {
+            cmd.ReplyToCommand("Run this in-game as a player.");
+            return;
+        }
+
+        // Build the WeaponInfo (this repo doesn’t store a weapon name in the object)
+        var info = new WeaponInfo
+        {
+            Paint = skinId,
+            Seed  = pattern,
+            Wear  = wear
+            // Nametag / StatTrak / Stickers can stay default
+        };
+
+        try
+        {
+            // Store in-memory so the next refresh / item-give uses it
+            if (!GPlayerWeaponsInfo.TryGetValue(caller.Slot, out var perWeapon))
+            {
+                perWeapon = new Dictionary<int, WeaponInfo>();
+                GPlayerWeaponsInfo[caller.Slot] = perWeapon;
+            }
+
+            perWeapon[defindex] = info;
+
+            // We don't call any nonexistent "RequestFullRefresh" here.
+            // Tell the player how to apply with the existing command (from Additional.CommandRefresh default ["wp"])
+            cmd.ReplyToCommand($"Saved for {classname}: paint {skinId}, pattern {pattern}, wear {wear:0.00}. Type !wp to apply now.");
+        }
+        catch (Exception ex)
+        {
+            // Use something that always exists; ILogger.Error doesn't — and I don't assume a Logger here.
+            Console.WriteLine($"[WeaponPaints] gen command failed: {ex}");
+            cmd.ReplyToCommand("Failed to set skin (see server console).");
+        }
+    }
 }

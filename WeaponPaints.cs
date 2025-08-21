@@ -69,8 +69,6 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		Utility.LoadPinsFromFile(ModuleDirectory + $"/data/collectibles_{_config.SkinsLanguage}.json", Logger);
 
 		RegisterListeners();
-		var gd = Path.Combine(Server.GameDirectory, "addons/counterstrikesharp/gamedata/weaponpaints.json");
-		WeaponResolver.Initialize(gd);
 		
 		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
 		AddCommand("css_gen", "Generate/apply a custom skin",
