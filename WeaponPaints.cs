@@ -73,6 +73,26 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
 		AddCommand("css_gen", "Generate/apply a skin: !gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
 		AddCommand("wp_gen",  "Generate/apply a skin: wp_gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
+	
+		RegisterEventHandler<EventPlayerSpawn>((ev, info) =>
+		{
+			try
+			{
+				var controller = ev.Userid?.Controller;
+				if (controller is null || !controller.IsValid) return HookResult.Continue;
+
+				// If player has a pending knife change, just clear the flag.
+				// The plugin’s normal spawn pipeline will read GPlayerWeaponsInfo and apply the knife skin.
+				_pendingKnifeApply.TryRemove(controller.Slot, out _);
+			}
+			catch
+			{
+				// ignore — we don't want to interfere with spawn flow
+			}
+
+			return HookResult.Continue;
+		}, HookMode.Post);
+	
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
