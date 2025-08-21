@@ -14,3 +14,112 @@
 	width: 50%;
 	//border-bottom: solid 1px #eee;
 }
+
+/* Container styling */
+.search-container, .apply_gen {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Search bar styling */
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Suggestions dropdown */
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none; /* Seamlessly connect to the search bar */
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual suggestion styling */
+.suggestion {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect for suggestions */
+.suggestion:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* Styling for an empty suggestion box */
+.suggestions:empty {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    #search-bar {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .suggestion {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1000;
+    width: 100%;
+}
+
+#suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#suggestions div:hover {
+    background-color: #eee;
+}
+
+#menu-right {
+    display: flex;
+    align-items: center;
+}
+
+#menuInput {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#menuButton {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#menuButton:hover {
+    background-color: #0056b3;
+}
