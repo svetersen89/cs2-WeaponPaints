@@ -1042,8 +1042,70 @@ public partial class WeaponPaints
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
 			
+			bool isGlove = classname.Contains("glove", StringComparison.OrdinalIgnoreCase);
+
+			if (isGlove)
+			{
+				// Resolve the glove key (classname) the menu stores. If the user passed an ID, `classname`
+				// already came from your WeaponDefindex[id].
+				var gloveKey = classname;
+
+				// Optional pretty name for chat (same source used by menus)
+				WeaponList.TryGetValue(gloveKey, out var gloveName);
+
+				// Match menu UX (if you have these localized strings)
+				if (!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]))
+					player.Print(Localizer["wp_gloves_menu_select", gloveName ?? gloveKey]);
+
+				// Persist glove selection in the SAME store as your !gloves menu:
+				//    GPlayersGloves[slot][team] = gloveKey
+				var playerGloves = GPlayersGloves.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, string>());
+
+				var teamsToCheck = player.TeamNum < 2
+					? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
+					: new[] { player.Team };
+
+				foreach (var t in teamsToCheck)
+					playerGloves[t] = gloveKey;
+
+				// (Optional) persist finish so paint/seed/wear apply for the chosen glove defindex
+				var playerSkins = GPlayerWeaponsInfo.GetOrAdd(player.Slot,
+					new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>());
+
+				foreach (var t in teamsToCheck)
+				{
+					var teamItems = playerSkins.GetOrAdd(t, _ => new ConcurrentDictionary<int, WeaponInfo>());
+					var finish = teamItems.GetOrAdd(defindex, _ => new WeaponInfo());
+					finish.Paint = skinId;
+					finish.Seed  = pattern;
+					finish.Wear  = wear;
+				}
+
+				// Live-apply (same as your menus) — safe for gloves
+				if (_gBCommandsAllowed && (LifeState_t)player.LifeState == LifeState_t.LIFE_ALIVE)
+					RefreshWeapons(player);
+
+				// Optional DB sync (uncomment if your WeaponSync exposes this, like the knife path)
+				
+				var playerInfo = new PlayerInfo
+				{
+					UserId   = player.UserId,
+					Slot     = player.Slot,
+					Index    = (int)player.Index,
+					SteamId  = player.SteamID.ToString(),
+					Name     = player.PlayerName,
+					IpAddress= player.IpAddress?.Split(":")[0]
+				};
+				if (WeaponSync != null)
+					_ = Task.Run(async () => await WeaponSync.SyncGlovesToDatabase(playerInfo, gloveKey, teamsToCheck));
+				
+
+				// Done with glove branch — do NOT spawn/remove any glove entities here.
+				return;
+			}
+			
 			// Detect knife by ID or classname
-			bool isKnife = defindex >= 500 || classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase);
+			bool isKnife = (defindex >= 500 && defindex <= 526) || classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase);
 
 			// After you've parsed skinId / pattern / wear and built `info` (WeaponInfo)
 			if (isKnife)
