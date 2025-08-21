@@ -996,6 +996,19 @@ public partial class WeaponPaints
 		var patternTok= cmd.GetArg(3);
 		var wearTok   = cmd.GetArg(4);
 		
+
+		if (!int.TryParse(skinTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId))
+		{ cmd.ReplyToCommand("[WeaponPaints] skinId must be an integer."); return; }
+
+		if (!int.TryParse(patternTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern))
+		{ cmd.ReplyToCommand("[WeaponPaints] patternIndex must be an integer."); return; }
+
+		if (!float.TryParse(wearTok, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
+		{ cmd.ReplyToCommand("[WeaponPaints] floatWear must be like 0.05."); return; }
+
+		if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("[WeaponPaints] patternIndex must be 0–1000."); return; }
+		if (wear < 0f || wear > 1f)        { cmd.ReplyToCommand("[WeaponPaints] floatWear must be 0.00–1.00.");  return; }
+	
 		// ===== GLOVES FIRST (numeric ID path) =====
 		// If weaponTok is a glove defindex, handle gloves now and stop.
 		// This avoids "Unknown weapon" from TryResolveWeaponToken for glove IDs.
@@ -1017,19 +1030,26 @@ public partial class WeaponPaints
 			cmd.ReplyToCommand($"[WeaponPaints] Unknown weapon '{weaponTok}'.");
 			return;
 		}
+			
+		// ===== GLOVES (classname path) =====
+		// GLOVES (classname/defindex path)
+		bool resolvedIsGlove =
+			classname.IndexOf("glove", StringComparison.OrdinalIgnoreCase) >= 0 ||
+			GlovesList.Any(g => int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
 
-		if (!int.TryParse(skinTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId))
-		{ cmd.ReplyToCommand("[WeaponPaints] skinId must be an integer."); return; }
+		if (resolvedIsGlove)
+		{
+			var gloveMatch = GlovesList.FirstOrDefault(g =>
+				int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
 
-		if (!int.TryParse(patternTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern))
-		{ cmd.ReplyToCommand("[WeaponPaints] patternIndex must be an integer."); return; }
-
-		if (!float.TryParse(wearTok, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
-		{ cmd.ReplyToCommand("[WeaponPaints] floatWear must be like 0.05."); return; }
-
-		if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("[WeaponPaints] patternIndex must be 0–1000."); return; }
-		if (wear < 0f || wear > 1f)        { cmd.ReplyToCommand("[WeaponPaints] floatWear must be 0.00–1.00.");  return; }
-
+			if (gloveMatch != null)
+			{
+				ApplyGloveSelectionFromGen(player, gloveMatch, defindex, skinId, pattern, wear);
+				return;
+			}
+		}
+		// ===== END GLOVES (classname) =====			
+		
 		// Build your repo's WeaponInfo (no WeaponName field here)
 		var info = new WeaponInfo
 		{
@@ -1057,25 +1077,6 @@ public partial class WeaponPaints
 			var other = team == CsTeam.CounterTerrorist ? CsTeam.Terrorist : CsTeam.CounterTerrorist;
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
-			
-			// ===== GLOVES (classname path) =====
-			bool resolvedIsGlove =
-				classname.IndexOf("glove", StringComparison.OrdinalIgnoreCase) >= 0 ||
-				GlovesList.Any(g => int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
-
-			if (resolvedIsGlove)
-			{
-				// Find the glove object (for DB/image/name) then apply via the same helper
-				var gloveMatch = GlovesList.FirstOrDefault(g =>
-					int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
-
-				if (gloveMatch != null)
-				{
-					ApplyGloveSelectionFromGen(player, gloveMatch, defindex, skinId, pattern, wear);
-					return; // gloves fully handled
-				}
-			}
-			// ===== END GLOVES (classname) =====
 			
 			// Detect knife by ID or classname
 			bool isKnife = (defindex >= 500 && defindex <= 526) || classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase);
@@ -1171,54 +1172,9 @@ public partial class WeaponPaints
 		}
 	}
 	
-	private bool TryResolveGloveToken(string token, out int defindex, out string classname)
-	{
-		defindex = -1;
-		classname = string.Empty;
-
-		// Case 1: token is a defindex (number)
-		if (int.TryParse(token, out var parsedId))
-		{
-			var gloveMatch = GlovesList.FirstOrDefault(g =>
-				g.TryGetValue("weapon_defindex", out var val) &&
-				int.TryParse(val?.ToString(), out var did) &&
-				did == parsedId);
-
-			if (gloveMatch != null)
-			{
-				defindex = parsedId;
-				// some gloves have explicit weapon_name/classname in list
-				if (gloveMatch.TryGetValue("weapon_name", out var cname) && !string.IsNullOrEmpty(cname?.ToString()))
-					classname = cname.ToString()!;
-				else
-					classname = $"glove_{defindex}";
-				return true;
-			}
-		}
-
-		// Case 2: token is a paint_name (e.g., “Sport Gloves”)
-		var byName = GlovesList.FirstOrDefault(g =>
-			g.TryGetValue("paint_name", out var pname) &&
-			string.Equals(pname?.ToString(), token, StringComparison.OrdinalIgnoreCase));
-
-		if (byName != null &&
-			byName.TryGetValue("weapon_defindex", out var didObj) &&
-			int.TryParse(didObj?.ToString(), out var did2))
-		{
-			defindex = did2;
-			if (byName.TryGetValue("weapon_name", out var cname) && !string.IsNullOrEmpty(cname?.ToString()))
-				classname = cname.ToString()!;
-			else
-				classname = $"glove_{defindex}";
-			return true;
-		}
-
-		return false;
-	}
-	
 	private void ApplyGloveSelectionFromGen(
 		CCSPlayerController player,
-		Dictionary<string, object?> gloveObj,
+		JObject gloveObj,
 		int gloveDefindex,
 		int paintId,
 		int pattern,
@@ -1227,14 +1183,14 @@ public partial class WeaponPaints
 		// Optional image feedback (matches SetupGlovesMenu)
 		if (Config.Additional.ShowSkinImage)
 		{
-			var image = gloveObj.TryGetValue("image", out var imgObj) ? imgObj?.ToString() ?? "" : "";
+			var image = gloveObj["image"]?.ToString() ?? "";
 			_playerWeaponImage[player.Slot] = image;
 			AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot),
 				CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
 		}
 
 		// Persist model choice exactly like SetupGlovesMenu:
-		//   GPlayersGlove[slot][team] = (ushort)weapon_defindex
+		// GPlayersGlove[slot][team] = (ushort)weapon_defindex
 		var playerGloves = GPlayersGlove.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, ushort>());
 		var teamsToCheck = player.TeamNum < 2
 			? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
@@ -1300,12 +1256,8 @@ public partial class WeaponPaints
 		AddTimer(0.25f, () => GivePlayerGloves(player));
 
 		// Optional localized confirmation
-		if (gloveObj.TryGetValue("paint_name", out var pn) &&
-			!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]))
-		{
-			var pretty = pn?.ToString();
-			if (!string.IsNullOrEmpty(pretty))
-				player.Print(Localizer["wp_gloves_menu_select", pretty]);
-		}
+		var pretty = gloveObj["paint_name"]?.ToString();
+		if (!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]) && !string.IsNullOrEmpty(pretty))
+			player.Print(Localizer["wp_gloves_menu_select", pretty]);
 	}
 }
