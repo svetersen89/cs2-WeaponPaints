@@ -1048,30 +1048,41 @@ public partial class WeaponPaints
 			// After you've parsed skinId / pattern / wear and built `info` (WeaponInfo)
 			if (isKnife)
 			{
-				// We only set a “pending” flag and let the plugin apply on the next spawn.
-				// DO NOT spawn/remove knives mid-round.
-				_pendingKnifeApply[player.Slot] = true;
+			    _pendingKnifeApply[player.Slot] = true;
 
-				// Optionally store the finish so spawn-time code has it (safe to write into your existing store):
-				// GPlayerWeaponsInfo[slot][team][defindex] = info
-				var slot = player.Slot;
+				// Save finish so spawn pipeline can apply it
+				int kSlot = player.Slot;
 
-				if (!GPlayerWeaponsInfo.TryGetValue(slot, out var byTeam) || byTeam is null)
+				System.Collections.Concurrent.ConcurrentDictionary<
+					CounterStrikeSharp.API.Modules.Utils.CsTeam,
+					System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>
+				> teamMap;
+
+				if (!GPlayerWeaponsInfo.TryGetValue(kSlot, out teamMap) || teamMap == null)
 				{
-					byTeam = new System.Collections.Concurrent.ConcurrentDictionary<CounterStrikeSharp.API.Modules.Utils.CsTeam, System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>>();
-					GPlayerWeaponsInfo[slot] = byTeam;
+					teamMap = new System.Collections.Concurrent.ConcurrentDictionary<
+						CounterStrikeSharp.API.Modules.Utils.CsTeam,
+						System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>
+					>();
+					GPlayerWeaponsInfo[kSlot] = teamMap;
 				}
 
-				var team = player.Team;
-				var perTeam = byTeam.GetOrAdd(team, _ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>());
-				perTeam[defindex] = info;
+				var currentTeam = player.Team;
+				var mapForTeam = teamMap.GetOrAdd(
+					currentTeam,
+					_ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>()
+				);
+				mapForTeam[defindex] = info;
 
-				// Mirror to other side so it sticks after switch
-				var other = team == CounterStrikeSharp.API.Modules.Utils.CsTeam.CounterTerrorist
+				var otherTeam = currentTeam == CounterStrikeSharp.API.Modules.Utils.CsTeam.CounterTerrorist
 					? CounterStrikeSharp.API.Modules.Utils.CsTeam.Terrorist
 					: CounterStrikeSharp.API.Modules.Utils.CsTeam.CounterTerrorist;
-				var perOther = byTeam.GetOrAdd(other, _ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>());
-				perOther[defindex] = info;
+
+				var mapForOther = teamMap.GetOrAdd(
+					otherTeam,
+					_ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>()
+				);
+				mapForOther[defindex] = info;
 
 				cmd.ReplyToCommand("Knife saved. It will auto-apply on your next respawn.");
 				return;
