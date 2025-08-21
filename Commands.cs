@@ -995,8 +995,24 @@ public partial class WeaponPaints
 		var skinTok   = cmd.GetArg(2);
 		var patternTok= cmd.GetArg(3);
 		var wearTok   = cmd.GetArg(4);
+		
+		// ===== GLOVES FIRST (numeric ID path) =====
+		// If weaponTok is a glove defindex, handle gloves now and stop.
+		// This avoids "Unknown weapon" from TryResolveWeaponToken for glove IDs.
+		if (int.TryParse(weaponTok, NumberStyles.Integer, CultureInfo.InvariantCulture, out var gloveIdNumericTmp))
+		{
+			var gloveMatchById = GlovesList.FirstOrDefault(g =>
+				int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == gloveIdNumericTmp);
 
-		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname) && !TryResolveGloveToken(weaponTok, out var gDef, out var gClass))
+			if (gloveMatchById != null)
+			{
+				ApplyGloveSelectionFromGen(player, gloveMatchById, gloveIdNumericTmp, skinId, pattern, wear);
+				return; // gloves fully handled
+			}
+		}
+		// ===== END GLOVES FIRST =====
+		
+		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname))
 		{
 			cmd.ReplyToCommand($"[WeaponPaints] Unknown weapon '{weaponTok}'.");
 			return;
@@ -1042,104 +1058,24 @@ public partial class WeaponPaints
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
 			
-			bool isGlove =
+			// ===== GLOVES (classname path) =====
+			bool resolvedIsGlove =
 				classname.IndexOf("glove", StringComparison.OrdinalIgnoreCase) >= 0 ||
-				GlovesList.Any(g =>
-				{
-					if (!g.ContainsKey("weapon_defindex")) return false;
-					var s = g["weapon_defindex"]?.ToString();
-					return int.TryParse(s, out var did) && did == defindex;
-				});
+				GlovesList.Any(g => int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
 
-			if (isGlove)
+			if (resolvedIsGlove)
 			{
-				// Use menu-equivalent logic
-				int weaponDefindex = gloveIdNumeric;
-				var paint = skinId;         // from your parsed args
-				var wear  = wear;           // keep your parsed wear
-				var seed  = pattern;        // pattern index
+				// Find the glove object (for DB/image/name) then apply via the same helper
+				var gloveMatch = GlovesList.FirstOrDefault(g =>
+					int.TryParse(g["weapon_defindex"]?.ToString(), out var did) && did == defindex);
 
-				// Optional image feedback
-				var image = gloveObjById["image"]?.ToString() ?? "";
-				if (Config.Additional.ShowSkinImage)
+				if (gloveMatch != null)
 				{
-					_playerWeaponImage[player.Slot] = image;
-					AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot), CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
+					ApplyGloveSelectionFromGen(player, gloveMatch, defindex, skinId, pattern, wear);
+					return; // gloves fully handled
 				}
-
-				// Persist model selection: GPlayersGlove[slot][team] = (ushort)weaponDefindex
-				var playerGloves = GPlayersGlove.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, ushort>());
-				var teamsToCheck = player.TeamNum < 2
-					? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
-					: new[] { player.Team };
-
-				foreach (var t in teamsToCheck)
-					playerGloves[t] = (ushort)weaponDefindex;
-
-				// Persist finish in GPlayerWeaponsInfo (same structure the menus use)
-				if (!GPlayerWeaponsInfo.ContainsKey(player.Slot))
-					GPlayerWeaponsInfo[player.Slot] = new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>();
-
-				foreach (var t in teamsToCheck)
-				{
-					if (!GPlayerWeaponsInfo[player.Slot].ContainsKey(t))
-						GPlayerWeaponsInfo[player.Slot][t] = new ConcurrentDictionary<int, WeaponInfo>();
-
-					if (!GPlayerWeaponsInfo[player.Slot][t].TryGetValue(weaponDefindex, out var finfo))
-					{
-						finfo = new WeaponInfo();
-						GPlayerWeaponsInfo[player.Slot][t][weaponDefindex] = finfo;
-					}
-					finfo.Paint = paint;
-					finfo.Wear  = wear;
-					finfo.Seed  = seed;
-				}
-
-				// DB sync (same as menu)
-				if (WeaponSync != null)
-				{
-					var playerInfo = new PlayerInfo
-					{
-						UserId   = player.UserId,
-						Slot     = player.Slot,
-						Index    = (int)player.Index,
-						SteamId  = player.SteamID.ToString(),
-						Name     = player.PlayerName,
-						IpAddress= player.IpAddress?.Split(":")[0]
-					};
-
-					_ = Task.Run(async () =>
-					{
-						await WeaponSync.SyncGloveToDatabase(playerInfo, (ushort)weaponDefindex, teamsToCheck);
-
-						foreach (var t in teamsToCheck)
-						{
-							if (!GPlayerWeaponsInfo[playerInfo.Slot][t].TryGetValue(weaponDefindex, out var val))
-							{
-								val = new WeaponInfo();
-								GPlayerWeaponsInfo[playerInfo.Slot][t][weaponDefindex] = val;
-							}
-							val.Paint = paint;
-							val.Wear  = wear;
-							val.Seed  = seed;
-						}
-
-						await WeaponSync.SyncWeaponPaintsToDatabase(playerInfo);
-					});
-				}
-
-				// Apply like the menu does
-				AddTimer(0.1f,  () => GivePlayerGloves(player));
-				AddTimer(0.25f, () => GivePlayerGloves(player));
-
-				// Optional confirmation
-				var pretty = gloveObjById["paint_name"]?.ToString();
-				if (!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]) && !string.IsNullOrEmpty(pretty))
-					player.Print(Localizer["wp_gloves_menu_select", pretty]);
-
-				// IMPORTANT: we handled the command. Don't process as weapon/knife.
-				return;
 			}
+			// ===== END GLOVES (classname) =====
 			
 			// Detect knife by ID or classname
 			bool isKnife = (defindex >= 500 && defindex <= 526) || classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase);
@@ -1278,5 +1214,98 @@ public partial class WeaponPaints
 		}
 
 		return false;
+	}
+	
+	private void ApplyGloveSelectionFromGen(
+		CCSPlayerController player,
+		Dictionary<string, object?> gloveObj,
+		int gloveDefindex,
+		int paintId,
+		int pattern,
+		float wear)
+	{
+		// Optional image feedback (matches SetupGlovesMenu)
+		if (Config.Additional.ShowSkinImage)
+		{
+			var image = gloveObj.TryGetValue("image", out var imgObj) ? imgObj?.ToString() ?? "" : "";
+			_playerWeaponImage[player.Slot] = image;
+			AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot),
+				CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
+		}
+
+		// Persist model choice exactly like SetupGlovesMenu:
+		//   GPlayersGlove[slot][team] = (ushort)weapon_defindex
+		var playerGloves = GPlayersGlove.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, ushort>());
+		var teamsToCheck = player.TeamNum < 2
+			? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
+			: new[] { player.Team };
+
+		foreach (var t in teamsToCheck)
+			playerGloves[t] = (ushort)gloveDefindex;
+
+		// Persist finish in the same structure skins menu uses
+		if (!GPlayerWeaponsInfo.ContainsKey(player.Slot))
+			GPlayerWeaponsInfo[player.Slot] = new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>();
+
+		foreach (var t in teamsToCheck)
+		{
+			if (!GPlayerWeaponsInfo[player.Slot].ContainsKey(t))
+				GPlayerWeaponsInfo[player.Slot][t] = new ConcurrentDictionary<int, WeaponInfo>();
+
+			if (!GPlayerWeaponsInfo[player.Slot][t].TryGetValue(gloveDefindex, out var finfo))
+			{
+				finfo = new WeaponInfo();
+				GPlayerWeaponsInfo[player.Slot][t][gloveDefindex] = finfo;
+			}
+			finfo.Paint = paintId;
+			finfo.Seed  = pattern;
+			finfo.Wear  = wear;
+		}
+
+		// DB sync — mirrors SetupGlovesMenu
+		if (WeaponSync != null)
+		{
+			var playerInfo = new PlayerInfo
+			{
+				UserId    = player.UserId,
+				Slot      = player.Slot,
+				Index     = (int)player.Index,
+				SteamId   = player.SteamID.ToString(),
+				Name      = player.PlayerName,
+				IpAddress = player.IpAddress?.Split(":")[0]
+			};
+
+			_ = Task.Run(async () =>
+			{
+				await WeaponSync.SyncGloveToDatabase(playerInfo, (ushort)gloveDefindex, teamsToCheck);
+
+				foreach (var t in teamsToCheck)
+				{
+					if (!GPlayerWeaponsInfo[playerInfo.Slot][t].TryGetValue(gloveDefindex, out var val))
+					{
+						val = new WeaponInfo();
+						GPlayerWeaponsInfo[playerInfo.Slot][t][gloveDefindex] = val;
+					}
+					val.Paint = paintId;
+					val.Wear  = wear;
+					val.Seed  = pattern;
+				}
+
+				await WeaponSync.SyncWeaponPaintsToDatabase(playerInfo);
+			});
+		}
+
+		// Apply like the menu does
+		AddTimer(0.1f,  () => GivePlayerGloves(player));
+		AddTimer(0.25f, () => GivePlayerGloves(player));
+
+		// Optional localized confirmation
+		if (gloveObj.TryGetValue("paint_name", out var pn) &&
+			!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]))
+		{
+			var pretty = pn?.ToString();
+			if (!string.IsNullOrEmpty(pretty))
+				player.Print(Localizer["wp_gloves_menu_select", pretty]);
+		}
 	}
 }
