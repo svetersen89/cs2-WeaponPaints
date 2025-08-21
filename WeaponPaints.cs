@@ -72,6 +72,10 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		RegisterListeners();
     		var gd = Path.Combine(Server.GameDirectory, "addons/counterstrikesharp/gamedata/weaponpaints.json");
     		WeaponResolver.Initialize(gd);
+		AddCommand("css_gen", "Generate/apply a custom skin", (CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
+
+   		// Console-only alias (so "wp_gen ..." works too)
+    		AddCommand("wp_gen", "Generate/apply a custom skin", (CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)

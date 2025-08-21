@@ -1009,6 +1009,56 @@ public partial class WeaponPaints
 		// (The README documents !wp as the refresh command.)
 		player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
 	}
+	
+	private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
+	{
+		// Expected: <weaponId|classname> <skinId> <patternIndex> <wearFloat>
+		if (cmd.ArgCount < 5) {
+			Reply(caller, "Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
+			return;
+		}
+
+		var wArg = cmd.GetArg(1);
+		var sArg = cmd.GetArg(2);
+		var pArg = cmd.GetArg(3);
+		var fArg = cmd.GetArg(4);
+
+		if (!WeaponResolver.TryResolve(wArg, out var weaponClass)) {
+			Reply(caller, $"Unknown weapon: {wArg}");
+			return;
+		}
+
+		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
+			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
+			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear)) {
+			Reply(caller, "Invalid args. Example: !gen weapon_awp 279 1 0.05");
+			return;
+		}
+
+		if (caller is null || !caller.IsValid || caller.SteamID == 0) {
+			Reply(caller, "Run this in-game as a player.");
+			return;
+		}
+
+		if (pattern < 0 || pattern > 1000) { Reply(caller, "Pattern index must be 0–1000."); return; }
+		if (wear < 0f || wear > 1f)       { Reply(caller, "Wear must be 0.00–1.00.");        return; }
+
+		var info = new WeaponInfo {
+			WeaponName = weaponClass,
+			Paint = skinId,
+			Seed = pattern,
+			Wear = wear
+		};
+
+		try {
+			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
+			TryRequestRefresh(caller); // use your existing refresh/apply path
+			Reply(caller, $"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
+		} catch (Exception ex) {
+			Logger.Error($"gen failed: {ex}");
+			Reply(caller, "Failed to apply skin. Check server logs.");
+		}
+	}
 
 	private void Reply(CCSPlayerController? player, string msg)
 	{
