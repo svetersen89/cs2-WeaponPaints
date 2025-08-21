@@ -930,4 +930,89 @@ public partial class WeaponPaints
 			});
 		});
 	}
+	
+	// Console: wp_gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>
+	[ConsoleCommand("wp_gen")]
+	[CommandHelper(minArgs: 4, usage: "wp_gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>", whoCanExecute: CommandUsage.CLIENT_AND_SERVER)]
+	public void Cmd_Gen(CCSPlayerController? caller, CommandInfo cmd)
+	{
+		var wArg = cmd.GetArg(1);
+		var sArg = cmd.GetArg(2);
+		var pArg = cmd.GetArg(3);
+		var fArg = cmd.GetArg(4);
+
+		if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
+		{
+			Reply(caller, $"Unknown weapon: {wArg}");
+			return;
+		}
+		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
+			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
+			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
+		{
+			Reply(caller, "Invalid args. Example: !gen weapon_awp 279 1 0.05");
+			return;
+		}
+		if (pattern < 0 || pattern > 1000) { Reply(caller, "Pattern index must be 0–1000."); return; }
+		if (wear < 0f || wear > 1f) { Reply(caller, "Wear must be 0.00–1.00."); return; }
+
+		// must be an in-game player
+		if (caller == null || !caller.IsValid || caller.SteamID == 0)
+		{
+			Reply(caller, "Run this in-game as a player.");
+			return;
+		}
+
+		var info = new WeaponInfo
+		{
+			WeaponName = weaponClass, // store classname
+			Paint = skinId,
+			Seed = pattern,
+			Wear = wear
+		};
+
+		try
+		{
+			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
+
+			// Try to reuse the same refresh/apply path as !wp (documented in README)
+			TryRequestRefresh(caller);
+
+			Reply(caller, $"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
+		}
+		catch (System.Exception ex)
+		{
+			Logger.Error($"wp_gen failed: {ex}");
+			Reply(caller, "Failed to apply skin. Check server logs.");
+		}
+	}
+
+	// Chat alias: !gen ...
+	[ConsoleCommand("gen")]
+	[CommandHelper(minArgs: 4, usage: "gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>", whoCanExecute: CommandUsage.CLIENT_ONLY)]
+	public void Cmd_GenChat(CCSPlayerController caller, CommandInfo cmd) => Cmd_Gen(caller, cmd);
+
+	// Try to invoke the same refresh path as the existing !wp command.
+	// If the internal method name ever changes, this helper will still fall back gracefully.
+	private void TryRequestRefresh(CCSPlayerController player)
+	{
+		try
+		{
+			// Preferred: call a well-known method if it exists.
+			var syncType = typeof(WeaponSynchronization);
+			var m = syncType.GetMethod("RequestFullRefresh", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+			if (m != null) { m.Invoke(null, new object?[] { player }); return; }
+		}
+		catch { /* ignore */ }
+
+		// Fallback: show the built-in instruction so player can trigger !wp manually.
+		// (The README documents !wp as the refresh command.)
+		player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
+	}
+
+	private void Reply(CCSPlayerController? player, string msg)
+	{
+		if (player is { IsValid: true }) player.PrintToChat($"{_config.Prefix} {msg}");
+		else Server.PrintToConsole($"{_config.Prefix} {msg}");
+	}
 }

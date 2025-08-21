@@ -70,6 +70,8 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		Utility.LoadPinsFromFile(ModuleDirectory + $"/data/collectibles_{_config.SkinsLanguage}.json", Logger);
 
 		RegisterListeners();
+    		var gd = Path.Combine(Server.GameDirectory, "addons/counterstrikesharp/gamedata/weaponpaints.json");
+    		WeaponResolver.Initialize(gd);
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
