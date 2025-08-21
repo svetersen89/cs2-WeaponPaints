@@ -996,7 +996,7 @@ public partial class WeaponPaints
 		var patternTok= cmd.GetArg(3);
 		var wearTok   = cmd.GetArg(4);
 
-		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname))
+		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname) || !TryResolveGloveToken(weaponTok, out var gDef, out var gClass))
 		{
 			cmd.ReplyToCommand($"[WeaponPaints] Unknown weapon '{weaponTok}'.");
 			return;
@@ -1238,5 +1238,50 @@ public partial class WeaponPaints
 			Console.WriteLine($"[WeaponPaints] gen failed: {ex}");
 			cmd.ReplyToCommand("[WeaponPaints] Failed to apply skin (see server console).");
 		}
+	}
+	
+	private bool TryResolveGloveToken(string token, out int defindex, out string classname)
+	{
+		defindex = -1;
+		classname = string.Empty;
+
+		// Case 1: token is a defindex (number)
+		if (int.TryParse(token, out var parsedId))
+		{
+			var gloveMatch = GlovesList.FirstOrDefault(g =>
+				g.TryGetValue("weapon_defindex", out var val) &&
+				int.TryParse(val?.ToString(), out var did) &&
+				did == parsedId);
+
+			if (gloveMatch != null)
+			{
+				defindex = parsedId;
+				// some gloves have explicit weapon_name/classname in list
+				if (gloveMatch.TryGetValue("weapon_name", out var cname) && !string.IsNullOrEmpty(cname?.ToString()))
+					classname = cname.ToString()!;
+				else
+					classname = $"glove_{defindex}";
+				return true;
+			}
+		}
+
+		// Case 2: token is a paint_name (e.g., “Sport Gloves”)
+		var byName = GlovesList.FirstOrDefault(g =>
+			g.TryGetValue("paint_name", out var pname) &&
+			string.Equals(pname?.ToString(), token, StringComparison.OrdinalIgnoreCase));
+
+		if (byName != null &&
+			byName.TryGetValue("weapon_defindex", out var didObj) &&
+			int.TryParse(didObj?.ToString(), out var did2))
+		{
+			defindex = did2;
+			if (byName.TryGetValue("weapon_name", out var cname) && !string.IsNullOrEmpty(cname?.ToString()))
+				classname = cname.ToString()!;
+			else
+				classname = $"glove_{defindex}";
+			return true;
+		}
+
+		return false;
 	}
 }
