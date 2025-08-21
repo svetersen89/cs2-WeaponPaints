@@ -18,9 +18,7 @@ using System.Collections.Generic;
 namespace WeaponPaints;
 
 public partial class WeaponPaints
-{
-	private readonly System.Collections.Concurrent.ConcurrentDictionary<int, bool> _pendingKnifeApply = new();
-	
+{	
 	private void OnCommandRefresh(CCSPlayerController? player, CommandInfo command)
 	{
 		if (!Config.Additional.CommandWpEnabled || !Config.Additional.SkinEnabled || !_gBCommandsAllowed) return;
@@ -1048,43 +1046,66 @@ public partial class WeaponPaints
 			// After you've parsed skinId / pattern / wear and built `info` (WeaponInfo)
 			if (isKnife)
 			{
-			    _pendingKnifeApply[player.Slot] = true;
-
-				// Save finish so spawn pipeline can apply it
-				int kSlot = player.Slot;
-
-				System.Collections.Concurrent.ConcurrentDictionary<
-					CounterStrikeSharp.API.Modules.Utils.CsTeam,
-					System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>
-				> teamMap;
-
-				if (!GPlayerWeaponsInfo.TryGetValue(kSlot, out teamMap) || teamMap == null)
+			    // Resolve the knife classname to store (same key the menu writes)
+				// If the user passed an ID, `classname` already came from WeaponDefindex[id]
+				var knifeKey = classname;
+				if (!(knifeKey.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase)
+					  || knifeKey.StartsWith("weapon_bayonet", StringComparison.OrdinalIgnoreCase)))
 				{
-					teamMap = new System.Collections.Concurrent.ConcurrentDictionary<
-						CounterStrikeSharp.API.Modules.Utils.CsTeam,
-						System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>
-					>();
-					GPlayerWeaponsInfo[kSlot] = teamMap;
+					cmd.ReplyToCommand("Unknown knife.");
+					return;
 				}
 
-				var currentTeam = player.Team;
-				var mapForTeam = teamMap.GetOrAdd(
-					currentTeam,
-					_ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>()
-				);
-				mapForTeam[defindex] = info;
+				// Optional: pretty name for feedback (from WeaponList)
+				WeaponList.TryGetValue(knifeKey, out var knifeName);
 
-				var otherTeam = currentTeam == CounterStrikeSharp.API.Modules.Utils.CsTeam.CounterTerrorist
-					? CounterStrikeSharp.API.Modules.Utils.CsTeam.Terrorist
-					: CounterStrikeSharp.API.Modules.Utils.CsTeam.CounterTerrorist;
+				// Match menu UX
+				if (!string.IsNullOrEmpty(Localizer["wp_knife_menu_select"]))
+					player.Print(Localizer["wp_knife_menu_select", knifeName ?? knifeKey]);
 
-				var mapForOther = teamMap.GetOrAdd(
-					otherTeam,
-					_ => new System.Collections.Concurrent.ConcurrentDictionary<int, WeaponInfo>()
-				);
-				mapForOther[defindex] = info;
+				if (!string.IsNullOrEmpty(Localizer["wp_knife_menu_kill"]) && Config.Additional.CommandKillEnabled)
+					player.Print(Localizer["wp_knife_menu_kill"]);
 
-				cmd.ReplyToCommand("Knife saved. It will auto-apply on your next respawn.");
+				// 1) Persist knife selection in the SAME store as the knife menu: GPlayersKnife[slot][team] = knifeKey
+				var playerKnives = GPlayersKnife.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, string>());
+				var teamsToCheck = player.TeamNum < 2
+					? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
+					: new[] { player.Team };
+
+				foreach (var t in teamsToCheck)
+					playerKnives[t] = knifeKey;
+
+				// 2) (Optional but useful) persist finish for this knife defindex so your finish applies too
+				var playerSkins = GPlayerWeaponsInfo.GetOrAdd(player.Slot,
+					new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>());
+
+				foreach (var t in teamsToCheck)
+				{
+					var teamWeapons = playerSkins.GetOrAdd(t, _ => new ConcurrentDictionary<int, WeaponInfo>());
+					var value = teamWeapons.GetOrAdd(defindex, _ => new WeaponInfo());
+					value.Paint = skinId;
+					value.Seed  = pattern;
+					value.Wear  = wear;
+				}
+
+				// 3) Same live-apply behavior the menu uses
+				if (_gBCommandsAllowed && (LifeState_t)player.LifeState == LifeState_t.LIFE_ALIVE)
+					RefreshWeapons(player);
+
+				// 4) Same DB sync the menu does
+				var playerInfo = new PlayerInfo
+				{
+					UserId   = player.UserId,
+					Slot     = player.Slot,
+					Index    = (int)player.Index,
+					SteamId  = player.SteamID.ToString(),
+					Name     = player.PlayerName,
+					IpAddress= player.IpAddress?.Split(":")[0]
+				};
+				if (WeaponSync != null)
+					_ = Task.Run(async () => await WeaponSync.SyncKnifeToDatabase(playerInfo, knifeKey, teamsToCheck));
+
+				// Done with knife branch (do NOT spawn/remove any knife entities here)
 				return;
 			}
 			
