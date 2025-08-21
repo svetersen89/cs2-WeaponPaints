@@ -22,8 +22,8 @@ Unfinished, unoptimized and not fully functional ugly demo weapon paints plugin 
 - Translations support, submit a PR if you want to share your translation
   
 - ### svetersen89 additions
-- Added !gen command for knife, weapon and gloves. For example: !gen weapon_ak47 38 200 0.94
-- Added wp_gen console command, working like the !gen command. For example: wp_gen weapon_ak47 38 200 0.94
+- Added **`!gen`** command for knife, weapon and gloves. For example: !gen weapon_ak47 38 200 0.94
+- Added **`wp_gen`** console command, working like the **`!gen`** command. For example: wp_gen weapon_ak47 38 200 0.94
 - [Generate gen codes](https://cs-gencodes.com/)
 
 ## ⚙️ Requirements
