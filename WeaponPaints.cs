@@ -79,14 +79,12 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{
 			try
 			{
-				var controller = ev.Userid;
-				if (controller is null || !controller.IsValid) return HookResult.Continue;
+				var controller = ev.Userid; // ev.Userid is already CCSPlayerController
+				if (controller is null || !controller.IsValid)
+					return HookResult.Continue;
 
-				if (_pendingKnifeApply.TryRemove(controller.Slot, out _))
-				{
-					// Optional: tell the player the knife was applied
-					// controller.PrintToChat("[WeaponPaints] Knife applied.");
-				}
+				// Clear pending flag; the plugin's normal spawn pipeline will read GPlayerWeaponsInfo
+				_pendingKnifeApply.TryRemove(controller.Slot, out _);
 			}
 			catch { /* ignore */ }
 
