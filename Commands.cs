@@ -1147,16 +1147,40 @@ public partial class WeaponPaints
 				return;
 			}
 			
-			// Non-knife: safe to auto-give immediately (guns etc.)
+			if (WeaponSync != null)
+			{
+				var playerInfo = new PlayerInfo
+				{
+					UserId    = player.UserId,
+					Slot      = player.Slot,
+					Index     = (int)player.Index,
+					SteamId   = player.SteamID.ToString(),
+					Name      = player.PlayerName,
+					IpAddress = player.IpAddress?.Split(":")[0]
+				};
+
+				_ = Task.Run(async () =>
+				{
+					try
+					{
+						await WeaponSync.SyncWeaponPaintsToDatabase(playerInfo);
+					}
+					catch (Exception ex)
+					{
+						Utility.Log($"Error syncing weapon paints: {ex.Message}");
+					}
+				});
+			}
+
+			// Live-apply by giving the item (safe for non-knives)
 			Server.NextFrame(() =>
 			{
 				try
 				{
 					if (!player.IsValid) return;
-					var pawn = player.PlayerPawn.Value;
+					var pawn  = player.PlayerPawn.Value;
 					var items = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();
-					if (items != null)
-						items.GiveNamedItem<CEntityInstance>(classname);
+					items?.GiveNamedItem<CEntityInstance>(classname);
 				}
 				catch (Exception ex)
 				{
