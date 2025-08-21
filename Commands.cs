@@ -986,34 +986,12 @@ public partial class WeaponPaints
 			Reply(caller, "Failed to apply skin. Check server logs.");
 		}
 	}
-
-	// Chat alias: !gen ...
-	[ConsoleCommand("gen")]
-	[CommandHelper(minArgs: 4, usage: "gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>", whoCanExecute: CommandUsage.CLIENT_ONLY)]
-	public void Cmd_GenChat(CCSPlayerController caller, CommandInfo cmd) => Cmd_Gen(caller, cmd);
-
-	// Try to invoke the same refresh path as the existing !wp command.
-	// If the internal method name ever changes, this helper will still fall back gracefully.
-	private void TryRequestRefresh(CCSPlayerController player)
-	{
-		try
-		{
-			// Preferred: call a well-known method if it exists.
-			var syncType = typeof(WeaponSynchronization);
-			var m = syncType.GetMethod("RequestFullRefresh", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-			if (m != null) { m.Invoke(null, new object?[] { player }); return; }
-		}
-		catch { /* ignore */ }
-
-		// Fallback: show the built-in instruction so player can trigger !wp manually.
-		// (The README documents !wp as the refresh command.)
-		player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
-	}
-	
+	// Shared logic for css_gen / wp_gen
 	private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
 	{
 		// Expected: <weaponId|classname> <skinId> <patternIndex> <wearFloat>
-		if (cmd.ArgCount < 5) {
+		if (cmd.ArgCount < 5)
+		{
 			Reply(caller, "Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
 			return;
 		}
@@ -1023,46 +1001,71 @@ public partial class WeaponPaints
 		var pArg = cmd.GetArg(3);
 		var fArg = cmd.GetArg(4);
 
-		if (!WeaponResolver.TryResolve(wArg, out var weaponClass)) {
+		if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
+		{
 			Reply(caller, $"Unknown weapon: {wArg}");
 			return;
 		}
 
 		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
 			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
-			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear)) {
+			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
+		{
 			Reply(caller, "Invalid args. Example: !gen weapon_awp 279 1 0.05");
-			return;
-		}
-
-		if (caller is null || !caller.IsValid || caller.SteamID == 0) {
-			Reply(caller, "Run this in-game as a player.");
 			return;
 		}
 
 		if (pattern < 0 || pattern > 1000) { Reply(caller, "Pattern index must be 0–1000."); return; }
 		if (wear < 0f || wear > 1f)       { Reply(caller, "Wear must be 0.00–1.00.");        return; }
 
-		var info = new WeaponInfo {
-			WeaponName = weaponClass,
+		if (caller is null || !caller.IsValid || caller.SteamID == 0)
+		{
+			Reply(caller, "Run this in-game as a player.");
+			return;
+		}
+
+		var info = new WeaponInfo
+		{
+			WeaponName = weaponClass, // store internal classname
 			Paint = skinId,
 			Seed = pattern,
 			Wear = wear
 		};
 
-		try {
+		try
+		{
 			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
-			TryRequestRefresh(caller); // use your existing refresh/apply path
+
+			// Use same refresh/apply path as your existing !wp
+			TryRequestRefresh(caller);
+
 			Reply(caller, $"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
-		} catch (Exception ex) {
+		}
+		catch (Exception ex)
+		{
 			Logger.Error($"gen failed: {ex}");
 			Reply(caller, "Failed to apply skin. Check server logs.");
 		}
 	}
 
+	// tiny helper used above (you likely already have something similar)
 	private void Reply(CCSPlayerController? player, string msg)
 	{
 		if (player is { IsValid: true }) player.PrintToChat($"{_config.Prefix} {msg}");
 		else Server.PrintToConsole($"{_config.Prefix} {msg}");
 	}
+
+	// Calls the same routine your existing !wp uses; change this body if your project exposes a direct method
+	private void TryRequestRefresh(CCSPlayerController player)
+	{
+		try
+		{
+			WeaponSynchronization.RequestFullRefresh(player);
+		}
+		catch
+		{
+			player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
+		}
+	}
+    
 }

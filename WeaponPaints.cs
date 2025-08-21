@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Core.Attributes;
+using CounterStrikeSharp.API.Modules.Commands;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
@@ -70,12 +70,16 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		Utility.LoadPinsFromFile(ModuleDirectory + $"/data/collectibles_{_config.SkinsLanguage}.json", Logger);
 
 		RegisterListeners();
-    		var gd = Path.Combine(Server.GameDirectory, "addons/counterstrikesharp/gamedata/weaponpaints.json");
-    		WeaponResolver.Initialize(gd);
-		AddCommand("css_gen", "Generate/apply a custom skin", (CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
+		var gd = Path.Combine(Server.GameDirectory, "addons/counterstrikesharp/gamedata/weaponpaints.json");
+		WeaponResolver.Initialize(gd);
+		
+		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
+		AddCommand("css_gen", "Generate/apply a custom skin",
+			(CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
 
-   		// Console-only alias (so "wp_gen ..." works too)
-    		AddCommand("wp_gen", "Generate/apply a custom skin", (CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
+		// Console alias: "wp_gen 9 279 1 0.05"
+		AddCommand("wp_gen", "Generate/apply a custom skin",
+			(CCSPlayerController? player, CommandInfo cmd) => HandleGen(player, cmd));
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
