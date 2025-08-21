@@ -1042,66 +1042,108 @@ public partial class WeaponPaints
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
 			
-			bool isGlove = classname.Contains("glove", StringComparison.OrdinalIgnoreCase);
+			bool isGlove =
+				classname.IndexOf("glove", StringComparison.OrdinalIgnoreCase) >= 0 ||
+				GlovesList.Any(g =>
+				{
+					if (!g.ContainsKey("weapon_defindex")) return false;
+					var s = g["weapon_defindex"]?.ToString();
+					return int.TryParse(s, out var did) && did == defindex;
+				});
 
 			if (isGlove)
 			{
-				// Resolve the glove key (classname) the menu stores. If the user passed an ID, `classname`
-				// already came from your WeaponDefindex[id].
-				var gloveKey = classname;
+				// Optional: image + pretty name feedback (same UX style as the menu)
+				var foundGlove = GlovesList.FirstOrDefault(g =>
+					((int?)g["weapon_defindex"] ?? 0) == defindex &&
+					((int?)g["paint"] ?? -1) == skinId
+				);
 
-				// Optional pretty name for chat (same source used by menus)
-				WeaponList.TryGetValue(gloveKey, out var gloveName);
+				if (Config.Additional.ShowSkinImage)
+				{
+					var image = foundGlove?["image"]?.ToString() ?? "";
+					_playerWeaponImage[player.Slot] = image;
+					AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot), CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
+				}
 
-				// Match menu UX (if you have these localized strings)
-				if (!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]))
-					player.Print(Localizer["wp_gloves_menu_select", gloveName ?? gloveKey]);
-
-				// Persist glove selection in the SAME store as your !gloves menu:
-				//    GPlayersGloves[slot][team] = gloveKey
-				var playerGloves = GPlayersGloves.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, string>());
-
+				// Persist model choice exactly like the menu:
+				//   GPlayersGlove[slot][team] = (ushort)weapon_defindex
+				var playerGloves = GPlayersGlove.GetOrAdd(player.Slot, new ConcurrentDictionary<CsTeam, ushort>());
 				var teamsToCheck = player.TeamNum < 2
 					? new[] { CsTeam.Terrorist, CsTeam.CounterTerrorist }
 					: new[] { player.Team };
 
 				foreach (var t in teamsToCheck)
-					playerGloves[t] = gloveKey;
+					playerGloves[t] = (ushort)defindex;
 
-				// (Optional) persist finish so paint/seed/wear apply for the chosen glove defindex
-				var playerSkins = GPlayerWeaponsInfo.GetOrAdd(player.Slot,
-					new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>());
+				// Ensure finish (paint/seed/wear) is saved in the same structure skins use
+				if (!GPlayerWeaponsInfo.ContainsKey(player.Slot))
+					GPlayerWeaponsInfo[player.Slot] = new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>();
 
 				foreach (var t in teamsToCheck)
 				{
-					var teamItems = playerSkins.GetOrAdd(t, _ => new ConcurrentDictionary<int, WeaponInfo>());
-					var finish = teamItems.GetOrAdd(defindex, _ => new WeaponInfo());
-					finish.Paint = skinId;
-					finish.Seed  = pattern;
-					finish.Wear  = wear;
+					if (!GPlayerWeaponsInfo[player.Slot].ContainsKey(t))
+						GPlayerWeaponsInfo[player.Slot][t] = new ConcurrentDictionary<int, WeaponInfo>();
+
+					// Create/update finish for this glove defindex
+					if (!GPlayerWeaponsInfo[player.Slot][t].TryGetValue(defindex, out var finfo))
+					{
+						finfo = new WeaponInfo();
+						GPlayerWeaponsInfo[player.Slot][t][defindex] = finfo;
+					}
+					finfo.Paint = skinId;
+					finfo.Wear  = wear;
+					finfo.Seed  = pattern;
 				}
 
-				// Live-apply (same as your menus) — safe for gloves
-				if (_gBCommandsAllowed && (LifeState_t)player.LifeState == LifeState_t.LIFE_ALIVE)
-					RefreshWeapons(player);
-
-				// Optional DB sync (uncomment if your WeaponSync exposes this, like the knife path)
-				
-				var playerInfo = new PlayerInfo
-				{
-					UserId   = player.UserId,
-					Slot     = player.Slot,
-					Index    = (int)player.Index,
-					SteamId  = player.SteamID.ToString(),
-					Name     = player.PlayerName,
-					IpAddress= player.IpAddress?.Split(":")[0]
-				};
+				// DB sync (same calls the menu makes)
 				if (WeaponSync != null)
-					_ = Task.Run(async () => await WeaponSync.SyncGlovesToDatabase(playerInfo, gloveKey, teamsToCheck));
-				
+				{
+					var playerInfo = new PlayerInfo
+					{
+						UserId   = player.UserId,
+						Slot     = player.Slot,
+						Index    = (int)player.Index,
+						SteamId  = player.SteamID.ToString(),
+						Name     = player.PlayerName,
+						IpAddress= player.IpAddress?.Split(":")[0]
+					};
 
-				// Done with glove branch — do NOT spawn/remove any glove entities here.
-				return;
+					_ = Task.Run(async () =>
+					{
+						// Note: your menu passes the whole teamsToCheck array to SyncGloveToDatabase
+						await WeaponSync.SyncGloveToDatabase(playerInfo, (ushort)defindex, teamsToCheck);
+
+						// Keep parity with the menu: update paints then sync paints to DB
+						foreach (var t in teamsToCheck)
+						{
+							if (!GPlayerWeaponsInfo[playerInfo.Slot][t].TryGetValue(defindex, out var val))
+							{
+								val = new WeaponInfo();
+								GPlayerWeaponsInfo[playerInfo.Slot][t][defindex] = val;
+							}
+							val.Paint = skinId;
+							val.Wear  = wear;
+							val.Seed  = pattern;
+						}
+
+						await WeaponSync.SyncWeaponPaintsToDatabase(playerInfo);
+					});
+				}
+
+				// Apply like the menu: give gloves twice on short timers (no entity spam elsewhere)
+				AddTimer(0.1f,  () => GivePlayerGloves(player));
+				AddTimer(0.25f, () => GivePlayerGloves(player));
+
+				// Optional localized confirmation, if present
+				if (!string.IsNullOrEmpty(Localizer["wp_gloves_menu_select"]))
+				{
+					var niceName = foundGlove?["paint_name"]?.ToString();
+					if (!string.IsNullOrEmpty(niceName))
+						player.Print(Localizer["wp_gloves_menu_select", niceName]);
+				}
+
+				return; // important: stop further processing (don’t fall into gun autogive)
 			}
 			
 			// Detect knife by ID or classname
