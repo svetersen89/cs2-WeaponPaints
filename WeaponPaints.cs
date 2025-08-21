@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Modules.Events; 
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
@@ -78,21 +79,21 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		{
 			try
 			{
-				var controller = ev.Userid?.Controller;
-				if (controller is null || !controller.IsValid) return HookResult.Continue;
+				var controller = ev.Userid;                 // <-- ev.Userid is already CCSPlayerController
+				if (controller is null || !controller.IsValid)
+					return HookResult.Continue;
 
-				// If player has a pending knife change, just clear the flag.
-				// The plugin’s normal spawn pipeline will read GPlayerWeaponsInfo and apply the knife skin.
+				// Clear the pending flag; your normal spawn pipeline will read GPlayerWeaponsInfo and apply the knife skin.
 				_pendingKnifeApply.TryRemove(controller.Slot, out _);
 			}
 			catch
 			{
-				// ignore — we don't want to interfere with spawn flow
+				// swallow; we don't want to break spawn flow
 			}
 
 			return HookResult.Continue;
 		}, HookMode.Post);
-	
+			
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
