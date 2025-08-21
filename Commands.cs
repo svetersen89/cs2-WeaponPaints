@@ -18,7 +18,9 @@ using System.Collections.Generic;
 namespace WeaponPaints;
 
 public partial class WeaponPaints
-{	
+{
+	private readonly System.Collections.Concurrent.ConcurrentDictionary<int, bool> _pendingKnifeApply = new();
+	
 	private void OnCommandRefresh(CCSPlayerController? player, CommandInfo command)
 	{
 		if (!Config.Additional.CommandWpEnabled || !Config.Additional.SkinEnabled || !_gBCommandsAllowed) return;
