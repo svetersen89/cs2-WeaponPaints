@@ -996,7 +996,7 @@ public partial class WeaponPaints
 		var patternTok= cmd.GetArg(3);
 		var wearTok   = cmd.GetArg(4);
 
-		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname) || !TryResolveGloveToken(weaponTok, out var gDef, out var gClass))
+		if (!TryResolveWeaponToken(weaponTok, out var defindex, out var classname) && !TryResolveGloveToken(weaponTok, out var gDef, out var gClass))
 		{
 			cmd.ReplyToCommand($"[WeaponPaints] Unknown weapon '{weaponTok}'.");
 			return;
