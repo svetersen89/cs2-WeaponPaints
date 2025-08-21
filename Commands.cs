@@ -1017,13 +1017,20 @@ public partial class WeaponPaints
         try
         {
             // Store in-memory so the next refresh / item-give uses it
-            if (!GPlayerWeaponsInfo.TryGetValue(caller.Slot, out var perWeapon))
-            {
-                perWeapon = new Dictionary<int, WeaponInfo>();
-                GPlayerWeaponsInfo[caller.Slot] = perWeapon;
-            }
+            if (!GPlayerWeaponsInfo.TryGetValue(caller.Slot, out var byTeam) || byTeam is null)
+			{
+				byTeam = new ConcurrentDictionary<CsTeam, ConcurrentDictionary<int, WeaponInfo>>();
+				GPlayerWeaponsInfo[caller.Slot] = byTeam;
+			}
 
-            perWeapon[defindex] = info;
+			// get the player's current team key
+			var team = caller.Team; // CsTeam enum
+
+			// ensure per-team dictionary exists
+			var perWeapon = byTeam.GetOrAdd(team, _ => new ConcurrentDictionary<int, WeaponInfo>());
+
+			// set/overwrite this weapon’s settings for that team
+			perWeapon[defindex] = info;
 
             // We don't call any nonexistent "RequestFullRefresh" here.
             // Tell the player how to apply with the existing command (from Additional.CommandRefresh default ["wp"])
