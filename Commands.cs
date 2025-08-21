@@ -1038,85 +1038,88 @@ public partial class WeaponPaints
 			var other = team == CsTeam.CounterTerrorist ? CsTeam.Terrorist : CsTeam.CounterTerrorist;
 			var forOther = byTeam.GetOrAdd(other, _ => new ConcurrentDictionary<int, WeaponInfo>());
 			forOther[defindex] = info;
+			
+			// Determine if the target is a knife (either classname starts with weapon_knife or defindex >= 500)
+			bool isKnife = classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase) || defindex >= 500;
 
-			// ---- ALWAYS auto give (correct API: ItemServices, not WeaponServices) ----
-			Server.NextFrame(() =>
+			if (!isKnife)
 			{
-				try
+				// ---- ALWAYS auto give (correct API: ItemServices, not WeaponServices) ----
+				Server.NextFrame(() =>
 				{
-					if (!player.IsValid) return;
-					var pawn = player.PlayerPawn.Value;
-					var services = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();  // ✔ cast to managed wrapper
-					services?.GiveNamedItem<CEntityInstance>(classname);
-				}
-				catch (Exception ex)
-				{
-					Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
-				}
-			});
-
-			// ---- ALWAYS auto refresh: tiny nudge to trigger your apply codepath ----
-			Server.NextFrame(() =>
-			{
-				try
-				{
-					if (!player.IsValid) return;
-
-					var pawn = player.PlayerPawn.Value;
-					if (pawn is null) return;
-
-					// Determine if the target is a knife (either classname starts with weapon_knife or defindex >= 500)
-					bool isKnife = classname.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase) || defindex >= 500;
-
-					// For knives: remove old knives first to avoid duplicates / invalid states
-					if (isKnife)
+					try
 					{
-						var ws = pawn.WeaponServices; // read-only access is fine
-						var arr = ws?.MyWeapons;
-						if (arr is not null)
-						{
-							foreach (var handle in arr)
-							{
-								var ent = handle.Value;
-								if (ent is null) continue;
+						if (!player.IsValid) return;
+						var pawn = player.PlayerPawn.Value;
+						var services = pawn?.ItemServices?.As<CCSPlayer_ItemServices>();  // ✔ cast to managed wrapper
+						services?.GiveNamedItem<CEntityInstance>(classname);
+					}
+					catch (Exception ex)
+					{
+						Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
+					}
+				});
+			}
+			else
+			{
+				// ---- ALWAYS auto refresh: tiny nudge to trigger your apply codepath ----
+				Server.NextFrame(() =>
+				{
+					try
+					{
+						if (!player.IsValid) return;
 
-								var dn = ent.DesignerName ?? string.Empty; // entity server classname
-								if (dn.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
+						var pawn = player.PlayerPawn.Value;
+						if (pawn is null) return;
+						// For knives: remove old knives first to avoid duplicates / invalid states
+						if (isKnife)
+						{
+							var ws = pawn.WeaponServices; // read-only access is fine
+							var arr = ws?.MyWeapons;
+							if (arr is not null)
+							{
+								foreach (var handle in arr)
 								{
-									ent.Remove(); // remove all existing knives
+									var ent = handle.Value;
+									if (ent is null) continue;
+
+									var dn = ent.DesignerName ?? string.Empty; // entity server classname
+									if (dn.StartsWith("weapon_knife", StringComparison.OrdinalIgnoreCase))
+									{
+										ent.Remove(); // remove all existing knives
+									}
 								}
 							}
 						}
+
+						// Give the requested item via ItemServices wrapper
+						var items = pawn.ItemServices?.As<CCSPlayer_ItemServices>();
+						if (items is null) return;
+
+						// Pick the proper spawn classname:
+						//  - KNIVES: spawn with base class (team-appropriate)
+						//  - OTHERS: spawn with resolved classname
+						string spawnClass;
+						if (isKnife)
+						{
+							// CT uses "weapon_knife", T uses "weapon_knife_t"
+							spawnClass = player.Team == CsTeam.Terrorist ? "weapon_knife_t" : "weapon_knife";
+						}
+						else
+						{
+							spawnClass = classname; // guns etc. are valid as-is
+						}
+
+						items.GiveNamedItem<CEntityInstance>(spawnClass);
+
+						// No extra "refresh nudge" — giving the item is enough for your apply pipeline.
 					}
-
-					// Give the requested item via ItemServices wrapper
-					var items = pawn.ItemServices?.As<CCSPlayer_ItemServices>();
-					if (items is null) return;
-
-					// Pick the proper spawn classname:
-					//  - KNIVES: spawn with base class (team-appropriate)
-					//  - OTHERS: spawn with resolved classname
-					string spawnClass;
-					if (isKnife)
+					catch (Exception ex)
 					{
-						// CT uses "weapon_knife", T uses "weapon_knife_t"
-						spawnClass = player.Team == CsTeam.Terrorist ? "weapon_knife_t" : "weapon_knife";
+						Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
 					}
-					else
-					{
-						spawnClass = classname; // guns etc. are valid as-is
-					}
-
-					items.GiveNamedItem<CEntityInstance>(spawnClass);
-
-					// No extra "refresh nudge" — giving the item is enough for your apply pipeline.
-				}
-				catch (Exception ex)
-				{
-					Console.WriteLine($"[WeaponPaints] auto-give failed for {classname}: {ex}");
-				}
-			});
-
+				});
+			}
 			cmd.ReplyToCommand($"[WeaponPaints] {classname} → paint {skinId}, pattern {pattern}, wear {wear:0.#####}. Given & refreshed.");
 		}
 		catch (Exception ex)
