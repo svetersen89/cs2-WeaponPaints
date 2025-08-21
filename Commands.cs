@@ -1,6 +1,8 @@
 ﻿using System.Collections.Concurrent;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Core.Attributes;
+using CounterStrikeSharp.API.Core.Attributes.Registration; // for CommandHelper etc.
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Menu;
 using CounterStrikeSharp.API.Modules.Timers;
@@ -930,142 +932,79 @@ public partial class WeaponPaints
 			});
 		});
 	}
-	
-	// Console: wp_gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>
-	[ConsoleCommand("wp_gen")]
-	[CommandHelper(minArgs: 4, usage: "wp_gen <weaponId|classname> <skinId> <patternIndex> <wearFloat>", whoCanExecute: CommandUsage.CLIENT_AND_SERVER)]
-	public void Cmd_Gen(CCSPlayerController? caller, CommandInfo cmd)
-	{
-		var wArg = cmd.GetArg(1);
-		var sArg = cmd.GetArg(2);
-		var pArg = cmd.GetArg(3);
-		var fArg = cmd.GetArg(4);
-
-		if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
-		{
-			Reply(caller, $"Unknown weapon: {wArg}");
-			return;
-		}
-		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
-			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
-			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
-		{
-			Reply(caller, "Invalid args. Example: !gen weapon_awp 279 1 0.05");
-			return;
-		}
-		if (pattern < 0 || pattern > 1000) { Reply(caller, "Pattern index must be 0–1000."); return; }
-		if (wear < 0f || wear > 1f) { Reply(caller, "Wear must be 0.00–1.00."); return; }
-
-		// must be an in-game player
-		if (caller == null || !caller.IsValid || caller.SteamID == 0)
-		{
-			Reply(caller, "Run this in-game as a player.");
-			return;
-		}
-
-		var info = new WeaponInfo
-		{
-			WeaponName = weaponClass, // store classname
-			Paint = skinId,
-			Seed = pattern,
-			Wear = wear
-		};
-
-		try
-		{
-			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
-
-			// Try to reuse the same refresh/apply path as !wp (documented in README)
-			TryRequestRefresh(caller);
-
-			Reply(caller, $"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
-		}
-		catch (System.Exception ex)
-		{
-			Logger.Error($"wp_gen failed: {ex}");
-			Reply(caller, "Failed to apply skin. Check server logs.");
-		}
-	}
 	// Shared logic for css_gen / wp_gen
-	private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
-	{
-		// Expected: <weaponId|classname> <skinId> <patternIndex> <wearFloat>
-		if (cmd.ArgCount < 5)
-		{
-			Reply(caller, "Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
-			return;
-		}
+        private void HandleGen(CCSPlayerController? caller, CommandInfo cmd)
+        {
+            // Expected: <weaponId|classname> <skinId> <patternIndex> <wearFloat>
+            if (cmd.ArgCount < 5)
+            {
+                cmd.ReplyToCommand("Usage: !gen <weaponId|classname> <skinId> <pattern> <wear>");
+                return;
+            }
 
-		var wArg = cmd.GetArg(1);
-		var sArg = cmd.GetArg(2);
-		var pArg = cmd.GetArg(3);
-		var fArg = cmd.GetArg(4);
+            var wArg = cmd.GetArg(1);
+            var sArg = cmd.GetArg(2);
+            var pArg = cmd.GetArg(3);
+            var fArg = cmd.GetArg(4);
 
-		if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
-		{
-			Reply(caller, $"Unknown weapon: {wArg}");
-			return;
-		}
+            if (!WeaponResolver.TryResolve(wArg, out var weaponClass))
+            {
+                cmd.ReplyToCommand($"Unknown weapon: {wArg}");
+                return;
+            }
 
-		if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
-			!int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
-			!float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
-		{
-			Reply(caller, "Invalid args. Example: !gen weapon_awp 279 1 0.05");
-			return;
-		}
+            if (!int.TryParse(sArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var skinId) ||
+                !int.TryParse(pArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var pattern) ||
+                !float.TryParse(fArg, NumberStyles.Float, CultureInfo.InvariantCulture, out var wear))
+            {
+                cmd.ReplyToCommand("Invalid args. Example: !gen weapon_awp 279 1 0.05");
+                return;
+            }
 
-		if (pattern < 0 || pattern > 1000) { Reply(caller, "Pattern index must be 0–1000."); return; }
-		if (wear < 0f || wear > 1f)       { Reply(caller, "Wear must be 0.00–1.00.");        return; }
+            if (pattern < 0 || pattern > 1000) { cmd.ReplyToCommand("Pattern index must be 0–1000."); return; }
+            if (wear < 0f || wear > 1f)       { cmd.ReplyToCommand("Wear must be 0.00–1.00.");        return; }
 
-		if (caller is null || !caller.IsValid || caller.SteamID == 0)
-		{
-			Reply(caller, "Run this in-game as a player.");
-			return;
-		}
+            if (caller is null || !caller.IsValid || caller.SteamID == 0)
+            {
+                cmd.ReplyToCommand("Run this in-game as a player.");
+                return;
+            }
 
-		var info = new WeaponInfo
-		{
-			WeaponName = weaponClass, // store internal classname
-			Paint = skinId,
-			Seed = pattern,
-			Wear = wear
-		};
+            var info = new WeaponInfo
+            {
+                WeaponName = weaponClass, // store internal classname (e.g. weapon_ak47)
+                Paint = skinId,
+                Seed = pattern,
+                Wear = wear
+            };
 
-		try
-		{
-			_ = _store.UpsertWeaponAsync(caller.SteamID, info);
+            try
+            {
+                _ = _store.UpsertWeaponAsync(caller.SteamID, info);
 
-			// Use same refresh/apply path as your existing !wp
-			TryRequestRefresh(caller);
+                // Use the same refresh/apply path as your existing !wp (if available)
+                TryRequestRefresh(caller);
 
-			Reply(caller, $"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
-		}
-		catch (Exception ex)
-		{
-			Logger.Error($"gen failed: {ex}");
-			Reply(caller, "Failed to apply skin. Check server logs.");
-		}
+                cmd.ReplyToCommand($"Applied {weaponClass}: paint {skinId}, pattern {pattern}, wear {wear:0.00}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"gen failed: {ex}");
+                cmd.ReplyToCommand("Failed to apply skin. Check server logs.");
+            }
+        }
+
+        // Calls the same routine your existing !wp uses; change if your project exposes a different method
+        private void TryRequestRefresh(CCSPlayerController player)
+        {
+            try
+            {
+                WeaponSynchronization.RequestFullRefresh(player);
+            }
+            catch
+            {
+                player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
+            }
+        }
 	}
-
-	// tiny helper used above (you likely already have something similar)
-	private void Reply(CCSPlayerController? player, string msg)
-	{
-		if (player is { IsValid: true }) player.PrintToChat($"{_config.Prefix} {msg}");
-		else Server.PrintToConsole($"{_config.Prefix} {msg}");
-	}
-
-	// Calls the same routine your existing !wp uses; change this body if your project exposes a direct method
-	private void TryRequestRefresh(CCSPlayerController player)
-	{
-		try
-		{
-			WeaponSynchronization.RequestFullRefresh(player);
-		}
-		catch
-		{
-			player.PrintToChat($"{_config.Prefix} Type !{_config.Additional.CommandRefresh} to refresh now.");
-		}
-	}
-    
 }

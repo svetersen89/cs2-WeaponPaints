@@ -7,7 +7,6 @@ using MySqlConnector;
 
 namespace WeaponPaints;
 
-[MinimumApiVersion(276)]
 public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig>
 {
 	internal static WeaponPaints Instance { get; private set; } = new();
