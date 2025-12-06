@@ -935,6 +935,8 @@ public partial class WeaponPaints
 				{
 					player.Print(Localizer["wp_command_cooldown"]);
 				}
+			});
+		});
 	}
 	
 	private static bool TryResolveWeaponToken(string token, out int defindex, out string classname)
