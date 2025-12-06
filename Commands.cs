@@ -1,26 +1,24 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
-using CounterStrikeSharp.API.Core.Attributes.Registration; // for CommandHelper etc.
+using CounterStrikeSharp.API.Core.Attributes.Registration; // for CommandHelper etc.											 																				
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Menu;
 using CounterStrikeSharp.API.Modules.Timers;
 using CounterStrikeSharp.API.Modules.Utils;
-using CounterStrikeSharp.API.Modules.Events; 
+using CounterStrikeSharp.API.Modules.Events; 											 
 using Newtonsoft.Json.Linq;
 
 using System;
 using System.Globalization;
 using System.Linq;
-using System.Collections.Generic;
-
+using System.Collections.Generic;	 
 namespace WeaponPaints;
 
 public partial class WeaponPaints
 {
-	private readonly System.Collections.Concurrent.ConcurrentDictionary<int, bool> _pendingKnifeApply = new();
-	
+	private readonly System.Collections.Concurrent.ConcurrentDictionary<int, bool> _pendingKnifeApply = new();																								   
 	private void OnCommandRefresh(CCSPlayerController? player, CommandInfo command)
 	{
 		if (!Config.Additional.CommandWpEnabled || !Config.Additional.SkinEnabled || !_gBCommandsAllowed) return;
@@ -937,8 +935,6 @@ public partial class WeaponPaints
 				{
 					player.Print(Localizer["wp_command_cooldown"]);
 				}
-			});
-		});
 	}
 	
 	private static bool TryResolveWeaponToken(string token, out int defindex, out string classname)
