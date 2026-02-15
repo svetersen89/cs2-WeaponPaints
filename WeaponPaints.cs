@@ -74,6 +74,10 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 
 		RegisterListeners();
 		
+		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
+		AddCommand("css_gen", "Generate/apply a skin: !gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
+		AddCommand("wp_gen",  "Generate/apply a skin: wp_gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
+		
 		RegisterEventHandler<EventPlayerSpawn>((ev, info) =>
 		{
 		    try
@@ -159,6 +163,7 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		}
 	}
 }
+
 
 
 
