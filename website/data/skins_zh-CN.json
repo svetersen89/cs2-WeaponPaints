@@ -18,6 +18,14 @@
     {
         "weapon_defindex": 7,
         "weapon_name": "weapon_ak47",
+        "paint": "1352",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1352.png",
+        "paint_name": "AK-47 | 流金王朝",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
         "paint": "113",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-113.png",
         "paint_name": "AK-47 | 局外人",
@@ -338,6 +346,14 @@
     {
         "weapon_defindex": 7,
         "weapon_name": "weapon_ak47",
+        "paint": "1397",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1397.png",
+        "paint_name": "AK-47 | 爱神",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
         "paint": "1179",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1179.png",
         "paint_name": "AK-47 | 橄榄迷彩",
@@ -397,6 +413,14 @@
         "paint": "1309",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1309.png",
         "paint_name": "AK-47 | 新红浪潮",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
+        "paint": "1358",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1358.png",
+        "paint_name": "AK-47 | 突破",
         "legacy_model": false
     },
     {
@@ -549,6 +573,14 @@
         "paint": "121",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-121.png",
         "paint_name": "AUG | 豪华装饰",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 8,
+        "weapon_name": "weapon_aug",
+        "paint": "1339",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-1339.png",
+        "paint_name": "AUG | 后发制人",
         "legacy_model": false
     },
     {
@@ -762,6 +794,14 @@
     {
         "weapon_defindex": 8,
         "weapon_name": "weapon_aug",
+        "paint": "1362",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-1362.png",
+        "paint_name": "AUG | 蔓延",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 8,
+        "weapon_name": "weapon_aug",
         "paint": "444",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-444.png",
         "paint_name": "AUG | 代达罗斯之殇",
@@ -854,6 +894,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-424.png",
         "paint_name": "AWP | 蠕虫之神",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1346",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1346.png",
+        "paint_name": "AWP | 可燃冰",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 9,
@@ -1150,6 +1198,22 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-451.png",
         "paint_name": "AWP | 狮子之日",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1378",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1378.png",
+        "paint_name": "AWP | 热释放",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1356",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1356.png",
+        "paint_name": "AWP | 剧终",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 9,
@@ -1674,6 +1738,22 @@
     {
         "weapon_defindex": 26,
         "weapon_name": "weapon_bizon",
+        "paint": "1374",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-1374.png",
+        "paint_name": "PP-野牛 | 变焦",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 26,
+        "weapon_name": "weapon_bizon",
+        "paint": "1392",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-1392.png",
+        "paint_name": "PP-野牛 | 热气流",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 26,
+        "weapon_name": "weapon_bizon",
         "paint": "873",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-873.png",
         "paint_name": "PP-野牛 | 海鸟",
@@ -1740,7 +1820,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a.png",
-        "paint_name": "CZ75  | Default",
+        "paint_name": "CZ75自动型  | Default",
         "legacy_model": false
     },
     {
@@ -1748,7 +1828,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "298",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-298.png",
-        "paint_name": "CZ75 | 军队之辉",
+        "paint_name": "CZ75自动型 | 军队之辉",
         "legacy_model": true
     },
     {
@@ -1756,7 +1836,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "1195",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1195.png",
-        "paint_name": "CZ75 | 铜芯纤维",
+        "paint_name": "CZ75自动型 | 铜芯纤维",
         "legacy_model": false
     },
     {
@@ -1764,7 +1844,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "859",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-859.png",
-        "paint_name": "CZ75 | 翡翠石英",
+        "paint_name": "CZ75自动型 | 翡翠石英",
         "legacy_model": true
     },
     {
@@ -1772,7 +1852,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "622",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-622.png",
-        "paint_name": "CZ75 | 聚合物",
+        "paint_name": "CZ75自动型 | 聚合物",
         "legacy_model": true
     },
     {
@@ -1780,7 +1860,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "268",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-268.png",
-        "paint_name": "CZ75 | 花纹钢板",
+        "paint_name": "CZ75自动型 | 花纹钢板",
         "legacy_model": true
     },
     {
@@ -1788,7 +1868,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "269",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-269.png",
-        "paint_name": "CZ75 | 梅红时刻",
+        "paint_name": "CZ75自动型 | 梅红时刻",
         "legacy_model": false
     },
     {
@@ -1796,7 +1876,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "334",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-334.png",
-        "paint_name": "CZ75 | 螺形扭转",
+        "paint_name": "CZ75自动型 | 螺形扭转",
         "legacy_model": true
     },
     {
@@ -1804,7 +1884,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "315",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-315.png",
-        "paint_name": "CZ75 | 毒镖",
+        "paint_name": "CZ75自动型 | 毒镖",
         "legacy_model": true
     },
     {
@@ -1812,7 +1892,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "325",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-325.png",
-        "paint_name": "CZ75 | 复古圣杯",
+        "paint_name": "CZ75自动型 | 复古圣杯",
         "legacy_model": true
     },
     {
@@ -1820,7 +1900,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "453",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-453.png",
-        "paint_name": "CZ75 | 翡翠色调",
+        "paint_name": "CZ75自动型 | 翡翠色调",
         "legacy_model": false
     },
     {
@@ -1828,7 +1908,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "32",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-32.png",
-        "paint_name": "CZ75 | 银质",
+        "paint_name": "CZ75自动型 | 银质",
         "legacy_model": false
     },
     {
@@ -1836,7 +1916,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "270",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-270.png",
-        "paint_name": "CZ75 | 维多利亚",
+        "paint_name": "CZ75自动型 | 维多利亚",
         "legacy_model": true
     },
     {
@@ -1844,7 +1924,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "937",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-937.png",
-        "paint_name": "CZ75 | 回转",
+        "paint_name": "CZ75自动型 | 回转",
         "legacy_model": false
     },
     {
@@ -1852,7 +1932,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "350",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-350.png",
-        "paint_name": "CZ75 | 猛虎",
+        "paint_name": "CZ75自动型 | 猛虎",
         "legacy_model": true
     },
     {
@@ -1860,7 +1940,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "944",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-944.png",
-        "paint_name": "CZ75 | 做旧手艺",
+        "paint_name": "CZ75自动型 | 做旧手艺",
         "legacy_model": true
     },
     {
@@ -1868,7 +1948,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "709",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-709.png",
-        "paint_name": "CZ75 | 经济",
+        "paint_name": "CZ75自动型 | 经济",
         "legacy_model": true
     },
     {
@@ -1876,7 +1956,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "435",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-435.png",
-        "paint_name": "CZ75 | 先驱",
+        "paint_name": "CZ75自动型 | 先驱",
         "legacy_model": true
     },
     {
@@ -1884,7 +1964,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "1036",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1036.png",
-        "paint_name": "CZ75 | 短趾雕",
+        "paint_name": "CZ75自动型 | 短趾雕",
         "legacy_model": true
     },
     {
@@ -1892,7 +1972,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "476",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-476.png",
-        "paint_name": "CZ75 | 黄夹克",
+        "paint_name": "CZ75自动型 | 黄夹克",
         "legacy_model": true
     },
     {
@@ -1900,7 +1980,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "687",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-687.png",
-        "paint_name": "CZ75 | 战术高手",
+        "paint_name": "CZ75自动型 | 战术高手",
         "legacy_model": true
     },
     {
@@ -1908,7 +1988,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "602",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-602.png",
-        "paint_name": "CZ75 | 印花板",
+        "paint_name": "CZ75自动型 | 印花板",
         "legacy_model": true
     },
     {
@@ -1916,7 +1996,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "976",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-976.png",
-        "paint_name": "CZ75 | 世仇",
+        "paint_name": "CZ75自动型 | 世仇",
         "legacy_model": true
     },
     {
@@ -1924,7 +2004,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "543",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-543.png",
-        "paint_name": "CZ75 | 红鹰",
+        "paint_name": "CZ75自动型 | 红鹰",
         "legacy_model": true
     },
     {
@@ -1932,7 +2012,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "643",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-643.png",
-        "paint_name": "CZ75 | 相柳",
+        "paint_name": "CZ75自动型 | 相柳",
         "legacy_model": true
     },
     {
@@ -1940,7 +2020,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "1064",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1064.png",
-        "paint_name": "CZ75 | 辛迪加",
+        "paint_name": "CZ75自动型 | 辛迪加",
         "legacy_model": true
     },
     {
@@ -1948,7 +2028,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "218",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-218.png",
-        "paint_name": "CZ75 | 蓝巢",
+        "paint_name": "CZ75自动型 | 蓝巢",
         "legacy_model": true
     },
     {
@@ -1956,7 +2036,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "366",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-366.png",
-        "paint_name": "CZ75 | 绿色格纹",
+        "paint_name": "CZ75自动型 | 绿色格纹",
         "legacy_model": true
     },
     {
@@ -1964,7 +2044,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "1076",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1076.png",
-        "paint_name": "CZ75 | 幻光构架",
+        "paint_name": "CZ75自动型 | 幻光构架",
         "legacy_model": true
     },
     {
@@ -1972,15 +2052,23 @@
         "weapon_name": "weapon_cz75a",
         "paint": "12",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-12.png",
-        "paint_name": "CZ75 | 深红之网",
+        "paint_name": "CZ75自动型 | 深红之网",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 63,
+        "weapon_name": "weapon_cz75a",
+        "paint": "1390",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1390.png",
+        "paint_name": "CZ75自动型 | 蜜金佩斯利",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 63,
         "weapon_name": "weapon_cz75a",
         "paint": "333",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-333.png",
-        "paint_name": "CZ75 | 紫青之色",
+        "paint_name": "CZ75自动型 | 紫青之色",
         "legacy_model": false
     },
     {
@@ -1988,7 +2076,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "322",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-322.png",
-        "paint_name": "CZ75 | 氮化处理",
+        "paint_name": "CZ75自动型 | 氮化处理",
         "legacy_model": false
     },
     {
@@ -1996,7 +2084,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "297",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-297.png",
-        "paint_name": "CZ75 | 燕尾",
+        "paint_name": "CZ75自动型 | 燕尾",
         "legacy_model": false
     },
     {
@@ -2004,7 +2092,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "1329",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1329.png",
-        "paint_name": "CZ75 | 粉玑",
+        "paint_name": "CZ75自动型 | 粉玑",
         "legacy_model": false
     },
     {
@@ -2012,7 +2100,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "933",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-933.png",
-        "paint_name": "CZ75 | 夜半棕榈",
+        "paint_name": "CZ75自动型 | 夜半棕榈",
         "legacy_model": false
     },
     {
@@ -2020,7 +2108,7 @@
         "weapon_name": "weapon_cz75a",
         "paint": "147",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-147.png",
-        "paint_name": "CZ75 | 丛林虚线",
+        "paint_name": "CZ75自动型 | 丛林虚线",
         "legacy_model": false
     },
     {
@@ -2346,6 +2434,14 @@
     {
         "weapon_defindex": 1,
         "weapon_name": "weapon_deagle",
+        "paint": "1360",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-1360.png",
+        "paint_name": "沙漠之鹰 | 每日鹰爆",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 1,
+        "weapon_name": "weapon_deagle",
         "paint": "40",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-40.png",
         "paint_name": "沙漠之鹰 | 噩梦之夜",
@@ -2501,6 +2597,14 @@
         "paint": "1169",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1169.png",
         "paint_name": "双持贝瑞塔 | 藏身处",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 2,
+        "weapon_name": "weapon_elite",
+        "paint": "1347",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1347.png",
+        "paint_name": "双持贝瑞塔 | 天矢之眼",
         "legacy_model": false
     },
     {
@@ -2666,6 +2770,14 @@
     {
         "weapon_defindex": 2,
         "weapon_name": "weapon_elite",
+        "paint": "1373",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1373.png",
+        "paint_name": "双持贝瑞塔 | 银流",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 2,
+        "weapon_name": "weapon_elite",
         "paint": "1263",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1263.png",
         "paint_name": "双持贝瑞塔 | 蔷薇珠母",
@@ -2772,7 +2884,7 @@
         "weapon_name": "weapon_famas",
         "paint": "429",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-429.png",
-        "paint_name": "法玛斯 | 灯神",
+        "paint_name": "法玛斯 | 爱神",
         "legacy_model": true
     },
     {
@@ -2938,6 +3050,14 @@
     {
         "weapon_defindex": 10,
         "weapon_name": "weapon_famas",
+        "paint": "1393",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1393.png",
+        "paint_name": "法玛斯 | 副产品",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 10,
+        "weapon_name": "weapon_famas",
         "paint": "47",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-47.png",
         "paint_name": "法玛斯 | 殖民侵略者",
@@ -2949,6 +3069,14 @@
         "paint": "1219",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1219.png",
         "paint_name": "法玛斯 | 雪怪迷彩",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 10,
+        "weapon_name": "weapon_famas",
+        "paint": "1365",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1365.png",
+        "paint_name": "法玛斯 | 复仇",
         "legacy_model": false
     },
     {
@@ -3322,6 +3450,14 @@
     {
         "weapon_defindex": 3,
         "weapon_name": "weapon_fiveseven",
+        "paint": "1380",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_fiveseven-1380.png",
+        "paint_name": "FN57 | 鹤吻莓",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 3,
+        "weapon_name": "weapon_fiveseven",
         "paint": "1336",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_fiveseven-1336.png",
         "paint_name": "FN57 | 秋日灌木",
@@ -3596,7 +3732,7 @@
         "weapon_name": "weapon_galilar",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar.png",
-        "paint_name": "加利尔 AR  | Default",
+        "paint_name": "加利尔AR  | Default",
         "legacy_model": false
     },
     {
@@ -3604,7 +3740,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "246",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-246.png",
-        "paint_name": "加利尔 AR | 渐变琥珀",
+        "paint_name": "加利尔AR | 渐变琥珀",
         "legacy_model": false
     },
     {
@@ -3612,7 +3748,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "460",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-460.png",
-        "paint_name": "加利尔 AR | 水蓝阶地",
+        "paint_name": "加利尔AR | 水蓝阶地",
         "legacy_model": true
     },
     {
@@ -3620,7 +3756,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "216",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-216.png",
-        "paint_name": "加利尔 AR | 蓝钛",
+        "paint_name": "加利尔AR | 蓝钛",
         "legacy_model": false
     },
     {
@@ -3628,7 +3764,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1178",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1178.png",
-        "paint_name": "加利尔 AR | 彩虹勺",
+        "paint_name": "加利尔AR | 彩虹勺",
         "legacy_model": false
     },
     {
@@ -3636,7 +3772,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "379",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-379.png",
-        "paint_name": "加利尔 AR | 地狱看门犬",
+        "paint_name": "加利尔AR | 地狱看门犬",
         "legacy_model": true
     },
     {
@@ -3644,7 +3780,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "398",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-398.png",
-        "paint_name": "加利尔 AR | 喧闹骷髅",
+        "paint_name": "加利尔AR | 喧闹骷髅",
         "legacy_model": true
     },
     {
@@ -3652,7 +3788,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "629",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-629.png",
-        "paint_name": "加利尔 AR | 黑砂",
+        "paint_name": "加利尔AR | 黑砂",
         "legacy_model": true
     },
     {
@@ -3660,7 +3796,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "661",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-661.png",
-        "paint_name": "加利尔 AR | ~甜甜的~",
+        "paint_name": "加利尔AR | ~甜甜的~",
         "legacy_model": true
     },
     {
@@ -3668,7 +3804,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1038",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1038.png",
-        "paint_name": "加利尔 AR | 迷人眼",
+        "paint_name": "加利尔AR | 迷人眼",
         "legacy_model": true
     },
     {
@@ -3676,7 +3812,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1147",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1147.png",
-        "paint_name": "加利尔 AR | 毁灭者",
+        "paint_name": "加利尔AR | 毁灭者",
         "legacy_model": true
     },
     {
@@ -3684,7 +3820,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "428",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-428.png",
-        "paint_name": "加利尔 AR | 经济",
+        "paint_name": "加利尔AR | 经济",
         "legacy_model": true
     },
     {
@@ -3692,7 +3828,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "478",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-478.png",
-        "paint_name": "加利尔 AR | 火箭冰棒",
+        "paint_name": "加利尔AR | 火箭冰棒",
         "legacy_model": true
     },
     {
@@ -3700,7 +3836,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "939",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-939.png",
-        "paint_name": "加利尔 AR | NV",
+        "paint_name": "加利尔AR | NV",
         "legacy_model": false
     },
     {
@@ -3708,7 +3844,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "264",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-264.png",
-        "paint_name": "加利尔 AR | 沙尘暴",
+        "paint_name": "加利尔AR | 沙尘暴",
         "legacy_model": true
     },
     {
@@ -3716,7 +3852,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1185",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1185.png",
-        "paint_name": "加利尔 AR | 控制",
+        "paint_name": "加利尔AR | 控制",
         "legacy_model": false
     },
     {
@@ -3724,7 +3860,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "494",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-494.png",
-        "paint_name": "加利尔 AR | 冷石",
+        "paint_name": "加利尔AR | 冷石",
         "legacy_model": true
     },
     {
@@ -3732,7 +3868,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "972",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-972.png",
-        "paint_name": "加利尔 AR | 凤凰商号",
+        "paint_name": "加利尔AR | 凤凰商号",
         "legacy_model": true
     },
     {
@@ -3740,7 +3876,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "981",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-981.png",
-        "paint_name": "加利尔 AR | 破坏者",
+        "paint_name": "加利尔AR | 破坏者",
         "legacy_model": true
     },
     {
@@ -3748,7 +3884,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "546",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-546.png",
-        "paint_name": "加利尔 AR | 火线冲锋",
+        "paint_name": "加利尔AR | 火线冲锋",
         "legacy_model": true
     },
     {
@@ -3756,7 +3892,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "192",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-192.png",
-        "paint_name": "加利尔 AR | 支离破碎",
+        "paint_name": "加利尔AR | 支离破碎",
         "legacy_model": true
     },
     {
@@ -3764,7 +3900,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "83",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-83.png",
-        "paint_name": "加利尔 AR | 橙黄 DDPAT",
+        "paint_name": "加利尔AR | 橙黄 DDPAT",
         "legacy_model": true
     },
     {
@@ -3772,7 +3908,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "76",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-76.png",
-        "paint_name": "加利尔 AR | 冬之森林",
+        "paint_name": "加利尔AR | 冬之森林",
         "legacy_model": true
     },
     {
@@ -3780,7 +3916,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "308",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-308.png",
-        "paint_name": "加利尔 AR | 神祇",
+        "paint_name": "加利尔AR | 神祇",
         "legacy_model": true
     },
     {
@@ -3788,7 +3924,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "807",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-807.png",
-        "paint_name": "加利尔 AR | 信号灯",
+        "paint_name": "加利尔AR | 信号灯",
         "legacy_model": true
     },
     {
@@ -3796,7 +3932,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "790",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-790.png",
-        "paint_name": "加利尔 AR | 冰核聚变",
+        "paint_name": "加利尔AR | 冰核聚变",
         "legacy_model": true
     },
     {
@@ -3804,7 +3940,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1032",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1032.png",
-        "paint_name": "加利尔 AR | 废墟黄昏",
+        "paint_name": "加利尔AR | 废墟黄昏",
         "legacy_model": true
     },
     {
@@ -3812,7 +3948,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "235",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-235.png",
-        "paint_name": "加利尔 AR | 多变迷彩",
+        "paint_name": "加利尔AR | 多变迷彩",
         "legacy_model": true
     },
     {
@@ -3820,15 +3956,23 @@
         "weapon_name": "weapon_galilar",
         "paint": "237",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-237.png",
-        "paint_name": "加利尔 AR | 都市瓦砾",
+        "paint_name": "加利尔AR | 都市瓦砾",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 13,
+        "weapon_name": "weapon_galilar",
+        "paint": "1383",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1383.png",
+        "paint_name": "加利尔AR | 天空曼陀罗",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 13,
         "weapon_name": "weapon_galilar",
         "paint": "1296",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1296.png",
-        "paint_name": "加利尔 AR | 酸蚀镖",
+        "paint_name": "加利尔AR | 酸蚀镖",
         "legacy_model": false
     },
     {
@@ -3836,7 +3980,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "294",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-294.png",
-        "paint_name": "加利尔 AR | 绿苹果",
+        "paint_name": "加利尔AR | 绿苹果",
         "legacy_model": false
     },
     {
@@ -3844,7 +3988,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "297",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-297.png",
-        "paint_name": "加利尔 AR | 燕尾",
+        "paint_name": "加利尔AR | 燕尾",
         "legacy_model": false
     },
     {
@@ -3852,7 +3996,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "101",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-101.png",
-        "paint_name": "加利尔 AR | 狂哮飓风",
+        "paint_name": "加利尔AR | 狂哮飓风",
         "legacy_model": false
     },
     {
@@ -3860,7 +4004,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1275",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1275.png",
-        "paint_name": "加利尔 AR | 灰色烟幕",
+        "paint_name": "加利尔AR | 灰色烟幕",
         "legacy_model": false
     },
     {
@@ -3868,7 +4012,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1314",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1314.png",
-        "paint_name": "加利尔 AR | 血橙游骑兵",
+        "paint_name": "加利尔AR | 血橙游骑兵",
         "legacy_model": false
     },
     {
@@ -3876,7 +4020,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1264",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1264.png",
-        "paint_name": "加利尔 AR | 鸲珠",
+        "paint_name": "加利尔AR | 鸲珠",
         "legacy_model": false
     },
     {
@@ -3884,7 +4028,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "842",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-842.png",
-        "paint_name": "加利尔 AR | 战吼斑纹",
+        "paint_name": "加利尔AR | 战吼斑纹",
         "legacy_model": false
     },
     {
@@ -3892,7 +4036,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1071",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1071.png",
-        "paint_name": "加利尔 AR | 警告！",
+        "paint_name": "加利尔AR | 警告！",
         "legacy_model": false
     },
     {
@@ -3900,7 +4044,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "647",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-647.png",
-        "paint_name": "加利尔 AR | 深红海啸",
+        "paint_name": "加利尔AR | 深红海啸",
         "legacy_model": false
     },
     {
@@ -3908,7 +4052,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "241",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-241.png",
-        "paint_name": "加利尔 AR | 隐蔽猎手",
+        "paint_name": "加利尔AR | 隐蔽猎手",
         "legacy_model": false
     },
     {
@@ -3916,7 +4060,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "239",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-239.png",
-        "paint_name": "加利尔 AR | 金属榨汁机",
+        "paint_name": "加利尔AR | 金属榨汁机",
         "legacy_model": false
     },
     {
@@ -3924,7 +4068,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "1013",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1013.png",
-        "paint_name": "加利尔 AR | 凤凰冥灯",
+        "paint_name": "加利尔AR | 凤凰冥灯",
         "legacy_model": true
     },
     {
@@ -3932,7 +4076,7 @@
         "weapon_name": "weapon_galilar",
         "paint": "119",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-119.png",
-        "paint_name": "加利尔 AR | 贤者涂装",
+        "paint_name": "加利尔AR | 贤者涂装",
         "legacy_model": false
     },
     {
@@ -3940,7 +4084,7 @@
         "weapon_name": "weapon_glock",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock.png",
-        "paint_name": "格洛克 18 型  | Default",
+        "paint_name": "格洛克18型  | Default",
         "legacy_model": false
     },
     {
@@ -3948,7 +4092,7 @@
         "weapon_name": "weapon_glock",
         "paint": "38",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-38.png",
-        "paint_name": "格洛克 18 型 | 渐变之色",
+        "paint_name": "格洛克18型 | 渐变之色",
         "legacy_model": false
     },
     {
@@ -3956,7 +4100,7 @@
         "weapon_name": "weapon_glock",
         "paint": "694",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-694.png",
-        "paint_name": "格洛克 18 型 | 城里的月光",
+        "paint_name": "格洛克18型 | 城里的月光",
         "legacy_model": true
     },
     {
@@ -3964,7 +4108,7 @@
         "weapon_name": "weapon_glock",
         "paint": "799",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-799.png",
-        "paint_name": "格洛克 18 型 | 远光灯",
+        "paint_name": "格洛克18型 | 远光灯",
         "legacy_model": false
     },
     {
@@ -3972,7 +4116,7 @@
         "weapon_name": "weapon_glock",
         "paint": "437",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-437.png",
-        "paint_name": "格洛克 18 型 | 暮光星系",
+        "paint_name": "格洛克18型 | 暮光星系",
         "legacy_model": false
     },
     {
@@ -3980,7 +4124,7 @@
         "weapon_name": "weapon_glock",
         "paint": "230",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-230.png",
-        "paint_name": "格洛克 18 型 | 钢铁禁锢",
+        "paint_name": "格洛克18型 | 钢铁禁锢",
         "legacy_model": true
     },
     {
@@ -3988,7 +4132,7 @@
         "weapon_name": "weapon_glock",
         "paint": "48",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-48.png",
-        "paint_name": "格洛克 18 型 | 黑龙纹身",
+        "paint_name": "格洛克18型 | 黑龙纹身",
         "legacy_model": true
     },
     {
@@ -3996,7 +4140,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1119",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1119.png",
-        "paint_name": "格洛克 18 型 | 伽玛多普勒",
+        "paint_name": "格洛克18型 | 伽玛多普勒",
         "legacy_model": true
     },
     {
@@ -4004,7 +4148,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1120",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1120.png",
-        "paint_name": "格洛克 18 型 | 伽玛多普勒",
+        "paint_name": "格洛克18型 | 伽玛多普勒",
         "legacy_model": true
     },
     {
@@ -4012,7 +4156,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1121",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1121.png",
-        "paint_name": "格洛克 18 型 | 伽玛多普勒",
+        "paint_name": "格洛克18型 | 伽玛多普勒",
         "legacy_model": true
     },
     {
@@ -4020,7 +4164,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1122",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1122.png",
-        "paint_name": "格洛克 18 型 | 伽玛多普勒",
+        "paint_name": "格洛克18型 | 伽玛多普勒",
         "legacy_model": true
     },
     {
@@ -4028,7 +4172,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1123",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1123.png",
-        "paint_name": "格洛克 18 型 | 伽玛多普勒",
+        "paint_name": "格洛克18型 | 伽玛多普勒",
         "legacy_model": true
     },
     {
@@ -4036,7 +4180,7 @@
         "weapon_name": "weapon_glock",
         "paint": "367",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-367.png",
-        "paint_name": "格洛克 18 型 | 核子反应",
+        "paint_name": "格洛克18型 | 核子反应",
         "legacy_model": true
     },
     {
@@ -4044,7 +4188,7 @@
         "weapon_name": "weapon_glock",
         "paint": "789",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-789.png",
-        "paint_name": "格洛克 18 型 | 核子花园",
+        "paint_name": "格洛克18型 | 核子花园",
         "legacy_model": true
     },
     {
@@ -4052,7 +4196,7 @@
         "weapon_name": "weapon_glock",
         "paint": "159",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-159.png",
-        "paint_name": "格洛克 18 型 | 黄铜",
+        "paint_name": "格洛克18型 | 黄铜",
         "legacy_model": true
     },
     {
@@ -4060,7 +4204,7 @@
         "weapon_name": "weapon_glock",
         "paint": "479",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-479.png",
-        "paint_name": "格洛克 18 型 | 本生灯",
+        "paint_name": "格洛克18型 | 本生灯",
         "legacy_model": true
     },
     {
@@ -4068,7 +4212,7 @@
         "weapon_name": "weapon_glock",
         "paint": "381",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-381.png",
-        "paint_name": "格洛克 18 型 | 粉碎者",
+        "paint_name": "格洛克18型 | 粉碎者",
         "legacy_model": true
     },
     {
@@ -4076,7 +4220,7 @@
         "weapon_name": "weapon_glock",
         "paint": "623",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-623.png",
-        "paint_name": "格洛克 18 型 | 铁之作",
+        "paint_name": "格洛克18型 | 铁之作",
         "legacy_model": true
     },
     {
@@ -4084,7 +4228,7 @@
         "weapon_name": "weapon_glock",
         "paint": "353",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-353.png",
-        "paint_name": "格洛克 18 型 | 水灵",
+        "paint_name": "格洛克18型 | 水灵",
         "legacy_model": true
     },
     {
@@ -4092,7 +4236,7 @@
         "weapon_name": "weapon_glock",
         "paint": "808",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-808.png",
-        "paint_name": "格洛克 18 型 | 锈蚀烈焰",
+        "paint_name": "格洛克18型 | 锈蚀烈焰",
         "legacy_model": true
     },
     {
@@ -4100,7 +4244,7 @@
         "weapon_name": "weapon_glock",
         "paint": "957",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-957.png",
-        "paint_name": "格洛克 18 型 | 子弹皇后",
+        "paint_name": "格洛克18型 | 子弹皇后",
         "legacy_model": true
     },
     {
@@ -4108,7 +4252,7 @@
         "weapon_name": "weapon_glock",
         "paint": "607",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-607.png",
-        "paint_name": "格洛克 18 型 | 鼬鼠",
+        "paint_name": "格洛克18型 | 鼬鼠",
         "legacy_model": true
     },
     {
@@ -4116,7 +4260,7 @@
         "weapon_name": "weapon_glock",
         "paint": "399",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-399.png",
-        "paint_name": "格洛克 18 型 | 亡者之寝",
+        "paint_name": "格洛克18型 | 亡者之寝",
         "legacy_model": true
     },
     {
@@ -4124,7 +4268,7 @@
         "weapon_name": "weapon_glock",
         "paint": "963",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-963.png",
-        "paint_name": "格洛克 18 型 | 摩登时代",
+        "paint_name": "格洛克18型 | 摩登时代",
         "legacy_model": true
     },
     {
@@ -4132,7 +4276,7 @@
         "weapon_name": "weapon_glock",
         "paint": "918",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-918.png",
-        "paint_name": "格洛克 18 型 | 烈焰天使",
+        "paint_name": "格洛克18型 | 烈焰天使",
         "legacy_model": true
     },
     {
@@ -4140,7 +4284,7 @@
         "weapon_name": "weapon_glock",
         "paint": "680",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-680.png",
-        "paint_name": "格洛克 18 型 | 异星世界",
+        "paint_name": "格洛克18型 | 异星世界",
         "legacy_model": true
     },
     {
@@ -4148,7 +4292,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1227",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1227.png",
-        "paint_name": "格洛克 18 型 | 圆影玉兔",
+        "paint_name": "格洛克18型 | 圆影玉兔",
         "legacy_model": true
     },
     {
@@ -4156,7 +4300,7 @@
         "weapon_name": "weapon_glock",
         "paint": "988",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-988.png",
-        "paint_name": "格洛克 18 型 | 黑色魅影",
+        "paint_name": "格洛克18型 | 黑色魅影",
         "legacy_model": true
     },
     {
@@ -4164,7 +4308,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1240",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1240.png",
-        "paint_name": "格洛克 18 型 | 拉美西斯之触",
+        "paint_name": "格洛克18型 | 拉美西斯之触",
         "legacy_model": true
     },
     {
@@ -4172,7 +4316,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1100",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1100.png",
-        "paint_name": "格洛克 18 型 | 零食派对",
+        "paint_name": "格洛克18型 | 零食派对",
         "legacy_model": true
     },
     {
@@ -4180,7 +4324,7 @@
         "weapon_name": "weapon_glock",
         "paint": "586",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-586.png",
-        "paint_name": "格洛克 18 型 | 荒野反叛",
+        "paint_name": "格洛克18型 | 荒野反叛",
         "legacy_model": true
     },
     {
@@ -4188,7 +4332,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1016",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1016.png",
-        "paint_name": "格洛克 18 型 | 富兰克林",
+        "paint_name": "格洛克18型 | 富兰克林",
         "legacy_model": true
     },
     {
@@ -4196,7 +4340,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1167",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1167.png",
-        "paint_name": "格洛克 18 型 | 崩络克-18",
+        "paint_name": "格洛克18型 | 崩络克18型",
         "legacy_model": false
     },
     {
@@ -4204,7 +4348,15 @@
         "weapon_name": "weapon_glock",
         "paint": "129",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-129.png",
-        "paint_name": "格洛克 18 型 | 大金牙",
+        "paint_name": "格洛克18型 | 大金牙",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 4,
+        "weapon_name": "weapon_glock",
+        "paint": "1348",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1348.png",
+        "paint_name": "格洛克18型 | 镜面马赛克",
         "legacy_model": false
     },
     {
@@ -4212,7 +4364,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1208",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1208.png",
-        "paint_name": "格洛克 18 型 | 忍瞳",
+        "paint_name": "格洛克18型 | 忍瞳",
         "legacy_model": false
     },
     {
@@ -4220,7 +4372,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1200",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1200.png",
-        "paint_name": "格洛克 18 型 | 格林线",
+        "paint_name": "格洛克18型 | 格林线",
         "legacy_model": false
     },
     {
@@ -4228,7 +4380,7 @@
         "weapon_name": "weapon_glock",
         "paint": "532",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-532.png",
-        "paint_name": "格洛克 18 型 | 皇家军团",
+        "paint_name": "格洛克18型 | 皇家军团",
         "legacy_model": true
     },
     {
@@ -4236,7 +4388,7 @@
         "weapon_name": "weapon_glock",
         "paint": "495",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-495.png",
-        "paint_name": "格洛克 18 型 | 幻影冥魂",
+        "paint_name": "格洛克18型 | 幻影冥魂",
         "legacy_model": true
     },
     {
@@ -4244,7 +4396,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1158",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1158.png",
-        "paint_name": "格洛克 18 型 | 冬季战术",
+        "paint_name": "格洛克18型 | 冬季战术",
         "legacy_model": true
     },
     {
@@ -4252,7 +4404,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1039",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1039.png",
-        "paint_name": "格洛克 18 型 | 一目了然",
+        "paint_name": "格洛克18型 | 一目了然",
         "legacy_model": true
     },
     {
@@ -4260,7 +4412,7 @@
         "weapon_name": "weapon_glock",
         "paint": "713",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-713.png",
-        "paint_name": "格洛克 18 型 | 战鹰",
+        "paint_name": "格洛克18型 | 战鹰",
         "legacy_model": true
     },
     {
@@ -4268,7 +4420,15 @@
         "weapon_name": "weapon_glock",
         "paint": "832",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-832.png",
-        "paint_name": "格洛克 18 型 | AXIA",
+        "paint_name": "格洛克18型 | AXIA",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 4,
+        "weapon_name": "weapon_glock",
+        "paint": "1357",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1357.png",
+        "paint_name": "格洛克18型 | 追踪锁定",
         "legacy_model": false
     },
     {
@@ -4276,7 +4436,7 @@
         "weapon_name": "weapon_glock",
         "paint": "278",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-278.png",
-        "paint_name": "格洛克 18 型 | 蓝色裂纹",
+        "paint_name": "格洛克18型 | 蓝色裂纹",
         "legacy_model": true
     },
     {
@@ -4284,7 +4444,7 @@
         "weapon_name": "weapon_glock",
         "paint": "84",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-84.png",
-        "paint_name": "格洛克 18 型 | 粉红 DDPAT",
+        "paint_name": "格洛克18型 | 粉红 DDPAT",
         "legacy_model": true
     },
     {
@@ -4292,7 +4452,7 @@
         "weapon_name": "weapon_glock",
         "paint": "732",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-732.png",
-        "paint_name": "格洛克 18 型 | 合成叶",
+        "paint_name": "格洛克18型 | 合成叶",
         "legacy_model": true
     },
     {
@@ -4300,7 +4460,7 @@
         "weapon_name": "weapon_glock",
         "paint": "293",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-293.png",
-        "paint_name": "格洛克 18 型 | 夺命撼响",
+        "paint_name": "格洛克18型 | 夺命撼响",
         "legacy_model": true
     },
     {
@@ -4308,7 +4468,7 @@
         "weapon_name": "weapon_glock",
         "paint": "152",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-152.png",
-        "paint_name": "格洛克 18 型 | 凫色涂鸦",
+        "paint_name": "格洛克18型 | 凫色涂鸦",
         "legacy_model": false
     },
     {
@@ -4316,7 +4476,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1265",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1265.png",
-        "paint_name": "格洛克 18 型 | 深海地貌",
+        "paint_name": "格洛克18型 | 深海地貌",
         "legacy_model": false
     },
     {
@@ -4324,7 +4484,7 @@
         "weapon_name": "weapon_glock",
         "paint": "40",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-40.png",
-        "paint_name": "格洛克 18 型 | 噩梦之夜",
+        "paint_name": "格洛克18型 | 噩梦之夜",
         "legacy_model": false
     },
     {
@@ -4332,7 +4492,7 @@
         "weapon_name": "weapon_glock",
         "paint": "2",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-2.png",
-        "paint_name": "格洛克 18 型 | 地下水",
+        "paint_name": "格洛克18型 | 地下水",
         "legacy_model": false
     },
     {
@@ -4340,7 +4500,7 @@
         "weapon_name": "weapon_glock",
         "paint": "3",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-3.png",
-        "paint_name": "格洛克 18 型 | 红苹果",
+        "paint_name": "格洛克18型 | 红苹果",
         "legacy_model": false
     },
     {
@@ -4348,7 +4508,7 @@
         "weapon_name": "weapon_glock",
         "paint": "208",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-208.png",
-        "paint_name": "格洛克 18 型 | 沙丘之黄",
+        "paint_name": "格洛克18型 | 沙丘之黄",
         "legacy_model": false
     },
     {
@@ -4356,7 +4516,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1312",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1312.png",
-        "paint_name": "格洛克 18 型 | 珊红花汛",
+        "paint_name": "格洛克18型 | 珊红花汛",
         "legacy_model": false
     },
     {
@@ -4364,7 +4524,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1079",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1079.png",
-        "paint_name": "格洛克 18 型 | 红色轮胎",
+        "paint_name": "格洛克18型 | 红色轮胎",
         "legacy_model": false
     },
     {
@@ -4372,7 +4532,7 @@
         "weapon_name": "weapon_glock",
         "paint": "1282",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1282.png",
-        "paint_name": "格洛克 18 型 | 格更鸟",
+        "paint_name": "格洛克18型 | 格更鸟",
         "legacy_model": false
     },
     {
@@ -4610,6 +4770,14 @@
     {
         "weapon_defindex": 32,
         "weapon_name": "weapon_hkp2000",
+        "paint": "1342",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1342.png",
+        "paint_name": "P2000 | 红翼",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 32,
+        "weapon_name": "weapon_hkp2000",
         "paint": "1181",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1181.png",
         "paint_name": "P2000 | 防滑握把",
@@ -4621,6 +4789,14 @@
         "paint": "95",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-95.png",
         "paint_name": "P2000 | 工业牧草",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 32,
+        "weapon_name": "weapon_hkp2000",
+        "paint": "1359",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1359.png",
+        "paint_name": "P2000 | 防滑胶带",
         "legacy_model": false
     },
     {
@@ -9106,6 +9282,14 @@
     {
         "weapon_defindex": 14,
         "weapon_name": "weapon_m249",
+        "paint": "1370",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m249-1370.png",
+        "paint_name": "M249 | 冻雨",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 14,
+        "weapon_name": "weapon_m249",
         "paint": "1298",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m249-1298.png",
         "paint_name": "M249 | 鼠尾草迷彩",
@@ -9482,6 +9666,14 @@
     {
         "weapon_defindex": 16,
         "weapon_name": "weapon_m4a1",
+        "paint": "1364",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1364.png",
+        "paint_name": "M4A4 | 风蚀幽冥",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 16,
+        "weapon_name": "weapon_m4a1",
         "paint": "1266",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1266.png",
         "paint_name": "M4A4 | 海军虎纹迷彩",
@@ -9506,6 +9698,14 @@
     {
         "weapon_defindex": 16,
         "weapon_name": "weapon_m4a1",
+        "paint": "1353",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1353.png",
+        "paint_name": "M4A4 | 破浪狂飙",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 16,
+        "weapon_name": "weapon_m4a1",
         "paint": "1165",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1165.png",
         "paint_name": "M4A4 | 蚀刻领主",
@@ -9516,7 +9716,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer.png",
-        "paint_name": "M4A1 消音型  | Default",
+        "paint_name": "M4A1消音版  | Default",
         "legacy_model": false
     },
     {
@@ -9524,7 +9724,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1177",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1177.png",
-        "paint_name": "M4A1 消音型 | 渐变之色",
+        "paint_name": "M4A1消音版 | 渐变之色",
         "legacy_model": false
     },
     {
@@ -9532,7 +9732,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "862",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-862.png",
-        "paint_name": "M4A1 消音型 | 苔藓石英",
+        "paint_name": "M4A1消音版 | 苔藓石英",
         "legacy_model": true
     },
     {
@@ -9540,7 +9740,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "301",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-301.png",
-        "paint_name": "M4A1 消音型 | 原子合金",
+        "paint_name": "M4A1消音版 | 原子合金",
         "legacy_model": true
     },
     {
@@ -9548,7 +9748,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1017",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1017.png",
-        "paint_name": "M4A1 消音型 | 澜磷",
+        "paint_name": "M4A1消音版 | 澜磷",
         "legacy_model": false
     },
     {
@@ -9556,7 +9756,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "326",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-326.png",
-        "paint_name": "M4A1 消音型 | 骑士",
+        "paint_name": "M4A1消音版 | 骑士",
         "legacy_model": true
     },
     {
@@ -9564,7 +9764,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "60",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-60.png",
-        "paint_name": "M4A1 消音型 | 黑水",
+        "paint_name": "M4A1消音版 | 黑水",
         "legacy_model": true
     },
     {
@@ -9572,7 +9772,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "445",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-445.png",
-        "paint_name": "M4A1 消音型 | 赤红新星",
+        "paint_name": "M4A1消音版 | 赤红新星",
         "legacy_model": true
     },
     {
@@ -9580,7 +9780,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "383",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-383.png",
-        "paint_name": "M4A1 消音型 | 翼蜥",
+        "paint_name": "M4A1消音版 | 翼蜥",
         "legacy_model": true
     },
     {
@@ -9588,7 +9788,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "257",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-257.png",
-        "paint_name": "M4A1 消音型 | 守护者",
+        "paint_name": "M4A1消音版 | 守护者",
         "legacy_model": true
     },
     {
@@ -9596,7 +9796,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "321",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-321.png",
-        "paint_name": "M4A1 消音型 | 神来之作",
+        "paint_name": "M4A1消音版 | 神来之作",
         "legacy_model": true
     },
     {
@@ -9604,7 +9804,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "631",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-631.png",
-        "paint_name": "M4A1 消音型 | 闪回",
+        "paint_name": "M4A1消音版 | 闪回",
         "legacy_model": true
     },
     {
@@ -9612,7 +9812,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "430",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-430.png",
-        "paint_name": "M4A1 消音型 | 暴怒野兽",
+        "paint_name": "M4A1消音版 | 暴怒野兽",
         "legacy_model": true
     },
     {
@@ -9620,7 +9820,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1001",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1001.png",
-        "paint_name": "M4A1 消音型 | 冒险家乐园",
+        "paint_name": "M4A1消音版 | 冒险家乐园",
         "legacy_model": true
     },
     {
@@ -9628,7 +9828,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "946",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-946.png",
-        "paint_name": "M4A1 消音型 | 二号玩家",
+        "paint_name": "M4A1消音版 | 二号玩家",
         "legacy_model": true
     },
     {
@@ -9636,7 +9836,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "360",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-360.png",
-        "paint_name": "M4A1 消音型 | 次时代",
+        "paint_name": "M4A1消音版 | 次时代",
         "legacy_model": true
     },
     {
@@ -9644,7 +9844,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1223",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1223.png",
-        "paint_name": "M4A1 消音型 | 隐伏帝王龙",
+        "paint_name": "M4A1消音版 | 隐伏帝王龙",
         "legacy_model": true
     },
     {
@@ -9652,7 +9852,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "663",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-663.png",
-        "paint_name": "M4A1 消音型 | 简报",
+        "paint_name": "M4A1消音版 | 简报",
         "legacy_model": true
     },
     {
@@ -9660,7 +9860,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "714",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-714.png",
-        "paint_name": "M4A1 消音型 | 梦魇",
+        "paint_name": "M4A1消音版 | 梦魇",
         "legacy_model": true
     },
     {
@@ -9668,7 +9868,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "984",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-984.png",
-        "paint_name": "M4A1 消音型 | 印花集",
+        "paint_name": "M4A1消音版 | 印花集",
         "legacy_model": true
     },
     {
@@ -9676,7 +9876,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "548",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-548.png",
-        "paint_name": "M4A1 消音型 | 女火神之炽焰",
+        "paint_name": "M4A1消音版 | 女火神之炽焰",
         "legacy_model": true
     },
     {
@@ -9684,7 +9884,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1216",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1216.png",
-        "paint_name": "M4A1 消音型 | 平流层巡航",
+        "paint_name": "M4A1消音版 | 平流层巡航",
         "legacy_model": false
     },
     {
@@ -9692,7 +9892,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "644",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-644.png",
-        "paint_name": "M4A1 消音型 | 毁灭者 2000",
+        "paint_name": "M4A1消音版 | 毁灭者 2000",
         "legacy_model": true
     },
     {
@@ -9700,7 +9900,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "587",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-587.png",
-        "paint_name": "M4A1 消音型 | 机械工业",
+        "paint_name": "M4A1消音版 | 机械工业",
         "legacy_model": true
     },
     {
@@ -9708,7 +9908,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "681",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-681.png",
-        "paint_name": "M4A1 消音型 | 破碎铅秋",
+        "paint_name": "M4A1消音版 | 破碎铅秋",
         "legacy_model": true
     },
     {
@@ -9716,7 +9916,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1073",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1073.png",
-        "paint_name": "M4A1 消音型 | 紧迫危机",
+        "paint_name": "M4A1消音版 | 紧迫危机",
         "legacy_model": true
     },
     {
@@ -9724,7 +9924,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1130",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1130.png",
-        "paint_name": "M4A1 消音型 | 夜无眠",
+        "paint_name": "M4A1消音版 | 夜无眠",
         "legacy_model": true
     },
     {
@@ -9732,7 +9932,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1243",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1243.png",
-        "paint_name": "M4A1 消音型 | 泥斑迷彩",
+        "paint_name": "M4A1消音版 | 泥斑迷彩",
         "legacy_model": true
     },
     {
@@ -9740,7 +9940,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "792",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-792.png",
-        "paint_name": "M4A1 消音型 | 控制台",
+        "paint_name": "M4A1消音版 | 控制台",
         "legacy_model": true
     },
     {
@@ -9748,7 +9948,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "497",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-497.png",
-        "paint_name": "M4A1 消音型 | 金蛇缠绕",
+        "paint_name": "M4A1消音版 | 金蛇缠绕",
         "legacy_model": true
     },
     {
@@ -9756,7 +9956,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1311",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1311.png",
-        "paint_name": "M4A1 消音型 | 故障艺术",
+        "paint_name": "M4A1消音版 | 故障艺术",
         "legacy_model": false
     },
     {
@@ -9764,7 +9964,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "77",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-77.png",
-        "paint_name": "M4A1 消音型 | 北方森林",
+        "paint_name": "M4A1消音版 | 北方森林",
         "legacy_model": true
     },
     {
@@ -9772,7 +9972,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1319",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1319.png",
-        "paint_name": "M4A1 消音型 | 玫瑰蜂巢",
+        "paint_name": "M4A1消音版 | 玫瑰蜂巢",
         "legacy_model": false
     },
     {
@@ -9780,7 +9980,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "440",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-440.png",
-        "paint_name": "M4A1 消音型 | 伊卡洛斯殒落",
+        "paint_name": "M4A1消音版 | 伊卡洛斯殒落",
         "legacy_model": true
     },
     {
@@ -9788,7 +9988,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "189",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-189.png",
-        "paint_name": "M4A1 消音型 | 澄澈之水",
+        "paint_name": "M4A1消音版 | 澄澈之水",
         "legacy_model": true
     },
     {
@@ -9796,7 +9996,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "160",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-160.png",
-        "paint_name": "M4A1 消音型 | 请擦擦",
+        "paint_name": "M4A1消音版 | 请擦擦",
         "legacy_model": false
     },
     {
@@ -9804,7 +10004,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "217",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-217.png",
-        "paint_name": "M4A1 消音型 | 血虎",
+        "paint_name": "M4A1消音版 | 血虎",
         "legacy_model": true
     },
     {
@@ -9812,15 +10012,31 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "235",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-235.png",
-        "paint_name": "M4A1 消音型 | 多变迷彩",
+        "paint_name": "M4A1消音版 | 多变迷彩",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 60,
+        "weapon_name": "weapon_m4a1_silencer",
+        "paint": "1376",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1376.png",
+        "paint_name": "M4A1消音版 | 夜店王子",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 60,
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1166",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1166.png",
-        "paint_name": "M4A1 消音型 | 黑莲花",
+        "paint_name": "M4A1消音版 | 黑莲花",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 60,
+        "weapon_name": "weapon_m4a1_silencer",
+        "paint": "1340",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1340.png",
+        "paint_name": "M4A1消音版 | 液化",
         "legacy_model": false
     },
     {
@@ -9828,7 +10044,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "106",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-106.png",
-        "paint_name": "M4A1 消音型 | 蒸汽波",
+        "paint_name": "M4A1消音版 | 蒸汽波",
         "legacy_model": false
     },
     {
@@ -9836,7 +10052,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "254",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-254.png",
-        "paint_name": "M4A1 消音型 | 氮化处理",
+        "paint_name": "M4A1消音版 | 氮化处理",
         "legacy_model": false
     },
     {
@@ -9844,7 +10060,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1338",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1338.png",
-        "paint_name": "M4A1 消音型 | 幽独",
+        "paint_name": "M4A1消音版 | 幽独",
         "legacy_model": false
     },
     {
@@ -9852,7 +10068,7 @@
         "weapon_name": "weapon_m4a1_silencer",
         "paint": "1059",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1059.png",
-        "paint_name": "M4A1 消音型 | 气泡流行",
+        "paint_name": "M4A1消音版 | 气泡流行",
         "legacy_model": false
     },
     {
@@ -10234,6 +10450,14 @@
     {
         "weapon_defindex": 17,
         "weapon_name": "weapon_mac10",
+        "paint": "1367",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1367.png",
+        "paint_name": "MAC-10 | 雪溅",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 17,
+        "weapon_name": "weapon_mac10",
         "paint": "1295",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1295.png",
         "paint_name": "MAC-10 | 酸蚀蜂巢",
@@ -10253,6 +10477,14 @@
         "paint": "1164",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1164.png",
         "paint_name": "MAC-10 | 灯箱",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 17,
+        "weapon_name": "weapon_mac10",
+        "paint": "1349",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1349.png",
+        "paint_name": "MAC-10 | 纸老虎",
         "legacy_model": false
     },
     {
@@ -10570,6 +10802,14 @@
     {
         "weapon_defindex": 27,
         "weapon_name": "weapon_mag7",
+        "paint": "1355",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mag7-1355.png",
+        "paint_name": "MAG-7 | 震级",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 27,
+        "weapon_name": "weapon_mag7",
         "paint": "473",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mag7-473.png",
         "paint_name": "MAG-7 | 海鸟",
@@ -10778,6 +11018,14 @@
     {
         "weapon_defindex": 23,
         "weapon_name": "weapon_mp5sd",
+        "paint": "1366",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1366.png",
+        "paint_name": "MP5-SD | 雪溅",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
         "paint": "1180",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1180.png",
         "paint_name": "MP5-SD | 静态学",
@@ -10786,9 +11034,25 @@
     {
         "weapon_defindex": 23,
         "weapon_name": "weapon_mp5sd",
+        "paint": "1344",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1344.png",
+        "paint_name": "MP5-SD | 专注",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
         "paint": "798",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-798.png",
         "paint_name": "MP5-SD | 氮化处理",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
+        "paint": "1385",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1385.png",
+        "paint_name": "MP5-SD | 野餐",
         "legacy_model": false
     },
     {
@@ -11018,9 +11282,25 @@
     {
         "weapon_defindex": 33,
         "weapon_name": "weapon_mp7",
+        "paint": "1386",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1386.png",
+        "paint_name": "MP7 | 珊瑚佩斯利",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 33,
+        "weapon_name": "weapon_mp7",
         "paint": "1163",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1163.png",
         "paint_name": "MP7 | 笑一个",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 33,
+        "weapon_name": "weapon_mp7",
+        "paint": "1354",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1354.png",
+        "paint_name": "MP7 | 吸烟有害健康",
         "legacy_model": false
     },
     {
@@ -11394,6 +11674,14 @@
     {
         "weapon_defindex": 34,
         "weapon_name": "weapon_mp9",
+        "paint": "1341",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1341.png",
+        "paint_name": "MP9 | 打口碟",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
         "paint": "100",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-100.png",
         "paint_name": "MP9 | 暴风呼啸",
@@ -11413,6 +11701,22 @@
         "paint": "1301",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1301.png",
         "paint_name": "MP9 | 松",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
+        "paint": "1375",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1375.png",
+        "paint_name": "MP9 | 眩晕",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
+        "paint": "1388",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1388.png",
+        "paint_name": "MP9 | 创世蜂鸣",
         "legacy_model": false
     },
     {
@@ -11906,9 +12210,25 @@
     {
         "weapon_defindex": 35,
         "weapon_name": "weapon_nova",
+        "paint": "1368",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1368.png",
+        "paint_name": "新星 | 气流",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 35,
+        "weapon_name": "weapon_nova",
         "paint": "1162",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1162.png",
         "paint_name": "新星 | 黑暗徽记",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 35,
+        "weapon_name": "weapon_nova",
+        "paint": "1350",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1350.png",
+        "paint_name": "新星 | 目镜",
         "legacy_model": false
     },
     {
@@ -12346,9 +12666,25 @@
     {
         "weapon_defindex": 36,
         "weapon_name": "weapon_p250",
+        "paint": "1369",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1369.png",
+        "paint_name": "P250 | 冻雨",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 36,
+        "weapon_name": "weapon_p250",
         "paint": "1315",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1315.png",
         "paint_name": "P250 | 赤色潮汐",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 36,
+        "weapon_name": "weapon_p250",
+        "paint": "1345",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1345.png",
+        "paint_name": "P250 | 牛蛙",
         "legacy_model": false
     },
     {
@@ -12738,6 +13074,14 @@
     {
         "weapon_defindex": 19,
         "weapon_name": "weapon_p90",
+        "paint": "1361",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p90-1361.png",
+        "paint_name": "P90 | 风蚀流光",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 19,
+        "weapon_name": "weapon_p90",
         "paint": "1256",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p90-1256.png",
         "paint_name": "P90 | 珊瑚挽歌",
@@ -12860,7 +13204,7 @@
         "weapon_name": "weapon_revolver",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver.png",
-        "paint_name": "R8 左轮手枪  | Default",
+        "paint_name": "R8左轮手枪  | Default",
         "legacy_model": false
     },
     {
@@ -12868,7 +13212,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "523",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-523.png",
-        "paint_name": "R8 左轮手枪 | 渐变琥珀",
+        "paint_name": "R8左轮手枪 | 渐变琥珀",
         "legacy_model": false
     },
     {
@@ -12876,7 +13220,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "522",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-522.png",
-        "paint_name": "R8 左轮手枪 | 渐变之色",
+        "paint_name": "R8左轮手枪 | 渐变之色",
         "legacy_model": false
     },
     {
@@ -12884,7 +13228,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "37",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-37.png",
-        "paint_name": "R8 左轮手枪 | 炽烈之炎",
+        "paint_name": "R8左轮手枪 | 炽烈之炎",
         "legacy_model": false
     },
     {
@@ -12892,7 +13236,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1011",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1011.png",
-        "paint_name": "R8 左轮手枪 | 凤凰手迹",
+        "paint_name": "R8左轮手枪 | 凤凰手迹",
         "legacy_model": true
     },
     {
@@ -12900,7 +13244,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1293",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1293.png",
-        "paint_name": "R8 左轮手枪 | 叶蝉",
+        "paint_name": "R8左轮手枪 | 叶蝉",
         "legacy_model": false
     },
     {
@@ -12908,7 +13252,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "595",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-595.png",
-        "paint_name": "R8 左轮手枪 | 重新启动",
+        "paint_name": "R8左轮手枪 | 重新启动",
         "legacy_model": true
     },
     {
@@ -12916,7 +13260,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "721",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-721.png",
-        "paint_name": "R8 左轮手枪 | 生存主义者",
+        "paint_name": "R8左轮手枪 | 生存主义者",
         "legacy_model": true
     },
     {
@@ -12924,7 +13268,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "843",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-843.png",
-        "paint_name": "R8 左轮手枪 | 头骨粉碎者",
+        "paint_name": "R8左轮手枪 | 头骨粉碎者",
         "legacy_model": true
     },
     {
@@ -12932,7 +13276,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1232",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1232.png",
-        "paint_name": "R8 左轮手枪 | 蕉农炮",
+        "paint_name": "R8左轮手枪 | 蕉农炮",
         "legacy_model": true
     },
     {
@@ -12940,7 +13284,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "952",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-952.png",
-        "paint_name": "R8 左轮手枪 | 骸骨锻造",
+        "paint_name": "R8左轮手枪 | 骸骨锻造",
         "legacy_model": true
     },
     {
@@ -12948,7 +13292,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "683",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-683.png",
-        "paint_name": "R8 左轮手枪 | 美洲驼炮",
+        "paint_name": "R8左轮手枪 | 美洲驼炮",
         "legacy_model": true
     },
     {
@@ -12956,7 +13300,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "892",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-892.png",
-        "paint_name": "R8 左轮手枪 | 记忆碎片",
+        "paint_name": "R8左轮手枪 | 记忆碎片",
         "legacy_model": true
     },
     {
@@ -12964,7 +13308,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1047",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1047.png",
-        "paint_name": "R8 左轮手枪 | 废物王",
+        "paint_name": "R8左轮手枪 | 废物王",
         "legacy_model": true
     },
     {
@@ -12972,7 +13316,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1237",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1237.png",
-        "paint_name": "R8 左轮手枪 | 镶嵌装饰",
+        "paint_name": "R8左轮手枪 | 镶嵌装饰",
         "legacy_model": true
     },
     {
@@ -12980,7 +13324,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "1145",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1145.png",
-        "paint_name": "R8 左轮手枪 | 疯狂老八",
+        "paint_name": "R8左轮手枪 | 疯狂老八",
         "legacy_model": true
     },
     {
@@ -12988,7 +13332,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "701",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-701.png",
-        "paint_name": "R8 左轮手枪 | 稳",
+        "paint_name": "R8左轮手枪 | 稳",
         "legacy_model": true
     },
     {
@@ -12996,7 +13340,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "924",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-924.png",
-        "paint_name": "R8 左轮手枪 | 沙漠伪装",
+        "paint_name": "R8左轮手枪 | 沙漠伪装",
         "legacy_model": true
     },
     {
@@ -13004,7 +13348,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "12",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-12.png",
-        "paint_name": "R8 左轮手枪 | 深红之网",
+        "paint_name": "R8左轮手枪 | 深红之网",
         "legacy_model": true
     },
     {
@@ -13012,7 +13356,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "123",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-123.png",
-        "paint_name": "R8 左轮手枪 | 探戈",
+        "paint_name": "R8左轮手枪 | 探戈",
         "legacy_model": false
     },
     {
@@ -13020,7 +13364,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "40",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-40.png",
-        "paint_name": "R8 左轮手枪 | 噩梦之夜",
+        "paint_name": "R8左轮手枪 | 噩梦之夜",
         "legacy_model": false
     },
     {
@@ -13028,7 +13372,15 @@
         "weapon_name": "weapon_revolver",
         "paint": "798",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-798.png",
-        "paint_name": "R8 左轮手枪 | 氮化处理",
+        "paint_name": "R8左轮手枪 | 氮化处理",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 64,
+        "weapon_name": "weapon_revolver",
+        "paint": "1389",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1389.png",
+        "paint_name": "R8左轮手枪 | 淡紫旁白",
         "legacy_model": false
     },
     {
@@ -13036,7 +13388,15 @@
         "weapon_name": "weapon_revolver",
         "paint": "1276",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1276.png",
-        "paint_name": "R8 左轮手枪 | 钴蓝握把",
+        "paint_name": "R8左轮手枪 | 钴蓝握把",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 64,
+        "weapon_name": "weapon_revolver",
+        "paint": "1363",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1363.png",
+        "paint_name": "R8左轮手枪 | 暗室",
         "legacy_model": false
     },
     {
@@ -13044,7 +13404,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "866",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-866.png",
-        "paint_name": "R8 左轮手枪 | 水都泛波",
+        "paint_name": "R8左轮手枪 | 水都泛波",
         "legacy_model": false
     },
     {
@@ -13052,7 +13412,7 @@
         "weapon_name": "weapon_revolver",
         "paint": "27",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-27.png",
-        "paint_name": "R8 左轮手枪 | 骸骨外罩",
+        "paint_name": "R8左轮手枪 | 骸骨外罩",
         "legacy_model": false
     },
     {
@@ -13290,6 +13650,14 @@
     {
         "weapon_defindex": 29,
         "weapon_name": "weapon_sawedoff",
+        "paint": "1391",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sawedoff-1391.png",
+        "paint_name": "截短霰弹枪 | 赤红蜡染",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 29,
+        "weapon_name": "weapon_sawedoff",
         "paint": "1160",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sawedoff-1160.png",
         "paint_name": "截短霰弹枪 | 模拟输入",
@@ -13506,9 +13874,25 @@
     {
         "weapon_defindex": 38,
         "weapon_name": "weapon_scar20",
+        "paint": "1371",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-1371.png",
+        "paint_name": "SCAR-20 | 锌元素",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 38,
+        "weapon_name": "weapon_scar20",
         "paint": "117",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-117.png",
         "paint_name": "SCAR-20 | 开拓者",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 38,
+        "weapon_name": "weapon_scar20",
+        "paint": "1343",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-1343.png",
+        "paint_name": "SCAR-20 | 牢笼",
         "legacy_model": false
     },
     {
@@ -13773,6 +14157,14 @@
         "paint": "1320",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sg556-1320.png",
         "paint_name": "SG 553 | 篮纹半调",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 39,
+        "weapon_name": "weapon_sg556",
+        "paint": "1394",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sg556-1394.png",
+        "paint_name": "SG 553 | 狩猎印花",
         "legacy_model": false
     },
     {
@@ -14050,6 +14442,14 @@
     {
         "weapon_defindex": 40,
         "weapon_name": "weapon_ssg08",
+        "paint": "1379",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1379.png",
+        "paint_name": "SSG 08 | 仿书法",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 40,
+        "weapon_name": "weapon_ssg08",
         "paint": "877",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-877.png",
         "paint_name": "SSG 08 | 半调轮纹",
@@ -14094,6 +14494,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1060.png",
         "paint_name": "SSG 08 | 春季方巾",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 40,
+        "weapon_name": "weapon_ssg08",
+        "paint": "1372",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1372.png",
+        "paint_name": "SSG 08 | 无漫风格",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 40,
@@ -14212,7 +14620,7 @@
         "weapon_name": "weapon_taser",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser.png",
-        "paint_name": "宙斯 X27 电击枪  | Default",
+        "paint_name": "宙斯x27电击枪  | Default",
         "legacy_model": false
     },
     {
@@ -14220,7 +14628,7 @@
         "weapon_name": "weapon_taser",
         "paint": "292",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-292.png",
-        "paint_name": "宙斯 X27 电击枪 | 鼾龙传说",
+        "paint_name": "宙斯x27电击枪 | 鼾龙传说",
         "legacy_model": false
     },
     {
@@ -14228,7 +14636,15 @@
         "weapon_name": "weapon_taser",
         "paint": "1297",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1297.png",
-        "paint_name": "宙斯 X27 电击枪 | 沼泽DDPAT",
+        "paint_name": "宙斯x27电击枪 | 沼泽DDPAT",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 31,
+        "weapon_name": "weapon_taser",
+        "paint": "1382",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1382.png",
+        "paint_name": "宙斯x27电击枪 | 大地曼陀罗",
         "legacy_model": false
     },
     {
@@ -14236,7 +14652,7 @@
         "weapon_name": "weapon_taser",
         "paint": "1268",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1268.png",
-        "paint_name": "宙斯 X27 电击枪 | 电光幽蓝",
+        "paint_name": "宙斯x27电击枪 | 电光幽蓝",
         "legacy_model": false
     },
     {
@@ -14244,7 +14660,7 @@
         "weapon_name": "weapon_taser",
         "paint": "1205",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1205.png",
-        "paint_name": "宙斯 X27 电击枪 | 充电宝",
+        "paint_name": "宙斯x27电击枪 | 充电宝",
         "legacy_model": false
     },
     {
@@ -14252,7 +14668,7 @@
         "weapon_name": "weapon_taser",
         "paint": "1172",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1172.png",
-        "paint_name": "宙斯 X27 电击枪 | 奥林匹斯",
+        "paint_name": "宙斯x27电击枪 | 奥林匹斯",
         "legacy_model": false
     },
     {
@@ -14260,7 +14676,7 @@
         "weapon_name": "weapon_taser",
         "paint": "1183",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1183.png",
-        "paint_name": "宙斯 X27 电击枪 | 当岁鱼",
+        "paint_name": "宙斯x27电击枪 | 当岁鱼",
         "legacy_model": false
     },
     {
@@ -14534,6 +14950,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_tec9-235.png",
         "paint_name": "Tec-9 | 多变迷彩",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 30,
+        "weapon_name": "weapon_tec9",
+        "paint": "1384",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_tec9-1384.png",
+        "paint_name": "Tec-9 | 芭蕉叶",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 30,
@@ -14890,6 +15314,14 @@
     {
         "weapon_defindex": 24,
         "weapon_name": "weapon_ump45",
+        "paint": "1387",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-1387.png",
+        "paint_name": "UMP-45 | 热血斑纹",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 24,
+        "weapon_name": "weapon_ump45",
         "paint": "93",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-93.png",
         "paint_name": "UMP-45 | 色如焦糖",
@@ -14954,6 +15386,14 @@
     {
         "weapon_defindex": 24,
         "weapon_name": "weapon_ump45",
+        "paint": "1351",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-1351.png",
+        "paint_name": "UMP-45 | 连续体",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 24,
+        "weapon_name": "weapon_ump45",
         "paint": "131",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-131.png",
         "paint_name": "UMP-45 | 黑色魅影",
@@ -14980,7 +15420,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer.png",
-        "paint_name": "USP 消音版  | Default",
+        "paint_name": "USP消音版  | Default",
         "legacy_model": false
     },
     {
@@ -14988,7 +15428,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "818",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-818.png",
-        "paint_name": "USP 消音版 | 紫色 DDPAT",
+        "paint_name": "USP消音版 | 紫色 DDPAT",
         "legacy_model": true
     },
     {
@@ -14996,7 +15436,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "221",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-221.png",
-        "paint_name": "USP 消音版 | 血清",
+        "paint_name": "USP消音版 | 血清",
         "legacy_model": true
     },
     {
@@ -15004,7 +15444,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1027",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1027.png",
-        "paint_name": "USP 消音版 | 锁定",
+        "paint_name": "USP消音版 | 锁定",
         "legacy_model": true
     },
     {
@@ -15012,7 +15452,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "922",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-922.png",
-        "paint_name": "USP 消音版 | 橙红安乐蜥",
+        "paint_name": "USP消音版 | 橙红安乐蜥",
         "legacy_model": true
     },
     {
@@ -15020,7 +15460,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "60",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-60.png",
-        "paint_name": "USP 消音版 | 黑水",
+        "paint_name": "USP消音版 | 黑水",
         "legacy_model": true
     },
     {
@@ -15028,7 +15468,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "277",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-277.png",
-        "paint_name": "USP 消音版 | 不锈钢",
+        "paint_name": "USP消音版 | 不锈钢",
         "legacy_model": true
     },
     {
@@ -15036,7 +15476,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "339",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-339.png",
-        "paint_name": "USP 消音版 | 凯门鳄",
+        "paint_name": "USP消音版 | 凯门鳄",
         "legacy_model": true
     },
     {
@@ -15044,7 +15484,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "364",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-364.png",
-        "paint_name": "USP 消音版 | 商业皮革",
+        "paint_name": "USP消音版 | 商业皮革",
         "legacy_model": true
     },
     {
@@ -15052,7 +15492,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1102",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1102.png",
-        "paint_name": "USP 消音版 | 黑莲花",
+        "paint_name": "USP消音版 | 黑莲花",
         "legacy_model": true
     },
     {
@@ -15060,7 +15500,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "705",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-705.png",
-        "paint_name": "USP 消音版 | 脑洞大开",
+        "paint_name": "USP消音版 | 脑洞大开",
         "legacy_model": true
     },
     {
@@ -15068,7 +15508,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "637",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-637.png",
-        "paint_name": "USP 消音版 | 次时代",
+        "paint_name": "USP消音版 | 次时代",
         "legacy_model": true
     },
     {
@@ -15076,7 +15516,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "290",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-290.png",
-        "paint_name": "USP 消音版 | 守护者",
+        "paint_name": "USP消音版 | 守护者",
         "legacy_model": true
     },
     {
@@ -15084,7 +15524,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "817",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-817.png",
-        "paint_name": "USP 消音版 | 闪回",
+        "paint_name": "USP消音版 | 闪回",
         "legacy_model": true
     },
     {
@@ -15092,7 +15532,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "504",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-504.png",
-        "paint_name": "USP 消音版 | 枪响人亡",
+        "paint_name": "USP消音版 | 枪响人亡",
         "legacy_model": true
     },
     {
@@ -15100,7 +15540,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "991",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-991.png",
-        "paint_name": "USP 消音版 | 小绿怪",
+        "paint_name": "USP消音版 | 小绿怪",
         "legacy_model": true
     },
     {
@@ -15108,7 +15548,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1142",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1142.png",
-        "paint_name": "USP 消音版 | 印花集",
+        "paint_name": "USP消音版 | 印花集",
         "legacy_model": true
     },
     {
@@ -15116,7 +15556,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "489",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-489.png",
-        "paint_name": "USP 消音版 | 力矩",
+        "paint_name": "USP消音版 | 力矩",
         "legacy_model": true
     },
     {
@@ -15124,7 +15564,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "318",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-318.png",
-        "paint_name": "USP 消音版 | 公路杀手",
+        "paint_name": "USP消音版 | 公路杀手",
         "legacy_model": true
     },
     {
@@ -15132,7 +15572,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "313",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-313.png",
-        "paint_name": "USP 消音版 | 猎户",
+        "paint_name": "USP消音版 | 猎户",
         "legacy_model": true
     },
     {
@@ -15140,7 +15580,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1136",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1136.png",
-        "paint_name": "USP 消音版 | 地狱门票",
+        "paint_name": "USP消音版 | 地狱门票",
         "legacy_model": true
     },
     {
@@ -15148,7 +15588,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "657",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-657.png",
-        "paint_name": "USP 消音版 | 蓝图",
+        "paint_name": "USP消音版 | 蓝图",
         "legacy_model": true
     },
     {
@@ -15156,7 +15596,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "653",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-653.png",
-        "paint_name": "USP 消音版 | 黑色魅影",
+        "paint_name": "USP消音版 | 黑色魅影",
         "legacy_model": true
     },
     {
@@ -15164,7 +15604,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "540",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-540.png",
-        "paint_name": "USP 消音版 | 铅管",
+        "paint_name": "USP消音版 | 铅管",
         "legacy_model": true
     },
     {
@@ -15172,7 +15612,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1040",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1040.png",
-        "paint_name": "USP 消音版 | 倒吊人",
+        "paint_name": "USP消音版 | 倒吊人",
         "legacy_model": true
     },
     {
@@ -15180,7 +15620,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1253",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1253.png",
-        "paint_name": "USP 消音版 | 沙漠战术",
+        "paint_name": "USP消音版 | 沙漠战术",
         "legacy_model": true
     },
     {
@@ -15188,7 +15628,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "830",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-830.png",
-        "paint_name": "USP 消音版 | 阿尔卑斯迷彩",
+        "paint_name": "USP消音版 | 阿尔卑斯迷彩",
         "legacy_model": false
     },
     {
@@ -15196,7 +15636,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1323",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1323.png",
-        "paint_name": "USP 消音版 | 血刃",
+        "paint_name": "USP消音版 | 血刃",
         "legacy_model": false
     },
     {
@@ -15204,7 +15644,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "332",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-332.png",
-        "paint_name": "USP 消音版 | 宝蓝之色",
+        "paint_name": "USP消音版 | 宝蓝之色",
         "legacy_model": true
     },
     {
@@ -15212,7 +15652,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "217",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-217.png",
-        "paint_name": "USP 消音版 | 血虎",
+        "paint_name": "USP消音版 | 血虎",
         "legacy_model": true
     },
     {
@@ -15220,7 +15660,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "183",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-183.png",
-        "paint_name": "USP 消音版 | 疯狂蔓延",
+        "paint_name": "USP消音版 | 疯狂蔓延",
         "legacy_model": true
     },
     {
@@ -15228,7 +15668,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "236",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-236.png",
-        "paint_name": "USP 消音版 | 午夜行动",
+        "paint_name": "USP消音版 | 午夜行动",
         "legacy_model": true
     },
     {
@@ -15236,7 +15676,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "454",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-454.png",
-        "paint_name": "USP 消音版 | 绿色伞兵",
+        "paint_name": "USP消音版 | 绿色伞兵",
         "legacy_model": true
     },
     {
@@ -15244,7 +15684,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1065",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1065.png",
-        "paint_name": "USP 消音版 | 银装素裹",
+        "paint_name": "USP消音版 | 银装素裹",
         "legacy_model": false
     },
     {
@@ -15252,7 +15692,15 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1217",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1217.png",
-        "paint_name": "USP 消音版 | 皇家卫队",
+        "paint_name": "USP消音版 | 皇家卫队",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 61,
+        "weapon_name": "weapon_usp_silencer",
+        "paint": "1377",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1377.png",
+        "paint_name": "USP消音版 | 一颗入眠",
         "legacy_model": false
     },
     {
@@ -15260,7 +15708,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1284",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1284.png",
-        "paint_name": "USP 消音版 | 椰风花语",
+        "paint_name": "USP消音版 | 椰风花语",
         "legacy_model": false
     },
     {
@@ -15268,7 +15716,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1031",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1031.png",
-        "paint_name": "USP 消音版 | 远古幻想",
+        "paint_name": "USP消音版 | 远古幻想",
         "legacy_model": true
     },
     {
@@ -15276,7 +15724,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "443",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-443.png",
-        "paint_name": "USP 消音版 | 寻路者",
+        "paint_name": "USP消音版 | 寻路者",
         "legacy_model": false
     },
     {
@@ -15284,7 +15732,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "25",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-25.png",
-        "paint_name": "USP 消音版 | 森林之叶",
+        "paint_name": "USP消音版 | 森林之叶",
         "legacy_model": false
     },
     {
@@ -15292,7 +15740,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "796",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-796.png",
-        "paint_name": "USP 消音版 | 引擎故障灯",
+        "paint_name": "USP消音版 | 引擎故障灯",
         "legacy_model": false
     },
     {
@@ -15300,7 +15748,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "115",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-115.png",
-        "paint_name": "USP 消音版 | 27",
+        "paint_name": "USP消音版 | 27",
         "legacy_model": false
     },
     {
@@ -15308,7 +15756,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1186",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1186.png",
-        "paint_name": "USP 消音版 | PC-GRN",
+        "paint_name": "USP消音版 | PC-GRN",
         "legacy_model": false
     },
     {
@@ -15316,7 +15764,7 @@
         "weapon_name": "weapon_usp_silencer",
         "paint": "1173",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1173.png",
-        "paint_name": "USP 消音版 | 破颚者",
+        "paint_name": "USP消音版 | 破颚者",
         "legacy_model": false
     },
     {
@@ -15621,6 +16069,14 @@
         "paint": "1215",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_xm1014-1215.png",
         "paint_name": "XM1014 | 幽独",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 25,
+        "weapon_name": "weapon_xm1014",
+        "paint": "1381",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_xm1014-1381.png",
+        "paint_name": "XM1014 | 电光明黄",
         "legacy_model": false
     },
     {

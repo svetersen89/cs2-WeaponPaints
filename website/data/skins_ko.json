@@ -18,6 +18,14 @@
     {
         "weapon_defindex": 7,
         "weapon_name": "weapon_ak47",
+        "paint": "1352",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1352.png",
+        "paint_name": "AK-47 | 권력자",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
         "paint": "113",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-113.png",
         "paint_name": "AK-47 | 아웃사이더",
@@ -338,6 +346,14 @@
     {
         "weapon_defindex": 7,
         "weapon_name": "weapon_ak47",
+        "paint": "1397",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1397.png",
+        "paint_name": "AK-47 | Aphrodite",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
         "paint": "1179",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1179.png",
         "paint_name": "AK-47 | 올리브 폴리캠",
@@ -397,6 +413,14 @@
         "paint": "1309",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1309.png",
         "paint_name": "AK-47 | 누보 루즈",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 7,
+        "weapon_name": "weapon_ak47",
+        "paint": "1358",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1358.png",
+        "paint_name": "AK-47 | 돌파구",
         "legacy_model": false
     },
     {
@@ -549,6 +573,14 @@
         "paint": "121",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-121.png",
         "paint_name": "AUG | 럭셔리 트림",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 8,
+        "weapon_name": "weapon_aug",
+        "paint": "1339",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-1339.png",
+        "paint_name": "AUG | 방아쇠 규율",
         "legacy_model": false
     },
     {
@@ -762,6 +794,14 @@
     {
         "weapon_defindex": 8,
         "weapon_name": "weapon_aug",
+        "paint": "1362",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-1362.png",
+        "paint_name": "AUG | 크립",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 8,
+        "weapon_name": "weapon_aug",
         "paint": "444",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_aug-444.png",
         "paint_name": "AUG | 다이달로스",
@@ -854,6 +894,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-424.png",
         "paint_name": "AWP | 충신",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1346",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1346.png",
+        "paint_name": "AWP | 아이스",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 9,
@@ -1150,6 +1198,22 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-451.png",
         "paint_name": "AWP | 사자자리의 태양",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1378",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1378.png",
+        "paint_name": "AWP | 발열 폭발",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 9,
+        "weapon_name": "weapon_awp",
+        "paint": "1356",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-1356.png",
+        "paint_name": "AWP | The End",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 9,
@@ -1674,6 +1738,22 @@
     {
         "weapon_defindex": 26,
         "weapon_name": "weapon_bizon",
+        "paint": "1374",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-1374.png",
+        "paint_name": "PP 비존 | 비줌",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 26,
+        "weapon_name": "weapon_bizon",
+        "paint": "1392",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-1392.png",
+        "paint_name": "PP 비존 | Thermal Currents",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 26,
+        "weapon_name": "weapon_bizon",
         "paint": "873",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_bizon-873.png",
         "paint_name": "PP 비존 | 바닷새",
@@ -1974,6 +2054,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-12.png",
         "paint_name": "CZ75 기관권총 | 붉은 그물",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 63,
+        "weapon_name": "weapon_cz75a",
+        "paint": "1390",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_cz75a-1390.png",
+        "paint_name": "CZ75 기관권총 | Honey Paisley",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 63,
@@ -2346,6 +2434,14 @@
     {
         "weapon_defindex": 1,
         "weapon_name": "weapon_deagle",
+        "paint": "1360",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-1360.png",
+        "paint_name": "데저트 이글 | 데일리 데저트 이글",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 1,
+        "weapon_name": "weapon_deagle",
         "paint": "40",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-40.png",
         "paint_name": "데저트 이글 | 밤",
@@ -2506,6 +2602,14 @@
     {
         "weapon_defindex": 2,
         "weapon_name": "weapon_elite",
+        "paint": "1347",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1347.png",
+        "paint_name": "듀얼 베레타 | 천사의 눈",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 2,
+        "weapon_name": "weapon_elite",
         "paint": "112",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-112.png",
         "paint_name": "듀얼 베레타 | 하이드로 스트라이크",
@@ -2661,6 +2765,14 @@
         "paint": "1290",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1290.png",
         "paint_name": "듀얼 베레타 | 빛나는 공작석",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 2,
+        "weapon_name": "weapon_elite",
+        "paint": "1373",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_elite-1373.png",
+        "paint_name": "듀얼 베레타 | 실버 푸어",
         "legacy_model": false
     },
     {
@@ -2938,6 +3050,14 @@
     {
         "weapon_defindex": 10,
         "weapon_name": "weapon_famas",
+        "paint": "1393",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1393.png",
+        "paint_name": "파마스 | Byproduct",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 10,
+        "weapon_name": "weapon_famas",
         "paint": "47",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-47.png",
         "paint_name": "파마스 | 식민지",
@@ -2949,6 +3069,14 @@
         "paint": "1219",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1219.png",
         "paint_name": "파마스 | 설원 위장",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 10,
+        "weapon_name": "weapon_famas",
+        "paint": "1365",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_famas-1365.png",
+        "paint_name": "파마스 | 벤데타",
         "legacy_model": false
     },
     {
@@ -3317,6 +3445,14 @@
         "paint": "1262",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_fiveseven-1262.png",
         "paint_name": "파이브 세븐 | 스카이 블루",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 3,
+        "weapon_name": "weapon_fiveseven",
+        "paint": "1380",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_fiveseven-1380.png",
+        "paint_name": "파이브 세븐 | Fraise Crane",
         "legacy_model": false
     },
     {
@@ -3826,6 +3962,14 @@
     {
         "weapon_defindex": 13,
         "weapon_name": "weapon_galilar",
+        "paint": "1383",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1383.png",
+        "paint_name": "갈릴 돌격소총 | Sky Mandala",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 13,
+        "weapon_name": "weapon_galilar",
         "paint": "1296",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_galilar-1296.png",
         "paint_name": "갈릴 돌격소총 | 애시드 다트",
@@ -4210,6 +4354,14 @@
     {
         "weapon_defindex": 4,
         "weapon_name": "weapon_glock",
+        "paint": "1348",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1348.png",
+        "paint_name": "글록 18 | 거울 모자이크",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 4,
+        "weapon_name": "weapon_glock",
         "paint": "1208",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1208.png",
         "paint_name": "글록 18 | 시노부",
@@ -4269,6 +4421,14 @@
         "paint": "832",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-832.png",
         "paint_name": "글록 18 | AXIA",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 4,
+        "weapon_name": "weapon_glock",
+        "paint": "1357",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-1357.png",
+        "paint_name": "글록 18 | Trace Lock",
         "legacy_model": false
     },
     {
@@ -4610,6 +4770,14 @@
     {
         "weapon_defindex": 32,
         "weapon_name": "weapon_hkp2000",
+        "paint": "1342",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1342.png",
+        "paint_name": "P2000 | 레드 윙",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 32,
+        "weapon_name": "weapon_hkp2000",
         "paint": "1181",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1181.png",
         "paint_name": "P2000 | 완벽한 그립",
@@ -4621,6 +4789,14 @@
         "paint": "95",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-95.png",
         "paint_name": "P2000 | 풀밭",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 32,
+        "weapon_name": "weapon_hkp2000",
+        "paint": "1359",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_hkp2000-1359.png",
+        "paint_name": "P2000 | 그립 테이프",
         "legacy_model": false
     },
     {
@@ -7148,7 +7324,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": 0,
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor.png",
-        "paint_name": "★ 유목민 칼  | Default",
+        "paint_name": "★ 노매드 칼  | Default",
         "legacy_model": false
     },
     {
@@ -7156,7 +7332,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "38",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-38.png",
-        "paint_name": "★ 유목민 칼 | 흐릿함",
+        "paint_name": "★ 노매드 칼 | 흐릿함",
         "legacy_model": false
     },
     {
@@ -7164,7 +7340,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "417",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-417.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7172,7 +7348,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "418",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-418.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7180,7 +7356,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "419",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-419.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7188,7 +7364,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "420",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-420.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7196,7 +7372,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "421",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-421.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7204,7 +7380,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "413",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-413.png",
-        "paint_name": "★ 유목민 칼 | 흐릿한 대리석",
+        "paint_name": "★ 노매드 칼 | 흐릿한 대리석",
         "legacy_model": true
     },
     {
@@ -7212,7 +7388,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "415",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-415.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7220,7 +7396,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "416",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-416.png",
-        "paint_name": "★ 유목민 칼 | 도플러",
+        "paint_name": "★ 노매드 칼 | 도플러",
         "legacy_model": false
     },
     {
@@ -7228,7 +7404,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "59",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-59.png",
-        "paint_name": "★ 유목민 칼 | 살인마",
+        "paint_name": "★ 노매드 칼 | 살인마",
         "legacy_model": true
     },
     {
@@ -7236,7 +7412,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "409",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-409.png",
-        "paint_name": "★ 유목민 칼 | 호랑이 이빨",
+        "paint_name": "★ 노매드 칼 | 호랑이 이빨",
         "legacy_model": true
     },
     {
@@ -7244,7 +7420,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "42",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-42.png",
-        "paint_name": "★ 유목민 칼 | 푸른 강철",
+        "paint_name": "★ 노매드 칼 | 푸른 강철",
         "legacy_model": true
     },
     {
@@ -7252,7 +7428,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "410",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-410.png",
-        "paint_name": "★ 유목민 칼 | 다마스크 강철",
+        "paint_name": "★ 노매드 칼 | 다마스크 강철",
         "legacy_model": true
     },
     {
@@ -7260,7 +7436,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "43",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-43.png",
-        "paint_name": "★ 유목민 칼 | 얼룩",
+        "paint_name": "★ 노매드 칼 | 얼룩",
         "legacy_model": true
     },
     {
@@ -7268,7 +7444,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "44",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-44.png",
-        "paint_name": "★ 유목민 칼 | 표면 경화",
+        "paint_name": "★ 노매드 칼 | 표면 경화",
         "legacy_model": true
     },
     {
@@ -7276,7 +7452,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "414",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-414.png",
-        "paint_name": "★ 유목민 칼 | 녹슬음",
+        "paint_name": "★ 노매드 칼 | 녹슬음",
         "legacy_model": true
     },
     {
@@ -7284,7 +7460,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "5",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-5.png",
-        "paint_name": "★ 유목민 칼 | 숲 디지털 위장 무늬",
+        "paint_name": "★ 노매드 칼 | 숲 디지털 위장 무늬",
         "legacy_model": true
     },
     {
@@ -7292,7 +7468,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "77",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-77.png",
-        "paint_name": "★ 유목민 칼 | 북방림",
+        "paint_name": "★ 노매드 칼 | 북방림",
         "legacy_model": true
     },
     {
@@ -7300,7 +7476,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "12",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-12.png",
-        "paint_name": "★ 유목민 칼 | 붉은 그물",
+        "paint_name": "★ 노매드 칼 | 붉은 그물",
         "legacy_model": true
     },
     {
@@ -7308,7 +7484,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "98",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-98.png",
-        "paint_name": "★ 유목민 칼 | 자외선",
+        "paint_name": "★ 노매드 칼 | 자외선",
         "legacy_model": false
     },
     {
@@ -7316,7 +7492,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "175",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-175.png",
-        "paint_name": "★ 유목민 칼 | 그을림",
+        "paint_name": "★ 노매드 칼 | 그을림",
         "legacy_model": false
     },
     {
@@ -7324,7 +7500,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "72",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-72.png",
-        "paint_name": "★ 유목민 칼 | 사파리 격자 무늬",
+        "paint_name": "★ 노매드 칼 | 사파리 격자 무늬",
         "legacy_model": false
     },
     {
@@ -7332,7 +7508,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "735",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-735.png",
-        "paint_name": "★ 유목민 칼 | 검은색 줄무늬",
+        "paint_name": "★ 노매드 칼 | 검은색 줄무늬",
         "legacy_model": false
     },
     {
@@ -7340,7 +7516,7 @@
         "weapon_name": "weapon_knife_outdoor",
         "paint": "143",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_outdoor-143.png",
-        "paint_name": "★ 유목민 칼 | 도시의 위장",
+        "paint_name": "★ 노매드 칼 | 도시의 위장",
         "legacy_model": false
     },
     {
@@ -9106,6 +9282,14 @@
     {
         "weapon_defindex": 14,
         "weapon_name": "weapon_m249",
+        "paint": "1370",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m249-1370.png",
+        "paint_name": "M249 | 진눈깨비",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 14,
+        "weapon_name": "weapon_m249",
         "paint": "1298",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m249-1298.png",
         "paint_name": "M249 | 세이지 위장",
@@ -9482,6 +9666,14 @@
     {
         "weapon_defindex": 16,
         "weapon_name": "weapon_m4a1",
+        "paint": "1364",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1364.png",
+        "paint_name": "M4A4 | 아이올로스 다크",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 16,
+        "weapon_name": "weapon_m4a1",
         "paint": "1266",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1266.png",
         "paint_name": "M4A4 | 해군 슈레드 위장",
@@ -9501,6 +9693,14 @@
         "paint": "1210",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1210.png",
         "paint_name": "M4A4 | 쵸파",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 16,
+        "weapon_name": "weapon_m4a1",
+        "paint": "1353",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1-1353.png",
+        "paint_name": "M4A4 | 전력 질주",
         "legacy_model": false
     },
     {
@@ -9818,9 +10018,25 @@
     {
         "weapon_defindex": 60,
         "weapon_name": "weapon_m4a1_silencer",
+        "paint": "1376",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1376.png",
+        "paint_name": "M4A1-S | Party Animal",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 60,
+        "weapon_name": "weapon_m4a1_silencer",
         "paint": "1166",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1166.png",
         "paint_name": "M4A1-S | 검은 연꽃",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 60,
+        "weapon_name": "weapon_m4a1_silencer",
+        "paint": "1340",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-1340.png",
+        "paint_name": "M4A1-S | 청산",
         "legacy_model": false
     },
     {
@@ -10234,6 +10450,14 @@
     {
         "weapon_defindex": 17,
         "weapon_name": "weapon_mac10",
+        "paint": "1367",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1367.png",
+        "paint_name": "MAC-10 | 눈보라",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 17,
+        "weapon_name": "weapon_mac10",
         "paint": "1295",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1295.png",
         "paint_name": "MAC-10 | 애시드 헥스",
@@ -10253,6 +10477,14 @@
         "paint": "1164",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1164.png",
         "paint_name": "MAC-10 | 라이트 박스",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 17,
+        "weapon_name": "weapon_mac10",
+        "paint": "1349",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mac10-1349.png",
+        "paint_name": "MAC-10 | 고양이 싸움",
         "legacy_model": false
     },
     {
@@ -10570,6 +10802,14 @@
     {
         "weapon_defindex": 27,
         "weapon_name": "weapon_mag7",
+        "paint": "1355",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mag7-1355.png",
+        "paint_name": "MAG-7 | 매그니튜드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 27,
+        "weapon_name": "weapon_mag7",
         "paint": "473",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mag7-473.png",
         "paint_name": "MAG-7 | 바닷새",
@@ -10778,6 +11018,14 @@
     {
         "weapon_defindex": 23,
         "weapon_name": "weapon_mp5sd",
+        "paint": "1366",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1366.png",
+        "paint_name": "MP5-SD | 눈보라",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
         "paint": "1180",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1180.png",
         "paint_name": "MP5-SD | 스태틱스",
@@ -10786,9 +11034,25 @@
     {
         "weapon_defindex": 23,
         "weapon_name": "weapon_mp5sd",
+        "paint": "1344",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1344.png",
+        "paint_name": "MP5-SD | 집중",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
         "paint": "798",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-798.png",
         "paint_name": "MP5-SD | 니트로",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 23,
+        "weapon_name": "weapon_mp5sd",
+        "paint": "1385",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp5sd-1385.png",
+        "paint_name": "MP5-SD | Picnic",
         "legacy_model": false
     },
     {
@@ -11018,9 +11282,25 @@
     {
         "weapon_defindex": 33,
         "weapon_name": "weapon_mp7",
+        "paint": "1386",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1386.png",
+        "paint_name": "MP7 | Coral Paisley",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 33,
+        "weapon_name": "weapon_mp7",
         "paint": "1163",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1163.png",
         "paint_name": "MP7 | 저스트 스마일",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 33,
+        "weapon_name": "weapon_mp7",
+        "paint": "1354",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp7-1354.png",
+        "paint_name": "MP7 | 스모킹 킬",
         "legacy_model": false
     },
     {
@@ -11394,6 +11674,14 @@
     {
         "weapon_defindex": 34,
         "weapon_name": "weapon_mp9",
+        "paint": "1341",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1341.png",
+        "paint_name": "MP9 | 브로큰 레코드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
         "paint": "100",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-100.png",
         "paint_name": "MP9 | 폭풍",
@@ -11413,6 +11701,22 @@
         "paint": "1301",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1301.png",
         "paint_name": "MP9 | 소나무",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
+        "paint": "1375",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1375.png",
+        "paint_name": "MP9 | 현기증",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 34,
+        "weapon_name": "weapon_mp9",
+        "paint": "1388",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_mp9-1388.png",
+        "paint_name": "MP9 | Bee-Tron",
         "legacy_model": false
     },
     {
@@ -11906,9 +12210,25 @@
     {
         "weapon_defindex": 35,
         "weapon_name": "weapon_nova",
+        "paint": "1368",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1368.png",
+        "paint_name": "노바 | 기류",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 35,
+        "weapon_name": "weapon_nova",
         "paint": "1162",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1162.png",
         "paint_name": "노바 | 어둠의 인장",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 35,
+        "weapon_name": "weapon_nova",
+        "paint": "1350",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_nova-1350.png",
+        "paint_name": "노바 | 시선",
         "legacy_model": false
     },
     {
@@ -12346,9 +12666,25 @@
     {
         "weapon_defindex": 36,
         "weapon_name": "weapon_p250",
+        "paint": "1369",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1369.png",
+        "paint_name": "P250 | 진눈깨비",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 36,
+        "weapon_name": "weapon_p250",
         "paint": "1315",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1315.png",
         "paint_name": "P250 | 레드 타이드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 36,
+        "weapon_name": "weapon_p250",
+        "paint": "1345",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p250-1345.png",
+        "paint_name": "P250 | 불프로그",
         "legacy_model": false
     },
     {
@@ -12738,6 +13074,14 @@
     {
         "weapon_defindex": 19,
         "weapon_name": "weapon_p90",
+        "paint": "1361",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p90-1361.png",
+        "paint_name": "P90 | 아이올로스 라이트",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 19,
+        "weapon_name": "weapon_p90",
         "paint": "1256",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_p90-1256.png",
         "paint_name": "P90 | 산호의 슬픔",
@@ -13034,9 +13378,25 @@
     {
         "weapon_defindex": 64,
         "weapon_name": "weapon_revolver",
+        "paint": "1389",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1389.png",
+        "paint_name": "R8 리볼버 | Mauve Aside",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 64,
+        "weapon_name": "weapon_revolver",
         "paint": "1276",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1276.png",
         "paint_name": "R8 리볼버 | 코발트 그립",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 64,
+        "weapon_name": "weapon_revolver",
+        "paint": "1363",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_revolver-1363.png",
+        "paint_name": "R8 리볼버 | 다크 챔버",
         "legacy_model": false
     },
     {
@@ -13290,6 +13650,14 @@
     {
         "weapon_defindex": 29,
         "weapon_name": "weapon_sawedoff",
+        "paint": "1391",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sawedoff-1391.png",
+        "paint_name": "소드오프 | Crimson Batik",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 29,
+        "weapon_name": "weapon_sawedoff",
         "paint": "1160",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sawedoff-1160.png",
         "paint_name": "소드오프 | 아날로그 인풋",
@@ -13506,9 +13874,25 @@
     {
         "weapon_defindex": 38,
         "weapon_name": "weapon_scar20",
+        "paint": "1371",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-1371.png",
+        "paint_name": "SCAR-20 | 징크",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 38,
+        "weapon_name": "weapon_scar20",
         "paint": "117",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-117.png",
         "paint_name": "SCAR-20 | 트레일 블레이저",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 38,
+        "weapon_name": "weapon_scar20",
+        "paint": "1343",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_scar20-1343.png",
+        "paint_name": "SCAR-20 | 켸이지",
         "legacy_model": false
     },
     {
@@ -13773,6 +14157,14 @@
         "paint": "1320",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sg556-1320.png",
         "paint_name": "SG 553 | 바스켓 하프톤",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 39,
+        "weapon_name": "weapon_sg556",
+        "paint": "1394",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_sg556-1394.png",
+        "paint_name": "SG 553 | Safari Print",
         "legacy_model": false
     },
     {
@@ -14050,6 +14442,14 @@
     {
         "weapon_defindex": 40,
         "weapon_name": "weapon_ssg08",
+        "paint": "1379",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1379.png",
+        "paint_name": "SSG 08 | Calligrafaux",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 40,
+        "weapon_name": "weapon_ssg08",
         "paint": "877",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-877.png",
         "paint_name": "SSG 08 | 하프톤 소용돌이",
@@ -14094,6 +14494,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1060.png",
         "paint_name": "SSG 08 | 봄 트윌리",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 40,
+        "weapon_name": "weapon_ssg08",
+        "paint": "1372",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ssg08-1372.png",
+        "paint_name": "SSG 08 | 산스 코믹",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 40,
@@ -14229,6 +14637,14 @@
         "paint": "1297",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1297.png",
         "paint_name": "제우스 x27 | 늪지 디지털 위장 무늬",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 31,
+        "weapon_name": "weapon_taser",
+        "paint": "1382",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_taser-1382.png",
+        "paint_name": "제우스 x27 | Earth Mandala",
         "legacy_model": false
     },
     {
@@ -14534,6 +14950,14 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_tec9-235.png",
         "paint_name": "Tec-9 | 얼룩 위장",
         "legacy_model": true
+    },
+    {
+        "weapon_defindex": 30,
+        "weapon_name": "weapon_tec9",
+        "paint": "1384",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_tec9-1384.png",
+        "paint_name": "Tec-9 | Banana Leaf",
+        "legacy_model": false
     },
     {
         "weapon_defindex": 30,
@@ -14890,6 +15314,14 @@
     {
         "weapon_defindex": 24,
         "weapon_name": "weapon_ump45",
+        "paint": "1387",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-1387.png",
+        "paint_name": "UMP-45 | Warm Blooded",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 24,
+        "weapon_name": "weapon_ump45",
         "paint": "93",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-93.png",
         "paint_name": "UMP-45 | 캐러멜",
@@ -14949,6 +15381,14 @@
         "paint": "1175",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-1175.png",
         "paint_name": "UMP-45 | 모터라이즈드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 24,
+        "weapon_name": "weapon_ump45",
+        "paint": "1351",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ump45-1351.png",
+        "paint_name": "UMP-45 | 연속체",
         "legacy_model": false
     },
     {
@@ -15253,6 +15693,14 @@
         "paint": "1217",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1217.png",
         "paint_name": "USP-S | 로얄 가드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 61,
+        "weapon_name": "weapon_usp_silencer",
+        "paint": "1377",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-1377.png",
+        "paint_name": "USP-S | 수면 물약",
         "legacy_model": false
     },
     {
@@ -15621,6 +16069,14 @@
         "paint": "1215",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_xm1014-1215.png",
         "paint_name": "XM1014 | 솔리튜드",
+        "legacy_model": false
+    },
+    {
+        "weapon_defindex": 25,
+        "weapon_name": "weapon_xm1014",
+        "paint": "1381",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_xm1014-1381.png",
+        "paint_name": "XM1014 | XoooM",
         "legacy_model": false
     },
     {
