@@ -4,22 +4,22 @@ using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Entities;
 using CounterStrikeSharp.API.Modules.Memory;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
+using System.Runtime.InteropServices;
+using Microsoft.Extensions.Logging;
 
 namespace WeaponPaints
 {
 	public partial class WeaponPaints
 	{
-		private bool _mvpPlayed;
-		
 		[GameEventHandler]
 		public HookResult OnClientFullConnect(EventPlayerConnectFull @event, GameEventInfo info)
 		{
 			CCSPlayerController? player = @event.Userid;
 
 			if (player is null || !player.IsValid || player.IsBot ||
-				WeaponSync == null || Database == null) return HookResult.Continue;
+				weaponSync == null || _database == null) return HookResult.Continue;
 
-			var playerInfo = new PlayerInfo
+			PlayerInfo playerInfo = new PlayerInfo
 			{
 				UserId = player.UserId,
 				Slot = player.Slot,
@@ -31,7 +31,7 @@ namespace WeaponPaints
 
 			try
 			{
-				_ = Task.Run(async () => await WeaponSync.GetPlayerData(playerInfo));
+				_ = Task.Run(async () => await weaponSync.GetPlayerData(playerInfo));
 				/*
 				if (Config.Additional.SkinEnabled)
 				{
@@ -69,63 +69,39 @@ namespace WeaponPaints
 
 			if (player is null || !player.IsValid || player.IsBot) return HookResult.Continue;
 
-			var playerInfo = new PlayerInfo
+			if (Config.Additional.SkinEnabled)
 			{
-				UserId = player.UserId,
-				Slot = player.Slot,
-				Index = (int)player.Index,
-				SteamId = player.SteamID.ToString(),
-				Name = player.PlayerName,
-				IpAddress = player.IpAddress?.Split(":")[0]
-			};
-
-			Task.Run(async () => 
-			{
-				if (WeaponSync != null)
-					await WeaponSync.SyncStatTrakToDatabase(playerInfo);
-
-				if (Config.Additional.SkinEnabled)
-				{
-					GPlayerWeaponsInfo.TryRemove(player.Slot, out _);
-				}
-			});
-
+				gPlayerWeaponsInfo.TryRemove(player.Slot, out _);
+			}
 			if (Config.Additional.KnifeEnabled)
 			{
-				GPlayersKnife.TryRemove(player.Slot, out _);
+				g_playersKnife.TryRemove(player.Slot, out _);
 			}
 			if (Config.Additional.GloveEnabled)
 			{
-				GPlayersGlove.TryRemove(player.Slot, out _);
+				g_playersGlove.TryRemove(player.Slot, out _);
 			}
 			if (Config.Additional.AgentEnabled)
 			{
-				GPlayersAgent.TryRemove(player.Slot, out _);
+				g_playersAgent.TryRemove(player.Slot, out _);
 			}
 			if (Config.Additional.MusicEnabled)
 			{
-				GPlayersMusic.TryRemove(player.Slot, out _);
+				g_playersMusic.TryRemove(player.Slot, out _);
 			}
-			if (Config.Additional.PinsEnabled)
-			{
-				GPlayersPin.TryRemove(player.Slot, out _);
-			}
-			
-			_temporaryPlayerWeaponWear.TryRemove(player.Slot, out _);
-			CommandsCooldown.Remove(player.Slot);
+
+			commandsCooldown.Remove(player.Slot);
+			Players.Remove(player);
 
 			return HookResult.Continue;
 		}
-
+		
 		private void OnMapStart(string mapName)
 		{
 			if (Config.Additional is { KnifeEnabled: false, SkinEnabled: false, GloveEnabled: false }) return;
-			
-			if (Database != null)
-				WeaponSync = new WeaponSynchronization(Database, Config);
 
-			_fadeSeed = 0;
-			_nextItemId = MinimumCustomItemId;
+			if (_database != null)
+				weaponSync = new WeaponSynchronization(_database, Config);
 		}
 
 		private HookResult OnPlayerSpawn(EventPlayerSpawn @event, GameEventInfo info)
@@ -140,60 +116,33 @@ namespace WeaponPaints
 			if (pawn == null || !pawn.IsValid)
 				return HookResult.Continue;
 
+			g_knifePickupCount[player.Slot] = 0;
+
 			GivePlayerMusicKit(player);
 			GivePlayerAgent(player);
-			GivePlayerGloves(player);
-			GivePlayerPin(player);
+			
+			Server.NextFrame(() =>
+			{
+				GivePlayerGloves(player);
+			});
 
 			return HookResult.Continue;
 		}
 
 		private HookResult OnRoundEnd(EventRoundEnd @event, GameEventInfo info)
 		{
-			_gBCommandsAllowed = false;
+			g_bCommandsAllowed = false;
+
 			return HookResult.Continue;
 		}
 
 		private HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
 		{
-			_gBCommandsAllowed = true;
-			_mvpPlayed = false;
-			return HookResult.Continue;
-		}
-		
-		private HookResult OnRoundMvp(EventRoundMvp @event, GameEventInfo info)
-		{
-			if (_mvpPlayed)
-				return HookResult.Continue;
-			
-			var player = @event.Userid;
-			
-			if (player == null || !player.IsValid || player.IsBot)
-				return HookResult.Continue;
-
-			if (!(GPlayersMusic.TryGetValue(player.Slot, out var musicInfo)
-			      && musicInfo.TryGetValue(player.Team, out var musicId)
-			      && musicId != 0))
-				return HookResult.Continue;
-					
-			@event.Musickitid = musicId;
-			@event.Nomusic = 0;
-			info.DontBroadcast = true;
-			
-			var newEvent = new EventRoundMvp(true)
-			{
-				Userid = player,
-				Musickitid = musicId,
-				Nomusic = 0,
-			};
-
-			_mvpPlayed = true;
-			
-			newEvent.FireEvent(false);
+			g_bCommandsAllowed = true;
 			return HookResult.Continue;
 		}
 
-		private HookResult OnGiveNamedItemPost(DynamicHook hook)
+		public HookResult OnGiveNamedItemPost(DynamicHook hook)
 		{
 			try
 			{
@@ -204,38 +153,36 @@ namespace WeaponPaints
 
 				var player = GetPlayerFromItemServices(itemServices);
 				if (player != null)
-				{
 					GivePlayerWeaponSkin(player, weapon);
-				}
 			}
 			catch { }
 
 			return HookResult.Continue;
 		}
 
-		private void OnEntityCreated(CEntityInstance entity)
+		public void OnEntityCreated(CEntityInstance entity)
 		{
 			var designerName = entity.DesignerName;
 
 			if (designerName.Contains("weapon"))
 			{
-				Server.NextFrame(() =>
+				Server.NextWorldUpdate(() =>
 				{
 					var weapon = new CBasePlayerWeapon(entity.Handle);
 					if (!weapon.IsValid) return;
 
 					try
 					{
-						SteamID? steamid = null;
+						SteamID? _steamid = null;
 
 						if (weapon.OriginalOwnerXuidLow > 0)
-							steamid = new SteamID(weapon.OriginalOwnerXuidLow);
+							_steamid = new(weapon.OriginalOwnerXuidLow);
 
-						CCSPlayerController? player;
+						CCSPlayerController? player = null;
 
-						if (steamid != null && steamid.IsValid())
+						if (_steamid != null && _steamid.IsValid())
 						{
-							player = Utilities.GetPlayers().FirstOrDefault(p => p.IsValid && p.SteamID == steamid.SteamId64);
+							player = Players.FirstOrDefault(p => p.IsValid && p.SteamID == steamid.SteamId64);
 
 							if (player == null)
 								player = Utilities.GetPlayerFromSteamId(weapon.OriginalOwnerXuidLow);
@@ -253,6 +200,7 @@ namespace WeaponPaints
 					}
 					catch (Exception)
 					{
+						return;
 					}
 				});
 			}
@@ -262,13 +210,9 @@ namespace WeaponPaints
 		{
 			if (!Config.Additional.ShowSkinImage) return;
 
-			foreach (var player in Utilities.GetPlayers().Where(p =>
-							p is { IsValid: true, PlayerPawn.IsValid: true, IsBot: false } and
-								{ Connected: PlayerConnectedState.PlayerConnected }
-							)
-				)
+			foreach (var player in Players)
 			{
-				if (_playerWeaponImage.TryGetValue(player.Slot, out var value) && !string.IsNullOrEmpty(value))
+				if (PlayerWeaponImage.TryGetValue(player.Slot, out var value) && !string.IsNullOrEmpty(value))
 				{
 					player.PrintToCenterHtml("<img src='{PATH}'</img>".Replace("{PATH}", value));
 				}
@@ -278,53 +222,13 @@ namespace WeaponPaints
 		[GameEventHandler]
 		public HookResult OnItemPickup(EventItemPickup @event, GameEventInfo _)
 		{
-			// if (!IsWindows) return HookResult.Continue;
-			var player = @event.Userid;
-			if (player == null || !player.IsValid || player.IsBot) return HookResult.Continue;
-			if (!@event.Item.Contains("knife")) return HookResult.Continue;
-
-			var weaponDefIndex = (int)@event.Defindex;
-				
-			if (!HasChangedKnife(player, out var _) || !HasChangedPaint(player, weaponDefIndex, out var _))
-				return HookResult.Continue;
+			if (!IsWindows) return HookResult.Continue;
 			
-			if (player is { Connected: PlayerConnectedState.PlayerConnected, PawnIsAlive: true, PlayerPawn.IsValid: true })
+			var player = @event.Userid;
+			if (player != null && player is { IsValid: true, Connected: PlayerConnectedState.PlayerConnected, PawnIsAlive: true, PlayerPawn.IsValid: true })
 			{
 				GiveOnItemPickup(player);
 			}
-
-			return HookResult.Continue;
-		}
-
-		private HookResult OnPlayerDeath(EventPlayerDeath @event, GameEventInfo info)
-		{
-			CCSPlayerController? player = @event.Attacker;
-			CCSPlayerController? victim = @event.Userid;
-
-			if (player is null || !player.IsValid)
-				return HookResult.Continue;
-			
-			if (victim == null || !victim.IsValid || victim == player)
-				return HookResult.Continue;
-			
-			CBasePlayerWeapon? weapon = player.PlayerPawn.Value?.WeaponServices?.ActiveWeapon.Value;
-
-			if (weapon == null) return HookResult.Continue;
-
-			int weaponDefIndex = weapon.AttributeManager.Item.ItemDefinitionIndex;
-
-			if (!HasChangedPaint(player, weaponDefIndex, out var weaponInfo) || weaponInfo == null)
-				return HookResult.Continue;
-				
-			if (!weaponInfo.StatTrak) return HookResult.Continue;
-			
-			weaponInfo.StatTrakCount += 1;
-				
-			CAttributeListSetOrAddAttributeValueByName.Invoke(weapon.AttributeManager.Item.NetworkedDynamicAttributes.Handle, "kill eater", ViewAsFloat((uint)weaponInfo.StatTrakCount));
-			CAttributeListSetOrAddAttributeValueByName.Invoke(weapon.AttributeManager.Item.NetworkedDynamicAttributes.Handle, "kill eater score type", 0);
-				
-			CAttributeListSetOrAddAttributeValueByName.Invoke(weapon.AttributeManager.Item.AttributeList.Handle, "kill eater", ViewAsFloat((uint)weaponInfo.StatTrakCount));
-			CAttributeListSetOrAddAttributeValueByName.Invoke(weapon.AttributeManager.Item.AttributeList.Handle, "kill eater score type", 0);
 
 			return HookResult.Continue;
 		}
@@ -336,14 +240,13 @@ namespace WeaponPaints
 			RegisterEventHandler<EventPlayerSpawn>(OnPlayerSpawn);
 			RegisterEventHandler<EventRoundStart>(OnRoundStart);
 			RegisterEventHandler<EventRoundEnd>(OnRoundEnd);
-			RegisterEventHandler<EventRoundMvp>(OnRoundMvp);
-			RegisterListener<Listeners.OnEntityCreated>(OnEntityCreated);
-			RegisterEventHandler<EventPlayerDeath>(OnPlayerDeath);
+			RegisterListener<Listeners.OnEntitySpawned>(OnEntityCreated);
 
 			if (Config.Additional.ShowSkinImage)
 				RegisterListener<Listeners.OnTick>(OnTick);
 
-			VirtualFunctions.GiveNamedItemFunc.Hook(OnGiveNamedItemPost, HookMode.Post);
+			if (!IsWindows)
+				VirtualFunctions.GiveNamedItemFunc.Hook(OnGiveNamedItemPost, HookMode.Post);
 		}
 	}
 }

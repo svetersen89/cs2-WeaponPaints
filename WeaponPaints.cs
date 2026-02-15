@@ -5,7 +5,6 @@ using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Entities.Constants;
-using CounterStrikeSharp.API.Modules.Events;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
@@ -21,7 +20,7 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
     public override string ModuleAuthor => "Nereziel & daffyy";
 	public override string ModuleDescription => "Skin, gloves, agents and knife selector, standalone and web-based";
 	public override string ModuleName => "WeaponPaints";
-	public override string ModuleVersion => "3.2a";
+	public override string ModuleVersion => "3.2b";
 
 	public override void Load(bool hotReload)
 	{
@@ -74,27 +73,6 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		Utility.LoadPinsFromFile(ModuleDirectory + $"/data/collectibles_{_config.SkinsLanguage}.json", Logger);
 
 		RegisterListeners();
-		
-		// Chat-friendly command (css_* automatically maps to !* in chat): "!gen"
-		AddCommand("css_gen", "Generate/apply a skin: !gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
-		AddCommand("wp_gen",  "Generate/apply a skin: wp_gen <weapon|id> <skinId> <pattern> <floatWear>", OnGenCommand);
-	
-		RegisterEventHandler<EventPlayerSpawn>((ev, info) =>
-		{
-			try
-			{
-				var controller = ev.Userid; // ev.Userid is already CCSPlayerController
-				if (controller is null || !controller.IsValid)
-					return HookResult.Continue;
-
-				// Clear pending flag; the plugin's normal spawn pipeline will read GPlayerWeaponsInfo
-				_pendingKnifeApply.TryRemove(controller.Slot, out _);
-			}
-			catch { /* ignore */ }
-
-			return HookResult.Continue;
-		}, HookMode.Post);
-														 
 	}
 
 	public void OnConfigParsed(WeaponPaintsConfig config)
