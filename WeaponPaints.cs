@@ -20,9 +20,9 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
     public override string ModuleAuthor => "Nereziel & daffyy";
 	public override string ModuleDescription => "Skin, gloves, agents and knife selector, standalone and web-based";
 	public override string ModuleName => "WeaponPaints";
-	public override string ModuleVersion => "3.2b"
+	public override string ModuleVersion => "3.2b";
 	
-	private readonly ConcurrentDictionary<int, bool> _pendingKnifeApply = new();;
+	private readonly ConcurrentDictionary<int, bool> _pendingKnifeApply = new();
 
 	public override void Load(bool hotReload)
 	{
@@ -161,4 +161,5 @@ public partial class WeaponPaints : BasePlugin, IPluginConfig<WeaponPaintsConfig
 		}
 	}
 }
+
 
