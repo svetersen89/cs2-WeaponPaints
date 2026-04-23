@@ -156,7 +156,6 @@ public partial class WeaponPaints
 			});
 		}
 
-
 		AddCommand("wp_refresh", "Admin refresh player skins", (player, info) =>
 		{
 			OnCommandSkinRefresh(player, info);
@@ -253,7 +252,7 @@ public partial class WeaponPaints
 
 		Console.WriteLine("[WeaponPaints] Refresh process completed.");
 	}
-	
+
 	private void OnCommandStattrak(CCSPlayerController? player, CommandInfo commandInfo)
 	{
 		if (player == null || !player.IsValid) return;
@@ -544,21 +543,21 @@ public partial class WeaponPaints
 			{
 				_playerWeaponImage[player.Slot] = image;
 				AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot), CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
-			}
 
 			if (!string.IsNullOrEmpty(Localizer["wp_glove_menu_select"]))
 			{
 				player.Print(Localizer["wp_glove_menu_select", selectedPaintName]);
-				PlayerInfo playerInfo = new PlayerInfo
-				{
-					UserId = player.UserId,
-					Slot = player.Slot,
-					Index = (int)player.Index,
-					SteamId = player.SteamID.ToString(),
-					Name = player.PlayerName,
-					IpAddress = player.IpAddress?.Split(":")[0]
-				};
 			}
+			
+			PlayerInfo playerInfo = new PlayerInfo
+			{
+				UserId = player.UserId,
+				Slot = player.Slot,
+				Index = (int)player.Index,
+				SteamId = player.SteamID.ToString(),
+				Name = player.PlayerName,
+				IpAddress = player.IpAddress?.Split(":")[0]
+			};
 
 			if (paint != 0)
 			{
