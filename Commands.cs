@@ -543,7 +543,8 @@ public partial class WeaponPaints
 			{
 				_playerWeaponImage[player.Slot] = image;
 				AddTimer(2.0f, () => _playerWeaponImage.Remove(player.Slot), CounterStrikeSharp.API.Modules.Timers.TimerFlags.STOP_ON_MAPCHANGE);
-
+			}
+			
 			if (!string.IsNullOrEmpty(Localizer["wp_glove_menu_select"]))
 			{
 				player.Print(Localizer["wp_glove_menu_select", selectedPaintName]);
